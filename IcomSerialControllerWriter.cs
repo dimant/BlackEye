@@ -2,9 +2,9 @@
 {
     internal class IcomSerialControllerWriter
     {
-        private ISerialConnection serialConnection;
+        private IConnection serialConnection;
 
-        public IcomSerialControllerWriter(ISerialConnection serialConnection)
+        public IcomSerialControllerWriter(IConnection serialConnection)
         {
             this.serialConnection = serialConnection ?? throw new ArgumentNullException(nameof(serialConnection));
         }

@@ -3,10 +3,8 @@
     using System;
     using System.Threading.Tasks.Dataflow;
 
-    internal class IcomSerialControllerReader
+    internal class IcomSerialControllerReader : BlockDataReceiver
     {
-        private BufferBlock<byte> block = new BufferBlock<byte>();
-
         private IControllerListener controllerListener;
 
         public IcomSerialControllerReader(IControllerListener controllerListener)
@@ -14,56 +12,42 @@
             this.controllerListener = controllerListener ?? throw new ArgumentNullException(nameof(controllerListener));
         }
 
-        public void OnData(byte[] data)
+        public override void Receive(BufferBlock<byte> block, CancellationToken cancellationToken)
         {
-            foreach(var b in data)
+            var b = block.Receive();
+
+            if (b == 0xFF)
             {
-                block.Post(b);
+                return;
             }
-        }
 
-        public Task Run(CancellationToken cancellationToken)
-        {
-            return Task.Run(() =>
+            var len = b;
+
+            if (len != 0x03 && len != 0x04 && len != 0x10 && len != 0x2C)
             {
-                while(!cancellationToken.IsCancellationRequested)
-                {
-                    var b = block.Receive();
+                return;
+            }
 
-                    if (b == 0xFF)
-                    {
-                        continue;
-                    }
+            var type = block.Receive();
 
-                    var len = b;
+            if (type != IcomDef.TYPE_PONG
+                && type != IcomDef.TYPE_HEADER
+                && type != IcomDef.TYPE_DATA
+                && type != IcomDef.TYPE_HEADER_ACK
+                && type != IcomDef.TYPE_DATA_ACK)
+            {
+                return;
+            }
 
-                    if (len != 0x03 && len != 0x04 && len != 0x10 && len != 0x2C)
-                    {
-                        continue;
-                    }
+            byte[] message = new byte[len];
+            message[0] = len;
+            message[1] = type;
+            for (int pointer = 2; pointer < len; pointer++)
+            {
+                message[pointer] = block.Receive();
+            }
 
-                    var type = block.Receive();
-
-                    if (   type != IcomDef.TYPE_PONG
-                        && type != IcomDef.TYPE_HEADER
-                        && type != IcomDef.TYPE_DATA
-                        && type != IcomDef.TYPE_HEADER_ACK
-                        && type != IcomDef.TYPE_DATA_ACK)
-                    {
-                        continue;
-                    }
-
-                    byte[] message = new byte[len];
-                    message[0] = len;
-                    message[1] = type;
-                    for (int pointer = 2; pointer < len; pointer++)
-                    {
-                        message[pointer] = block.Receive();
-                    }
-
-                    ParseMessage(message, controllerListener);
-                }
-            }, cancellationToken);
+            ParseMessage(message, controllerListener);
         }
 
         public void ParseMessage(byte[] message, IControllerListener controllerListener)

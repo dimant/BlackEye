@@ -21,6 +21,5 @@
         public const uint DATA_FRAME_LENGTH_BYTES = 3;
 
         public const uint DV_FRAME_LENGTH_BYTES = VOICE_FRAME_LENGTH_BYTES + DATA_FRAME_LENGTH_BYTES;
-
     }
 }

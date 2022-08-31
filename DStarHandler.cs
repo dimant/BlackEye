@@ -1,37 +1,68 @@
 ﻿namespace BlackEye
 {
-    internal class DStarHandler : IControllerListener
+    internal class DStarHandler
     {
-        public void OnData(byte[] data)
+        private class ControllerListenerInternal : IControllerListener
         {
+            private DPlusWriter dplusWriter;
+
+            public ControllerListenerInternal(DPlusWriter dplusWriter)
+            {
+                this.dplusWriter = dplusWriter ?? throw new ArgumentNullException(nameof(dplusWriter));
+            }
+
+            public void OnData(byte[] data)
+            {
+            }
+
+            public void OnDataAck(byte seqNumber)
+            {
+            }
+
+            public void OnDataNak(byte seqNumber)
+            {
+            }
+
+            public void OnEot()
+            {
+            }
+
+            public void OnHeader(byte[] header)
+            {
+            }
+
+            public void OnHeaderAck()
+            {
+            }
+
+            public void OnHeaderNak()
+            {
+            }
+
+            public void OnPong()
+            {
+            }
         }
 
-        public void OnDataAck(byte seqNumber)
+        private class GatewayListenerInternal : IGatewayListener
         {
+            private IcomSerialControllerWriter icomWriter;
+
+            public GatewayListenerInternal(IcomSerialControllerWriter icomWriter)
+            {
+                this.icomWriter = icomWriter ?? throw new ArgumentNullException(nameof(icomWriter));
+            }
         }
 
-        public void OnDataNak(byte seqNumber)
-        {
-        }
+        public IControllerListener ControllerListener { get; }
 
-        public void OnEot()
-        {
-        }
+        public IGatewayListener GatewayListener { get; }
 
-        public void OnHeader(byte[] header)
+        public DStarHandler(IcomSerialControllerWriter icomWriter, DPlusWriter dplusWriter)
         {
-        }
+            this.ControllerListener = new ControllerListenerInternal(dplusWriter);
 
-        public void OnHeaderAck()
-        {
-        }
-
-        public void OnHeaderNak()
-        {
-        }
-
-        public void OnPong()
-        {
+            this.GatewayListener = new GatewayListenerInternal(icomWriter);
         }
     }
 }

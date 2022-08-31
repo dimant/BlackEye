@@ -2,11 +2,11 @@
 {
     using System.IO.Ports;
 
-    internal class SerialConnection : ISerialConnection
+    internal class SerialConnection : IConnection
     {
         private SerialPort serialPort;
 
-        private Action<byte[]> dataReceivedCallback;
+        public Action<byte[]> ReceivedCallback { private get; set; } = (b) => { };
 
         private CancellationTokenSource cancellationTokenSource;
 
@@ -14,7 +14,6 @@
 
         public SerialConnection(
             string portName,
-            Action<byte[]> dataReceivedCallback,
             CancellationTokenSource cancellationTokenSource)
         {
             this.serialPort = new SerialPort(portName)
@@ -33,12 +32,10 @@
 
             this.serialPort.DataReceived += OnDataReceived;
 
-            this.dataReceivedCallback = dataReceivedCallback;
-
             this.cancellationTokenSource = cancellationTokenSource;
         }
 
-        public void Open()
+        public void Connect()
         {
             this.serialPort.Open();
         }
@@ -88,10 +85,10 @@
                     catch
                     {
                         cancellationTokenSource.Cancel();
-                        this.dataReceivedCallback?.Invoke(new byte[] { 0xFF, 0xFF, 0xFF, 0xFF });
+                        this.ReceivedCallback.Invoke(new byte[] { 0xFF, 0xFF, 0xFF, 0xFF });
                     }
 
-                    this.dataReceivedCallback?.Invoke(buffer);
+                    this.ReceivedCallback.Invoke(buffer);
                 }
             }
         }
