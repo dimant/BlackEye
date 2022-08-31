@@ -13,6 +13,8 @@
 
         public Action<byte[]> ReceivedCallback { private get; set; } = (b) => { };
 
+        private IPEndPoint anyEndPoint = new IPEndPoint(IPAddress.Any, 0);
+
         public UdpConnection(string hostname)
         {
             this.hostname = hostname ?? throw new ArgumentNullException(nameof(hostname));
@@ -21,8 +23,10 @@
         public void Connect()
         {
             udpClient = new UdpClient();
+            udpClient.Client.SendTimeout = 1000;
+            udpClient.Client.ReceiveTimeout = 1000;
             udpClient.Connect(hostname, port);
-            udpClient.BeginReceive(ReceiveData, null);
+            Run();
         }
 
         public void Close()
@@ -38,13 +42,27 @@
             // handle exceptions
         }
 
-        private void ReceiveData(IAsyncResult asyncResult)
+        private Task Run()
         {
-            UdpClient? udpClient = asyncResult.AsyncState as UdpClient;
-            IPEndPoint? endPoint = new IPEndPoint(IPAddress.Any, 0);
-            byte[] response = udpClient?.EndReceive(asyncResult, ref endPoint) ?? new byte[0];
-
-            this.ReceivedCallback(response);
+            return Task.Run(() =>
+            {
+                while(true)
+                {
+                    try
+                    {
+                        var response = udpClient.Receive(ref anyEndPoint);
+                        this.ReceivedCallback?.Invoke(response);
+                    }
+                    catch (SocketException e)
+                    {
+                        if (e.ErrorCode != 10060)
+                        {
+                            // Handle the error. 10060 is a timeout error, which is expected.
+                            return;
+                        }
+                    }
+                }
+            });
         }
     }
 }
