@@ -1,6 +1,6 @@
-﻿namespace BlackEye
+﻿namespace BlackEye.Connectivity
 {
-    internal interface IControllerListener
+    public interface IControllerListener
     {
         public void OnPong();
 

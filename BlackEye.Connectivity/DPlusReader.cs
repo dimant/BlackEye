@@ -1,9 +1,9 @@
-﻿namespace BlackEye
+﻿namespace BlackEye.Connectivity
 {
     using System.Threading;
     using System.Threading.Tasks.Dataflow;
 
-    internal class DPlusReader : BlockDataReceiver
+    public class DPlusReader : BlockDataReceiver
     {
         private IGatewayListener gatewayListener;
 

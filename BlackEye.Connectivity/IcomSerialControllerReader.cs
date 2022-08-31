@@ -1,9 +1,9 @@
-﻿namespace BlackEye
+﻿namespace BlackEye.Connectivity
 {
     using System;
     using System.Threading.Tasks.Dataflow;
 
-    internal class IcomSerialControllerReader : BlockDataReceiver
+    public class IcomSerialControllerReader : BlockDataReceiver
     {
         private IControllerListener controllerListener;
 

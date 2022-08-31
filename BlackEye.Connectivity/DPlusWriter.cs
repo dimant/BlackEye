@@ -1,8 +1,8 @@
-﻿namespace BlackEye
+﻿namespace BlackEye.Connectivity
 {
     using System;
 
-    internal class DPlusWriter
+    public class DPlusWriter
     {
         private IConnection udpConnection;
 

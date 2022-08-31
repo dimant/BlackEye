@@ -1,8 +1,8 @@
-﻿namespace BlackEye
+﻿namespace BlackEye.Connectivity
 {
     using System.IO.Ports;
 
-    internal class SerialConnection : IConnection
+    public class SerialConnection : IConnection
     {
         private SerialPort serialPort;
 

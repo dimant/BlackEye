@@ -1,6 +1,6 @@
-﻿namespace BlackEye
+﻿namespace BlackEye.Connectivity
 {
-    internal class DStarHandler
+    public class DStarHandler
     {
         private class ControllerListenerInternal : IControllerListener
         {

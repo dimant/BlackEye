@@ -1,6 +1,6 @@
-﻿namespace BlackEye
+﻿namespace BlackEye.Connectivity
 {
-    internal class IcomSerialControllerWriter
+    public class IcomSerialControllerWriter
     {
         private IConnection serialConnection;
 

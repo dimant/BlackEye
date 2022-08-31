@@ -1,8 +1,8 @@
-﻿namespace BlackEye
+﻿namespace BlackEye.Connectivity
 {
     using System.Threading.Tasks.Dataflow;
 
-    internal abstract class BlockDataReceiver
+    public abstract class BlockDataReceiver
     {
         private BufferBlock<byte> block = new BufferBlock<byte>();
 

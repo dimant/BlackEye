@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackEye", "BlackEye.csproj", "{4FE6D8EF-105E-4183-AD76-B7900F330302}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlackEye", "BlackEye\BlackEye.csproj", "{4FE6D8EF-105E-4183-AD76-B7900F330302}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackEye.Connectivity", "BlackEye.Connectivity\BlackEye.Connectivity.csproj", "{89F4BE36-AB58-4D7A-B5EC-6BFA67315F53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4FE6D8EF-105E-4183-AD76-B7900F330302}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FE6D8EF-105E-4183-AD76-B7900F330302}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FE6D8EF-105E-4183-AD76-B7900F330302}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89F4BE36-AB58-4D7A-B5EC-6BFA67315F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F4BE36-AB58-4D7A-B5EC-6BFA67315F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F4BE36-AB58-4D7A-B5EC-6BFA67315F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F4BE36-AB58-4D7A-B5EC-6BFA67315F53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

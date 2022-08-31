@@ -1,6 +1,6 @@
-﻿namespace BlackEye
+﻿namespace BlackEye.Connectivity
 {
-    internal class IcomDef
+    public class IcomDef
     {
         public const byte DATA_TYPE_TERMINATE = 0xFF;
 

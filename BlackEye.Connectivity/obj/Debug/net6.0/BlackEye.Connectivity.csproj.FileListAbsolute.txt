@@ -1,0 +1,12 @@
+C:\src\BlackEye\BlackEye.Connectivity\obj\Debug\net6.0\BlackEye.Connectivity.csproj.AssemblyReference.cache
+C:\src\BlackEye\BlackEye.Connectivity\obj\Debug\net6.0\BlackEye.Connectivity.GeneratedMSBuildEditorConfig.editorconfig
+C:\src\BlackEye\BlackEye.Connectivity\obj\Debug\net6.0\BlackEye.Connectivity.AssemblyInfoInputs.cache
+C:\src\BlackEye\BlackEye.Connectivity\obj\Debug\net6.0\BlackEye.Connectivity.AssemblyInfo.cs
+C:\src\BlackEye\BlackEye.Connectivity\obj\Debug\net6.0\BlackEye.Connectivity.csproj.CoreCompileInputs.cache
+C:\src\BlackEye\BlackEye.Connectivity\bin\Debug\net6.0\BlackEye.Connectivity.deps.json
+C:\src\BlackEye\BlackEye.Connectivity\bin\Debug\net6.0\BlackEye.Connectivity.dll
+C:\src\BlackEye\BlackEye.Connectivity\bin\Debug\net6.0\BlackEye.Connectivity.pdb
+C:\src\BlackEye\BlackEye.Connectivity\obj\Debug\net6.0\BlackEye.Connectivity.dll
+C:\src\BlackEye\BlackEye.Connectivity\obj\Debug\net6.0\refint\BlackEye.Connectivity.dll
+C:\src\BlackEye\BlackEye.Connectivity\obj\Debug\net6.0\BlackEye.Connectivity.pdb
+C:\src\BlackEye\BlackEye.Connectivity\obj\Debug\net6.0\ref\BlackEye.Connectivity.dll

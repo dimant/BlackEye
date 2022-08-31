@@ -1,5 +1,7 @@
 ﻿namespace BlackEye
 {
+    using BlackEye.Connectivity;
+
     internal class Program
     {
         static void Main(string[] args)

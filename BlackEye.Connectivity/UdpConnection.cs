@@ -1,4 +1,4 @@
-﻿namespace BlackEye
+﻿namespace BlackEye.Connectivity
 {
     using System.Net;
     using System.Net.Sockets;

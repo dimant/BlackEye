@@ -1,6 +1,6 @@
-﻿namespace BlackEye
+﻿namespace BlackEye.Connectivity
 {
-    internal interface IConnection
+    public interface IConnection
     {
         public void Connect();
 

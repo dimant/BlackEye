@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "K79d2hzAuQjynAK8p3KDNLPVKgWlVaLE74xjBek/zj0HdK9em2aDe2TJuOt01BAMLpExQ1/4kSxvVsZoBO2E+Q==",
+  "success": true,
+  "projectFilePath": "C:\\src\\BlackEye\\BlackEye.Connectivity\\BlackEye.Connectivity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Diman Todorov\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.linux-arm.runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
+    "C:\\Users\\Diman Todorov\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.linux-arm64.runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
+    "C:\\Users\\Diman Todorov\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.linux-x64.runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
+    "C:\\Users\\Diman Todorov\\.nuget\\packages\\runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
+    "C:\\Users\\Diman Todorov\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.osx-arm64.runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
+    "C:\\Users\\Diman Todorov\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\7.0.0-preview.7.22375.6\\runtime.osx-x64.runtime.native.system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512",
+    "C:\\Users\\Diman Todorov\\.nuget\\packages\\system.io.ports\\7.0.0-preview.7.22375.6\\system.io.ports.7.0.0-preview.7.22375.6.nupkg.sha512"
+  ],
+  "logs": []
+}
