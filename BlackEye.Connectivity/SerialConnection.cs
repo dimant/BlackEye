@@ -45,7 +45,7 @@
             this.serialPort.Close();
         }
 
-        public void Write(byte[] data)
+        public void Send(byte[] data)
         {
             if (this.serialPort.IsOpen)
             {

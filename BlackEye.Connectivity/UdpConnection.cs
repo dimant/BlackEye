@@ -9,11 +9,11 @@
 
         private string hostname;
 
-        private int port = 20001;
+        private int serverPort = 20001;
+
+        private int clientPort = 20002;
 
         public Action<byte[]> ReceivedCallback { private get; set; } = (b) => { };
-
-        private IPEndPoint anyEndPoint = new IPEndPoint(IPAddress.Any, 0);
 
         public UdpConnection(string hostname)
         {
@@ -22,11 +22,8 @@
 
         public void Connect()
         {
-            udpClient = new UdpClient();
-            udpClient.Client.SendTimeout = 1000;
-            udpClient.Client.ReceiveTimeout = 1000;
-            udpClient.Connect(hostname, port);
-            Run();
+            udpClient = new UdpClient(clientPort);
+            udpClient.BeginReceive(DataReceived, udpClient);
         }
 
         public void Close()
@@ -35,34 +32,30 @@
             udpClient.Close();
         }
 
-        public void Write(byte[] data)
+        public void Send(byte[] data)
         {
-            udpClient?.Send(data, data.Length);
-
-            // handle exceptions
+            try
+            {
+                udpClient?.Send(data, data.Length, hostname, serverPort);
+            }
+            catch
+            {
+                // handle exceptions
+            }
         }
 
-        private Task Run()
+        private void DataReceived(IAsyncResult ar)
         {
-            return Task.Run(() =>
+            UdpClient? client = (UdpClient?) ar.AsyncState;
+            IPEndPoint? receivedIpEndPoint = new IPEndPoint(IPAddress.Any, serverPort);
+            byte[]? data = client?.EndReceive(ar, ref receivedIpEndPoint);
+
+            if (data != null)
             {
-                while(true)
-                {
-                    try
-                    {
-                        var response = udpClient.Receive(ref anyEndPoint);
-                        this.ReceivedCallback?.Invoke(response);
-                    }
-                    catch (SocketException e)
-                    {
-                        if (e.ErrorCode != 10060)
-                        {
-                            // Handle the error. 10060 is a timeout error, which is expected.
-                            return;
-                        }
-                    }
-                }
-            });
+                this.ReceivedCallback?.Invoke(data);
+            }
+
+            client?.BeginReceive(DataReceived, ar.AsyncState);
         }
     }
 }

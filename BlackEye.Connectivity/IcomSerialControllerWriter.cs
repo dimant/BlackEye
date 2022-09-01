@@ -16,7 +16,7 @@
                 0x02, 0x02, IcomDef.DATA_TYPE_TERMINATE
             };
 
-            this.serialConnection.Write(cmd);
+            this.serialConnection.Send(cmd);
         }
 
         public void Poll()
@@ -28,7 +28,7 @@
                 IcomDef.DATA_TYPE_TERMINATE
             };
 
-            this.serialConnection.Write(cmd);
+            this.serialConnection.Send(cmd);
         }
     }
 }

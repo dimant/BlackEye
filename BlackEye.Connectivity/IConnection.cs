@@ -6,7 +6,7 @@
 
         public void Close();
 
-        void Write(byte[] data);
+        void Send(byte[] data);
 
         Action<byte[]> ReceivedCallback { set; }
     }
