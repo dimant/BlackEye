@@ -123,6 +123,8 @@ Example:
 
 ## Dv Voice Frame to server
 
+Example:
+
     0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
     0010  01 5e a5 06 52 15 b0 46 20 b6 25 4f 93            .^..R..F .%O.
 
@@ -145,6 +147,8 @@ Example:
 | 16..18 | 12 bytes = 9 bytes voice + 3 bytes data |
 
 ## Dv Voice End Frame to server
+
+Example:
 
     0000  20 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37    .DSVT ... ...}7
     0010  52 9e 8d 32 88 26 1a 3f 61 e8 55 55 55 55 c8 7a   R..2.&.?a.UUUU.z
@@ -231,8 +235,11 @@ Length: 519 bytes
 The server replies to a login request with either ACK or NAK.
 
 Example:
+
     0020                                41 49 36 56 57 20             AI6VW 
     0030  20 20 44 41 41 43 4b 00                             DAACK.
+
+Length 14 bytes
 
 | Bytes | Description |
 |-------|-------------|
@@ -248,6 +255,7 @@ Example:
 Sent periodically by the server to see if the client is still around.
 
 Example:
+
     0020  xx xx xx xx xx xx xx xx xx xx 44 43 53 38 30 31   ..uc......DCS801
     0030  20 20 00
 
@@ -261,6 +269,7 @@ Length 9 bytes
 The client then responds with a pong.
 
 Example:
+
     0020                                41 49 36 56 57 20             AI6VW 
     0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
 
@@ -272,8 +281,45 @@ Length 17 bytes
 | 8     | 0x00              |
 | 9..16 | urcall 'DCS801 A' |
 
+## Disconnect
 
-# Serial Protocol
+Example:
+
+    0020                                41 49 36 56 57 20             AI6VW 
+    0030  20 20 44 20 00 44 43 53 38 30 31 20 20              D .DCS801
+
+Length 19 bytes
+
+| Bytes  | Description |
+|--------|-------------|
+| 0..6   | mycall      |
+| 7      | ' '         |
+| 8      | my module   |
+| 9      | ' '         |
+| 10     | 0x00        |
+| 11..16 | urcall      |
+| 17     | ' '         |
+| 18     | 0x00        |
+
+The disconnect is acknowledged with a NAK.
+
+Example:
+
+    0020                             41 49 36 56 57 20             AI6VW 
+    0030  20 20 44 20 4e 41 4b 00                             D NAK.
+
+Length 14 bytes
+
+| Bytes  | Description |
+|--------|-------------|
+| 0..6   | mycall      |
+| 7      | ' '         |
+| 8      | my module   |
+| 9      | ' '         |
+| 10..12 | 'N' 'A' 'K' |
+| 13     | 0x00        |
+
+# Terminal Mode Serial Protocol
 
 ## Ping
 
