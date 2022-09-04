@@ -15,9 +15,9 @@
             }
         }
 
-        public byte[] Ambe { get { return this.buffer[1..9]; } }
+        public byte[] Ambe { get { return this.buffer[3..12]; } }
 
-        public byte[] Data { get { return this.buffer[10..12]; } }
+        public byte[] Data { get { return this.buffer[12..15]; } }
 
         public IcomSerialFrame(byte[] buffer) : base(buffer)
         {
