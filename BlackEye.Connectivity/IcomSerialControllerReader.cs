@@ -12,7 +12,7 @@
             this.controllerListener = controllerListener ?? throw new ArgumentNullException(nameof(controllerListener));
         }
 
-        public override void Receive(BufferBlock<byte> block, CancellationToken cancellationToken)
+        public override void Receive(BufferBlock<byte> block)
         {
             var b = block.Receive();
 
@@ -30,7 +30,7 @@
 
             var type = block.Receive();
 
-            if (type != IcomDef.TYPE_PONG
+            if (   type != IcomDef.TYPE_PONG
                 && type != IcomDef.TYPE_HEADER
                 && type != IcomDef.TYPE_DATA
                 && type != IcomDef.TYPE_HEADER_ACK

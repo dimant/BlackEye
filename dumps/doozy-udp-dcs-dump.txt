@@ -1,0 +1,2148 @@
+No.     Time           Source                Destination           Protocol Length Info
+    205 7.344219       192.168.0.17          213.47.71.17          UDP      561    54969 → 30051 Len=519
+
+Frame 205: 561 bytes on wire (4488 bits), 561 bytes captured (4488 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (519 bytes)
+    Data: 414936565720202044410044435338303120203c7461626c6520626f726465723d223022…
+    [Length: 519]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  02 23 18 54 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .#.T.........../
+0020  47 11 d6 b9 75 63 02 0f df 1a 41 49 36 56 57 20   G...uc....AI6VW 
+0030  20 20 44 41 00 44 43 53 38 30 31 20 20 3c 74 61     DA.DCS801  <ta
+0040  62 6c 65 20 62 6f 72 64 65 72 3d 22 30 22 20 77   ble border="0" w
+0050  69 64 74 68 3d 22 39 35 25 22 3e 3c 74 72 3e 3c   idth="95%"><tr><
+0060  74 64 20 77 69 64 74 68 3d 22 34 25 22 3e 3c 61   td width="4%"><a
+0070  20 68 72 65 66 3d 22 68 74 74 70 3a 2f 2f 77 77    href="http://ww
+0080  77 2e 70 61 37 6c 69 6d 2e 6e 6c 2f 22 3e 3c 69   w.pa7lim.nl/"><i
+0090  6d 67 20 62 6f 72 64 65 72 3d 22 30 22 20 73 72   mg border="0" sr
+00a0  63 3d 22 68 74 74 70 3a 2f 2f 64 63 73 30 30 31   c="http://dcs001
+00b0  2e 78 72 65 66 6c 65 63 74 6f 72 2e 6e 65 74 2f   .xreflector.net/
+00c0  68 6f 74 73 70 6f 74 2e 6a 70 67 22 3e 3c 2f 74   hotspot.jpg"></t
+00d0  64 3e 3c 74 64 20 77 69 64 74 68 3d 22 39 36 25   d><td width="96%
+00e0  22 3e 3c 66 6f 6e 74 20 73 69 7a 65 3d 22 32 22   "><font size="2"
+00f0  3e 3c 62 3e 44 6f 6f 7a 79 3c 2f 62 3e 20 62 79   ><b>Doozy</b> by
+0100  20 50 41 37 4c 49 4d 20 72 75 6e 6e 69 6e 67 20    PA7LIM running 
+0110  6f 6e 20 57 69 6e 64 6f 77 73 20 76 65 72 73 69   on Windows versi
+0120  6f 6e 20 31 2e 30 2e 30 2e 31 36 3c 2f 66 6f 6e   on 1.0.0.16</fon
+0130  74 3e 3c 2f 74 64 3e 3c 2f 74 72 3e 3c 2f 74 61   t></td></tr></ta
+0140  62 6c 65 3e 20 20 20 20 20 20 20 20 20 20 20 20   ble>            
+0150  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0160  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0170  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0180  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0190  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01a0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01b0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01c0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01d0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01e0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01f0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0200  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0210  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0220  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0230  20                                                 
+
+No.     Time           Source                Destination           Protocol Length Info
+    206 7.344429       192.168.0.17          213.47.71.17          UDP      561    54969 → 30051 Len=519
+
+Frame 206: 561 bytes on wire (4488 bits), 561 bytes captured (4488 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (519 bytes)
+    Data: 414936565720202044410044435338303120203c7461626c6520626f726465723d223022…
+    [Length: 519]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  02 23 18 55 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .#.U.........../
+0020  47 11 d6 b9 75 63 02 0f df 1a 41 49 36 56 57 20   G...uc....AI6VW 
+0030  20 20 44 41 00 44 43 53 38 30 31 20 20 3c 74 61     DA.DCS801  <ta
+0040  62 6c 65 20 62 6f 72 64 65 72 3d 22 30 22 20 77   ble border="0" w
+0050  69 64 74 68 3d 22 39 35 25 22 3e 3c 74 72 3e 3c   idth="95%"><tr><
+0060  74 64 20 77 69 64 74 68 3d 22 34 25 22 3e 3c 61   td width="4%"><a
+0070  20 68 72 65 66 3d 22 68 74 74 70 3a 2f 2f 77 77    href="http://ww
+0080  77 2e 70 61 37 6c 69 6d 2e 6e 6c 2f 22 3e 3c 69   w.pa7lim.nl/"><i
+0090  6d 67 20 62 6f 72 64 65 72 3d 22 30 22 20 73 72   mg border="0" sr
+00a0  63 3d 22 68 74 74 70 3a 2f 2f 64 63 73 30 30 31   c="http://dcs001
+00b0  2e 78 72 65 66 6c 65 63 74 6f 72 2e 6e 65 74 2f   .xreflector.net/
+00c0  68 6f 74 73 70 6f 74 2e 6a 70 67 22 3e 3c 2f 74   hotspot.jpg"></t
+00d0  64 3e 3c 74 64 20 77 69 64 74 68 3d 22 39 36 25   d><td width="96%
+00e0  22 3e 3c 66 6f 6e 74 20 73 69 7a 65 3d 22 32 22   "><font size="2"
+00f0  3e 3c 62 3e 44 6f 6f 7a 79 3c 2f 62 3e 20 62 79   ><b>Doozy</b> by
+0100  20 50 41 37 4c 49 4d 20 72 75 6e 6e 69 6e 67 20    PA7LIM running 
+0110  6f 6e 20 57 69 6e 64 6f 77 73 20 76 65 72 73 69   on Windows versi
+0120  6f 6e 20 31 2e 30 2e 30 2e 31 36 3c 2f 66 6f 6e   on 1.0.0.16</fon
+0130  74 3e 3c 2f 74 64 3e 3c 2f 74 72 3e 3c 2f 74 61   t></td></tr></ta
+0140  62 6c 65 3e 20 20 20 20 20 20 20 20 20 20 20 20   ble>            
+0150  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0160  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0170  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0180  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0190  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01a0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01b0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01c0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01d0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01e0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+01f0  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0200  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0210  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0220  20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20                   
+0230  20                                                 
+
+No.     Time           Source                Destination           Protocol Length Info
+    207 7.379774       213.47.71.17          192.168.0.17          UDP      56     30051 → 54969 Len=14
+
+Frame 207: 56 bytes on wire (448 bits), 56 bytes captured (448 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (14 bytes)
+    Data: 4149365657202020444141434b00
+    [Length: 14]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 2a ba b9 40 00 39 11 aa 0f d5 2f 47 11 c0 a8   .*..@.9..../G...
+0020  00 11 75 63 d6 b9 00 16 17 46 41 49 36 56 57 20   ..uc.....FAI6VW 
+0030  20 20 44 41 41 43 4b 00                             DAACK.
+
+No.     Time           Source                Destination           Protocol Length Info
+    208 7.382752       213.47.71.17          192.168.0.17          UDP      56     30051 → 54969 Len=14
+
+Frame 208: 56 bytes on wire (448 bits), 56 bytes captured (448 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (14 bytes)
+    Data: 4149365657202020444141434b00
+    [Length: 14]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 2a ba ba 40 00 39 11 aa 0e d5 2f 47 11 c0 a8   .*..@.9..../G...
+0020  00 11 75 63 d6 b9 00 16 17 46 41 49 36 56 57 20   ..uc.....FAI6VW 
+0030  20 20 44 41 41 43 4b 00                             DAACK.
+
+No.     Time           Source                Destination           Protocol Length Info
+    209 7.842063       213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 209: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 ba d9 40 00 39 11 a9 f4 d5 2f 47 11 c0 a8   .%..@.9..../G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    210 7.842063       213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 210: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 ba da 40 00 39 11 a9 e6 d5 2f 47 11 c0 a8   .2..@.9..../G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    211 7.842693       192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 211: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 56 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-.V.........../
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    212 8.866293       213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 212: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bb 11 40 00 39 11 a9 bc d5 2f 47 11 c0 a8   .%..@.9..../G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    213 8.866293       213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 213: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bb 12 40 00 39 11 a9 ae d5 2f 47 11 c0 a8   .2..@.9..../G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    214 8.867089       192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 214: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 57 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-.W.........../
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    215 9.889508       213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 215: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bb 38 40 00 39 11 a9 95 d5 2f 47 11 c0 a8   .%.8@.9..../G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    216 9.889508       213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 216: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bb 39 40 00 39 11 a9 87 d5 2f 47 11 c0 a8   .2.9@.9..../G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    217 9.890052       192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 217: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 58 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-.X.........../
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    233 10.811996      213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 233: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bb 4c 40 00 39 11 a9 81 d5 2f 47 11 c0 a8   .%.L@.9..../G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    234 10.811996      213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 234: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bb 4d 40 00 39 11 a9 73 d5 2f 47 11 c0 a8   .2.M@.9..s./G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    235 10.812752      192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 235: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 59 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-.Y.........../
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    297 11.813443      213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 297: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bb 61 40 00 39 11 a9 6c d5 2f 47 11 c0 a8   .%.a@.9..l./G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    298 11.813443      213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 298: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bb 62 40 00 39 11 a9 5e d5 2f 47 11 c0 a8   .2.b@.9..^./G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    299 11.813831      192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 299: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 5a 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-.Z.........../
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    311 12.859828      213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 311: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bb ad 40 00 39 11 a9 20 d5 2f 47 11 c0 a8   .%..@.9.. ./G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    312 12.859828      213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 312: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bb ae 40 00 39 11 a9 12 d5 2f 47 11 c0 a8   .2..@.9..../G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    313 12.860522      192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 313: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 5b 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-.[.........../
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    318 13.828986      213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 318: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bb e1 40 00 39 11 a8 ec d5 2f 47 11 c0 a8   .%..@.9..../G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    319 13.828986      213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 319: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bb e2 40 00 39 11 a8 de d5 2f 47 11 c0 a8   .2..@.9..../G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    320 13.829679      192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 320: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 5c 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-.\.........../
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    322 14.121507      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 322: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 5d 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...].........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 00 b2 4d 22 48 c0 16 28 26    ID5290..M"H..(&
+0060  c8 55 2d 16 00 00 00 01 00 21 44 6f 6f 7a 79 20   .U-......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    323 14.139067      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 323: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 5e 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...^.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 01 b3 ec 12 ea 66 f8 c6 70    ID5290.....f..p
+0060  a4 25 4f 93 01 00 00 01 00 21 44 6f 6f 7a 79 20   .%O......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    324 14.158457      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 324: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 5f 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ..._.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 02 1b 23 96 3a b0 6f 8c 45    ID5290..#.:.o.E
+0060  5a 70 0b da 02 00 00 01 00 21 44 6f 6f 7a 79 20   Zp.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    325 14.178619      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 325: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 60 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...`.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 03 37 00 1e 3a 81 ec b4 97    ID5290.7..:....
+0060  d6 25 1d d6 03 00 00 01 00 21 44 6f 6f 7a 79 20   .%.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    326 14.198944      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 326: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 61 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...a.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 04 3b e2 16 32 00 6f 80 76    ID5290.;..2.o.v
+0060  90 33 1b b3 04 00 00 01 00 21 44 6f 6f 7a 79 20   .3.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    327 14.218261      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 327: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 62 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...b.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 05 f3 29 3e 20 54 40 ea 82    ID5290..)> T@..
+0060  e8 25 6f d7 05 00 00 01 00 21 44 6f 6f 7a 79 20   .%o......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    328 14.237813      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 328: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 63 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...c.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 06 5e e4 82 4a 05 7e 7a 63    ID5290.^..J.~zc
+0060  f2 39 1d d6 06 00 00 01 00 21 44 6f 6f 7a 79 20   .9.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    329 14.258200      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 329: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 64 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...d.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 07 93 c8 34 79 01 0b 8a 76    ID5290...4y...v
+0060  94 25 0c c7 07 00 00 01 00 21 44 6f 6f 7a 79 20   .%.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    330 14.278979      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 330: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 65 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...e.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 08 ff c8 32 38 46 49 fe 70    ID5290...28FI.p
+0060  a8 50 6f d0 08 00 00 01 00 21 44 6f 6f 7a 79 20   .Po......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    331 14.298739      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 331: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 66 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...f.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 09 97 ea 32 51 22 4c 9a a4    ID5290...2Q"L..
+0060  98 25 1e d0 09 00 00 01 00 21 44 6f 6f 7a 79 20   .%.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    332 14.319045      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 332: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 67 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...g.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0a ef 6a 3a 00 26 06 c2 b3    ID5290..j:.&...
+0060  a0 21 0c c2 0a 00 00 01 00 21 44 6f 6f 7a 79 20   .!.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    333 14.338676      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 333: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 68 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...h.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0b d2 08 2a 20 73 4b 0b a0    ID5290...* sK..
+0060  94 25 6f b3 0b 00 00 01 00 21 44 6f 6f 7a 79 20   .%o......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    334 14.358137      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 334: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 69 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...i.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0c c2 2a 22 30 13 0d 1f d0    ID5290..*"0....
+0060  16 31 06 a5 0c 00 00 01 00 21 44 6f 6f 7a 79 20   .1.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    335 14.411889      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 335: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 6a 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...j.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0d c6 0b 22 20 a0 46 1b 20    ID5290..." .F. 
+0060  94 25 19 c4 0d 00 00 01 00 21 44 6f 6f 7a 79 20   .%.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    336 14.412131      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 336: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 6b 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...k.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0e 1f 00 88 1a 32 5f ea f1    ID5290.....2_..
+0060  6e 50 6f b3 0e 00 00 01 00 21 44 6f 6f 7a 79 20   nPo......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    337 14.418096      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 337: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 6c 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...l.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0f e3 02 1e 20 80 9a c3 e4    ID5290.... ....
+0060  57 25 06 d7 0f 00 00 01 00 21 44 6f 6f 7a 79 20   W%.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    338 14.437955      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 338: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 6d 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...m.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 10 3f 23 86 1a 51 52 f6 20    ID5290.?#..QR. 
+0060  62 45 7d cb 10 00 00 01 00 21 44 6f 6f 7a 79 20   bE}......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    339 14.457646      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 339: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 6e 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...n.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 11 3f a1 0e 32 70 de d6 d2    ID5290.?..2p...
+0060  a6 21 5b f5 11 00 00 01 00 21 44 6f 6f 7a 79 20   .![......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    340 14.478321      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 340: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 6f 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...o.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 12 4b 41 0a 63 f6 90 ba e4    ID5290.KA.c....
+0060  16 16 29 f5 12 00 00 01 00 21 44 6f 6f 7a 79 20   ..)......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    341 14.498153      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 341: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 70 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...p.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 13 e2 6b a6 28 b2 05 37 81    ID5290..k.(..7.
+0060  dc 16 29 f5 13 00 00 01 00 21 44 6f 6f 7a 79 20   ..)......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    342 14.517869      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 342: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 71 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...q.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 14 4b 23 0c 7b 97 17 ae 35    ID5290.K#.{...5
+0060  92 16 29 f5 14 00 00 01 00 21 44 6f 6f 7a 79 20   ..)......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    343 14.538508      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 343: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 72 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...r.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 00 5b 83 0a 63 b7 95 86 85    ID5290.[..c....
+0060  9c 55 2d 16 15 00 00 01 00 21 44 6f 6f 7a 79 20   .U-......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    344 14.558277      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 344: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 73 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...s.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 01 3b e0 86 0a 92 94 ca 53    ID5290.;......S
+0060  26 25 4f 93 16 00 00 01 00 21 44 6f 6f 7a 79 20   &%O......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    345 14.578879      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 345: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 74 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...t.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 02 ea 4b a6 28 a2 47 37 81    ID5290..K.(.G7.
+0060  dc 70 0b da 17 00 00 01 00 21 44 6f 6f 7a 79 20   .p.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    346 14.598330      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 346: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 75 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...u.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 03 4b 82 02 43 f5 95 96 b5    ID5290.K..C....
+0060  96 25 1d d6 18 00 00 01 00 21 44 6f 6f 7a 79 20   .%.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    347 14.618898      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 347: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 76 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...v.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 04 2f 63 02 12 d3 dd c2 51    ID5290./c.....Q
+0060  a8 33 1b b3 19 00 00 01 00 21 44 6f 6f 7a 79 20   .3.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    348 14.639767      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 348: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 77 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...w.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 05 4b 00 82 43 f6 d4 be 55    ID5290.K..C...U
+0060  1e 25 6f d7 1a 00 00 01 00 21 44 6f 6f 7a 79 20   .%o......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    349 14.658054      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 349: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 78 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...x.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 06 4b 00 0c 6b 86 d5 9e 74    ID5290.K..k...t
+0060  92 39 1d d6 1b 00 00 01 00 21 44 6f 6f 7a 79 20   .9.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    350 14.677717      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 350: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 79 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...y.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 07 4f 60 02 4b 55 1c 96 57    ID5290.O`.KU..W
+0060  94 25 0c c7 1c 00 00 01 00 21 44 6f 6f 7a 79 20   .%.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    351 14.698231      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 351: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 7a 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...z.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 08 2b c0 06 02 b3 de c2 91    ID5290.+.......
+0060  6a 50 6f d0 1d 00 00 01 00 21 44 6f 6f 7a 79 20   jPo......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    352 14.718352      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 352: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 7b 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...{.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 09 3b a0 86 0a 11 de e2 51    ID5290.;......Q
+0060  ac 25 1e d0 1e 00 00 01 00 21 44 6f 6f 7a 79 20   .%.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    353 14.738636      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 353: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 7c 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...|.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0a 3f 23 06 12 d3 56 fa d3    ID5290.?#...V..
+0060  a8 21 0c c2 1f 00 00 01 00 21 44 6f 6f 7a 79 20   .!.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    354 14.759021      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 354: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 7d 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...}.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0b 5b 01 0a 73 96 1e 82 04    ID5290.[..s....
+0060  98 25 6f b3 20 00 00 01 00 21 44 6f 6f 7a 79 20   .%o. ....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    355 14.778121      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 355: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 7e 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ...~.........../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0c 5f c3 82 53 d4 1f be 85    ID5290._..S....
+0060  d2 31 06 a5 21 00 00 01 00 21 44 6f 6f 7a 79 20   .1..!....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    356 14.798631      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 356: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 7f 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0d 53 43 02 53 37 16 9a 66    ID5290.SC.S7..f
+0060  94 25 19 c4 22 00 00 01 00 21 44 6f 6f 7a 79 20   .%.."....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    357 14.818629      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 357: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 80 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0e 5f c2 8e 63 d7 13 a2 35    ID5290._..c...5
+0060  9a 50 6f b3 23 00 00 01 00 21 44 6f 6f 7a 79 20   .Po.#....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    358 14.838613      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 358: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 81 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0f 57 22 04 43 f7 9c 92 44    ID5290.W".C...D
+0060  14 25 06 d7 24 00 00 01 00 21 44 6f 6f 7a 79 20   .%..$....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    359 14.841488      213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 359: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bc 3d 40 00 39 11 a8 90 d5 2f 47 11 c0 a8   .%.=@.9..../G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    360 14.841488      213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 360: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bc 3e 40 00 39 11 a8 82 d5 2f 47 11 c0 a8   .2.>@.9..../G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    361 14.842294      192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 361: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 82 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-............./
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    362 14.858258      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 362: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 83 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 10 e8 62 34 6b f5 8c 96 a6    ID5290..b4k....
+0060  a0 45 7d cb 25 00 00 01 00 21 44 6f 6f 7a 79 20   .E}.%....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    363 14.879122      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 363: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 84 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 11 4f 82 06 43 15 9c be 75    ID5290.O..C...u
+0060  de 21 5b f5 26 00 00 01 00 21 44 6f 6f 7a 79 20   .![.&....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    364 14.898523      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 364: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 85 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 12 43 a2 0a 7b c5 53 b2 d6    ID5290.C..{.S..
+0060  16 16 29 f5 27 00 00 01 00 21 44 6f 6f 7a 79 20   ..).'....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    365 14.918348      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 365: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 86 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 13 57 62 84 4b 36 17 8e c4    ID5290.Wb.K6...
+0060  d0 16 29 f5 28 00 00 01 00 21 44 6f 6f 7a 79 20   ..).(....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    366 14.939017      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 366: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 87 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 14 43 20 8c 5b b7 18 8e 04    ID5290.C .[....
+0060  16 16 29 f5 29 00 00 01 00 21 44 6f 6f 7a 79 20   ..).)....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    367 14.958744      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 367: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 88 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 00 3b 80 04 1a 61 d6 f6 82    ID5290.;...a...
+0060  ee 55 2d 16 2a 00 00 01 00 21 44 6f 6f 7a 79 20   .U-.*....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    368 14.978288      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 368: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 89 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 01 e2 c9 a2 38 a3 03 2f b1    ID5290....8../.
+0060  56 25 4f 93 2b 00 00 01 00 21 44 6f 6f 7a 79 20   V%O.+....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    369 14.997736      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 369: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 8a 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 02 27 c0 88 2a 03 d8 de c1    ID5290.'..*....
+0060  62 70 0b da 2c 00 00 01 00 21 44 6f 6f 7a 79 20   bp..,....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    370 15.018437      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 370: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 8b 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 03 d8 ed 0a 82 42 4f cf d5    ID5290.....BO..
+0060  d4 25 1d d6 2d 00 00 01 00 21 44 6f 6f 7a 79 20   .%..-....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    371 15.038009      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 371: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 8c 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 04 5b 40 8e 7b f6 9b aa 94    ID5290.[@.{....
+0060  9c 33 1b b3 2e 00 00 01 00 21 44 6f 6f 7a 79 20   .3.......!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    372 15.058345      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 372: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 8d 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 05 4b 20 0c 7b 74 19 8e 64    ID5290.K .{t..d
+0060  da 25 6f d7 2f 00 00 01 00 21 44 6f 6f 7a 79 20   .%o./....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    373 15.077877      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 373: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 8e 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 06 47 03 06 43 b7 d0 82 56    ID5290.G..C...V
+0060  90 39 1d d6 30 00 00 01 00 21 44 6f 6f 7a 79 20   .9..0....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    374 15.098152      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 374: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 8f 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 07 5b 82 02 53 44 d3 be d5    ID5290.[..SD...
+0060  9e 25 0c c7 31 00 00 01 00 21 44 6f 6f 7a 79 20   .%..1....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    375 15.118524      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 375: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 90 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 08 5b 43 8c 6b f7 19 96 e5    ID5290.[C.k....
+0060  dc 50 6f d0 32 00 00 01 00 21 44 6f 6f 7a 79 20   .Po.2....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    376 15.138814      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 376: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 91 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 09 fa 4b a2 28 a3 03 2b e2    ID5290..K.(..+.
+0060  5e 25 1e d0 33 00 00 01 00 21 44 6f 6f 7a 79 20   ^%..3....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    377 15.192792      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 377: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 92 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0a 3b 42 1e 7b 32 c4 eb 3a    ID5290.;B.{2..:
+0060  94 21 0c c2 34 00 00 01 00 21 44 6f 6f 7a 79 20   .!..4....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    378 15.193000      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 378: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 93 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0b 4f 61 0e 53 17 d6 8e 54    ID5290.Oa.S...T
+0060  da 25 6f b3 35 00 00 01 00 21 44 6f 6f 7a 79 20   .%o.5....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    379 15.198034      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 379: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 94 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0c 53 20 04 4b 85 52 9e 84    ID5290.S .K.R..
+0060  52 31 06 a5 36 00 00 01 00 21 44 6f 6f 7a 79 20   R1..6....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    380 15.218871      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 380: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 95 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0d 0f e2 8a 3a d2 58 ee 42    ID5290....:.X.B
+0060  66 25 19 c4 37 00 00 01 00 21 44 6f 6f 7a 79 20   f%..7....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    381 15.238176      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 381: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 96 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0e 77 00 8a 73 34 1f ba 74    ID5290.w..s4..t
+0060  90 50 6f b3 38 00 00 01 00 21 44 6f 6f 7a 79 20   .Po.8....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    382 15.258232      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 382: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 97 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 0f 2f 43 00 12 51 d9 ca 82    ID5290./C..Q...
+0060  a0 25 06 d7 39 00 00 01 00 21 44 6f 6f 7a 79 20   .%..9....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    383 15.277519      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 383: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 98 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 10 33 80 8a 3a 31 16 da 93    ID5290.3..:1...
+0060  22 45 7d cb 3a 00 00 01 00 21 44 6f 6f 7a 79 20   "E}.:....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    384 15.298786      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 384: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 99 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 11 4b e2 0e 73 46 54 8e 75    ID5290.K..sFT.u
+0060  92 21 5b f5 3b 00 00 01 00 21 44 6f 6f 7a 79 20   .![.;....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    385 15.318518      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 385: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 9a 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 12 47 40 02 43 45 5f 9e 77    ID5290.G@.CE_.w
+0060  94 16 29 f5 3c 00 00 01 00 21 44 6f 6f 7a 79 20   ..).<....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    386 15.337690      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 386: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 9b 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 13 4f 00 0a 63 96 98 8e e5    ID5290.O..c....
+0060  5e 16 29 f5 3d 00 00 01 00 21 44 6f 6f 7a 79 20   ^.).=....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    387 15.358420      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 387: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 9c 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 14 2b e0 88 3a b3 17 f2 73    ID5290.+..:...s
+0060  66 16 29 f5 3e 00 00 01 00 21 44 6f 6f 7a 79 20   f.).>....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    388 15.377902      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 388: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 9d 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 15 6b 63 02 63 b6 15 9e c6    ID5290.kc.c....
+0060  92 55 55 55 3f 00 00 01 00 21 44 6f 6f 7a 79 20   .UUU?....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    389 15.383386      192.168.0.17          213.47.71.17          UDP      142    54969 → 30051 Len=100
+
+Frame 389: 142 bytes on wire (1136 bits), 142 bytes captured (1136 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (100 bytes)
+    Data: 303030310000004443533830312041414936565720204443514351435120204149365657…
+    [Length: 100]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 80 18 9e 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .............../
+0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+0050  20 49 44 35 32 39 30 40 55 55 55 55 c8 7a 00 00    ID5290@UUUU.z..
+0060  00 00 00 00 40 00 00 01 00 21 44 6f 6f 7a 79 20   ....@....!Doozy 
+0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+No.     Time           Source                Destination           Protocol Length Info
+    390 15.932045      213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 390: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bc 82 40 00 39 11 a8 4b d5 2f 47 11 c0 a8   .%..@.9..K./G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    391 15.932045      213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 391: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bc 83 40 00 39 11 a8 3d d5 2f 47 11 c0 a8   .2..@.9..=./G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    392 15.932512      192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 392: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 9f 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-............./
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    405 16.861764      213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 405: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bc e3 40 00 39 11 a7 ea d5 2f 47 11 c0 a8   .%..@.9..../G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    406 16.861764      213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 406: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bc e4 40 00 39 11 a7 dc d5 2f 47 11 c0 a8   .2..@.9..../G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    407 16.862507      192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 407: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 a0 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-............./
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    448 17.979641      213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 448: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bd 27 40 00 39 11 a7 a6 d5 2f 47 11 c0 a8   .%.'@.9..../G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    449 17.979641      213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 449: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bd 28 40 00 39 11 a7 98 d5 2f 47 11 c0 a8   .2.(@.9..../G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    450 17.979929      192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 450: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 a1 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-............./
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    460 18.901494      213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 460: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bd 89 40 00 39 11 a7 44 d5 2f 47 11 c0 a8   .%..@.9..D./G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    461 18.901494      213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 461: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bd 8a 40 00 39 11 a7 36 d5 2f 47 11 c0 a8   .2..@.9..6./G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    462 18.902198      192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 462: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 a2 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-............./
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    463 19.925615      213.47.71.17          192.168.0.17          UDP      51     30051 → 54969 Len=9
+
+Frame 463: 51 bytes on wire (408 bits), 51 bytes captured (408 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (9 bytes)
+    Data: 444353383031202000
+    [Length: 9]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 25 bd d8 40 00 39 11 a6 f5 d5 2f 47 11 c0 a8   .%..@.9..../G...
+0020  00 11 75 63 d6 b9 00 11 ee e7 44 43 53 38 30 31   ..uc......DCS801
+0030  20 20 00                                            .
+
+No.     Time           Source                Destination           Protocol Length Info
+    464 19.925615      213.47.71.17          192.168.0.17          UDP      64     30051 → 54969 Len=22
+
+Frame 464: 64 bytes on wire (512 bits), 64 bytes captured (512 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (22 bytes)
+    Data: 4443533830312041204149365657202044440a002020
+    [Length: 22]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 32 bd d9 40 00 39 11 a6 e7 d5 2f 47 11 c0 a8   .2..@.9..../G...
+0020  00 11 75 63 d6 b9 00 1e a0 59 44 43 53 38 30 31   ..uc.....YDCS801
+0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
+
+No.     Time           Source                Destination           Protocol Length Info
+    465 19.926279      192.168.0.17          213.47.71.17          UDP      59     54969 → 30051 Len=17
+
+Frame 465: 59 bytes on wire (472 bits), 59 bytes captured (472 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (17 bytes)
+    Data: 4149365657202044004443533830312041
+    [Length: 17]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2d 18 a3 00 00 80 11 00 00 c0 a8 00 11 d5 2f   .-............./
+0020  47 11 d6 b9 75 63 00 19 dd 24 41 49 36 56 57 20   G...uc...$AI6VW 
+0030  20 44 00 44 43 53 38 30 31 20 41                   D.DCS801 A
+
+No.     Time           Source                Destination           Protocol Length Info
+    466 20.593808      192.168.0.17          213.47.71.17          UDP      61     54969 → 30051 Len=19
+
+Frame 466: 61 bytes on wire (488 bits), 61 bytes captured (488 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 213.47.71.17
+User Datagram Protocol, Src Port: 54969, Dst Port: 30051
+Data (19 bytes)
+    Data: 41493656572020204420004443533830312020
+    [Length: 19]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 2f 18 a4 00 00 80 11 00 00 c0 a8 00 11 d5 2f   ./............./
+0020  47 11 d6 b9 75 63 00 1b dd 26 41 49 36 56 57 20   G...uc...&AI6VW 
+0030  20 20 44 20 00 44 43 53 38 30 31 20 20              D .DCS801  
+
+No.     Time           Source                Destination           Protocol Length Info
+    467 20.613132      213.47.71.17          192.168.0.17          UDP      56     30051 → 54969 Len=14
+
+Frame 467: 56 bytes on wire (448 bits), 56 bytes captured (448 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 213.47.71.17, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 30051, Dst Port: 54969
+Data (14 bytes)
+    Data: 414936565720202044204e414b00
+    [Length: 14]
+
+0000  8c 1d 96 12 45 49 90 5c 44 da 73 2e 08 00 45 00   ....EI.\D.s...E.
+0010  00 2a be 1d 40 00 39 11 a6 ab d5 2f 47 11 c0 a8   .*..@.9..../G...
+0020  00 11 75 63 d6 b9 00 16 0a 69 41 49 36 56 57 20   ..uc.....iAI6VW 
+0030  20 20 44 20 4e 41 4b 00                             D NAK.

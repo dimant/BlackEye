@@ -1,0 +1,218 @@
+No.     Time           Source                Destination           Protocol Length Info
+   9589 54.749823      192.168.0.17          76.239.135.73         ICMP     74     Echo (ping) request  id=0x0001, seq=1/256, ttl=128 (no response found!)
+
+Frame 9589: 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+    Interface id: 0 (\Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5})
+        Interface name: \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}
+        Interface description: Wi-Fi
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Sep  2, 2022 22:41:19.138849000 Central Daylight Time
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1662176479.138849000 seconds
+    [Time delta from previous captured frame: 0.047638000 seconds]
+    [Time delta from previous displayed frame: 0.000000000 seconds]
+    [Time since reference or first frame: 54.749823000 seconds]
+    Frame Number: 9589
+    Frame Length: 74 bytes (592 bits)
+    Capture Length: 74 bytes (592 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:icmp:data]
+    [Coloring Rule Name: ICMP]
+    [Coloring Rule String: icmp || icmpv6]
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+    Destination: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+        Address: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+        Address: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 76.239.135.73
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 60
+    Identification: 0xe3b5 (58293)
+    Flags: 0x00
+        0... .... = Reserved bit: Not set
+        .0.. .... = Don't fragment: Not set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 128
+    Protocol: ICMP (1)
+    Header Checksum: 0x0000 [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 192.168.0.17
+    Destination Address: 76.239.135.73
+Internet Control Message Protocol
+    Type: 8 (Echo (ping) request)
+    Code: 0
+    Checksum: 0x4d5a [correct]
+    [Checksum Status: Good]
+    Identifier (BE): 1 (0x0001)
+    Identifier (LE): 256 (0x0100)
+    Sequence Number (BE): 1 (0x0001)
+    Sequence Number (LE): 256 (0x0100)
+    [No response seen]
+        [Expert Info (Warning/Sequence): No response seen to ICMP request]
+            [No response seen to ICMP request]
+            [Severity level: Warning]
+            [Group: Sequence]
+    Data (32 bytes)
+        Data: 6162636465666768696a6b6c6d6e6f7071727374757677616263646566676869
+        [Length: 32]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 3c e3 b5 00 00 80 01 00 00 c0 a8 00 11 4c ef   .<............L.
+0020  87 49 08 00 4d 5a 00 01 00 01 61 62 63 64 65 66   .I..MZ....abcdef
+0030  67 68 69 6a 6b 6c 6d 6e 6f 70 71 72 73 74 75 76   ghijklmnopqrstuv
+0040  77 61 62 63 64 65 66 67 68 69                     wabcdefghi
+
+No.     Time           Source                Destination           Protocol Length Info
+  18264 134.349773     192.168.0.17          76.239.135.73         UDP      74     56464 → 12346 Len=32
+
+Frame 18264: 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+    Interface id: 0 (\Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5})
+        Interface name: \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}
+        Interface description: Wi-Fi
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Sep  2, 2022 22:42:38.738799000 Central Daylight Time
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1662176558.738799000 seconds
+    [Time delta from previous captured frame: 0.642881000 seconds]
+    [Time delta from previous displayed frame: 79.599950000 seconds]
+    [Time since reference or first frame: 134.349773000 seconds]
+    Frame Number: 18264
+    Frame Length: 74 bytes (592 bits)
+    Capture Length: 74 bytes (592 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:udp:data]
+    [Coloring Rule Name: UDP]
+    [Coloring Rule String: udp]
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+    Destination: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+        Address: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+        Address: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 76.239.135.73
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 60
+    Identification: 0xe3b6 (58294)
+    Flags: 0x00
+        0... .... = Reserved bit: Not set
+        .0.. .... = Don't fragment: Not set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 128
+    Protocol: UDP (17)
+    Header Checksum: 0x0000 [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 192.168.0.17
+    Destination Address: 76.239.135.73
+User Datagram Protocol, Src Port: 56464, Dst Port: 12346
+    Source Port: 56464
+    Destination Port: 12346
+    Length: 40
+    Checksum: 0x952b [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 37]
+    [Timestamps]
+        [Time since first frame: 0.000000000 seconds]
+        [Time since previous frame: 0.000000000 seconds]
+    UDP payload (32 bytes)
+Data (32 bytes)
+    Data: 000400000000000041493656572020204149365657202020414936565720204c
+    [Length: 32]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 3c e3 b6 00 00 80 11 00 00 c0 a8 00 11 4c ef   .<............L.
+0020  87 49 dc 90 30 3a 00 28 95 2b 00 04 00 00 00 00   .I..0:.(.+......
+0030  00 00 41 49 36 56 57 20 20 20 41 49 36 56 57 20   ..AI6VW   AI6VW 
+0040  20 20 41 49 36 56 57 20 20 4c                       AI6VW  L
+
+No.     Time           Source                Destination           Protocol Length Info
+  30759 243.700445     192.168.0.17          76.239.135.73         UDP      74     56464 → 12346 Len=32
+
+Frame 30759: 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+    Interface id: 0 (\Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5})
+        Interface name: \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}
+        Interface description: Wi-Fi
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Sep  2, 2022 22:44:28.089471000 Central Daylight Time
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1662176668.089471000 seconds
+    [Time delta from previous captured frame: 1.094814000 seconds]
+    [Time delta from previous displayed frame: 109.350672000 seconds]
+    [Time since reference or first frame: 243.700445000 seconds]
+    Frame Number: 30759
+    Frame Length: 74 bytes (592 bits)
+    Capture Length: 74 bytes (592 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:udp:data]
+    [Coloring Rule Name: UDP]
+    [Coloring Rule String: udp]
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+    Destination: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+        Address: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+        Address: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 76.239.135.73
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 60
+    Identification: 0xe3b7 (58295)
+    Flags: 0x00
+        0... .... = Reserved bit: Not set
+        .0.. .... = Don't fragment: Not set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 128
+    Protocol: UDP (17)
+    Header Checksum: 0x0000 [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 192.168.0.17
+    Destination Address: 76.239.135.73
+User Datagram Protocol, Src Port: 56464, Dst Port: 12346
+    Source Port: 56464
+    Destination Port: 12346
+    Length: 40
+    Checksum: 0x952b [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 37]
+    [Timestamps]
+        [Time since first frame: 109.350672000 seconds]
+        [Time since previous frame: 109.350672000 seconds]
+    UDP payload (32 bytes)
+Data (32 bytes)
+    Data: 000400000000000041493656572020204149365657202020414936565720204c
+    [Length: 32]
+
+0000  90 5c 44 da 73 2e 8c 1d 96 12 45 49 08 00 45 00   .\D.s.....EI..E.
+0010  00 3c e3 b7 00 00 80 11 00 00 c0 a8 00 11 4c ef   .<............L.
+0020  87 49 dc 90 30 3a 00 28 95 2b 00 04 00 00 00 00   .I..0:.(.+......
+0030  00 00 41 49 36 56 57 20 20 20 41 49 36 56 57 20   ..AI6VW   AI6VW 
+0040  20 20 41 49 36 56 57 20 20 4c                       AI6VW  L

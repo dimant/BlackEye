@@ -1,0 +1,1280 @@
+No.     Time           Source                Destination           Protocol Length Info
+     15 5.237264       192.168.0.17          45.79.43.161          UDP      47     59095 → 20001 Len=5
+
+Frame 15: 47 bytes on wire (376 bits), 47 bytes captured (376 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (5 bytes)
+
+0000  05 00 18 00 01                                    .....
+    Data: 0500180001
+    [Length: 5]
+
+No.     Time           Source                Destination           Protocol Length Info
+     17 5.440368       45.79.43.161          192.168.0.17          UDP      47     20001 → 59095 Len=5
+
+Frame 17: 47 bytes on wire (376 bits), 47 bytes captured (376 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 45.79.43.161, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 20001, Dst Port: 59095
+Data (5 bytes)
+
+0000  05 00 18 00 01                                    .....
+    Data: 0500180001
+    [Length: 5]
+
+No.     Time           Source                Destination           Protocol Length Info
+     18 5.440773       192.168.0.17          45.79.43.161          UDP      70     59095 → 20001 Len=28
+
+Frame 18: 70 bytes on wire (560 bits), 70 bytes captured (560 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (28 bytes)
+
+0000  1c c0 04 00 41 49 36 56 57 00 00 00 00 00 00 00   ....AI6VW.......
+0010  00 00 00 00 44 56 30 31 39 39 39 34               ....DV019994
+    Data: 1cc00400414936565700000000000000000000004456303139393934
+    [Length: 28]
+
+No.     Time           Source                Destination           Protocol Length Info
+     19 5.646033       45.79.43.161          192.168.0.17          UDP      50     20001 → 59095 Len=8
+
+Frame 19: 50 bytes on wire (400 bits), 50 bytes captured (400 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 45.79.43.161, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 20001, Dst Port: 59095
+Data (8 bytes)
+
+0000  08 c0 04 00 4f 4b 52 57                           ....OKRW
+    Data: 08c004004f4b5257
+    [Length: 8]
+
+No.     Time           Source                Destination           Protocol Length Info
+     20 5.646329       192.168.0.17          45.79.43.161          UDP      45     59095 → 20001 Len=3
+
+Frame 20: 45 bytes on wire (360 bits), 45 bytes captured (360 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (3 bytes)
+
+0000  03 60 00                                          .`.
+    Data: 036000
+    [Length: 3]
+
+No.     Time           Source                Destination           Protocol Length Info
+     21 5.747113       45.79.43.161          192.168.0.17          UDP      45     20001 → 59095 Len=3
+
+Frame 21: 45 bytes on wire (360 bits), 45 bytes captured (360 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 45.79.43.161, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 20001, Dst Port: 59095
+Data (3 bytes)
+
+0000  03 60 00                                          .`.
+    Data: 036000
+    [Length: 3]
+
+No.     Time           Source                Destination           Protocol Length Info
+     22 5.747422       192.168.0.17          45.79.43.161          UDP      45     59095 → 20001 Len=3
+
+Frame 22: 45 bytes on wire (360 bits), 45 bytes captured (360 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (3 bytes)
+
+0000  03 60 00                                          .`.
+    Data: 036000
+    [Length: 3]
+
+No.     Time           Source                Destination           Protocol Length Info
+     23 7.796988       45.79.43.161          192.168.0.17          UDP      45     20001 → 59095 Len=3
+
+Frame 23: 45 bytes on wire (360 bits), 45 bytes captured (360 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 45.79.43.161, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 20001, Dst Port: 59095
+Data (3 bytes)
+
+0000  03 60 00                                          .`.
+    Data: 036000
+    [Length: 3]
+
+No.     Time           Source                Destination           Protocol Length Info
+     24 7.797351       192.168.0.17          45.79.43.161          UDP      45     59095 → 20001 Len=3
+
+Frame 24: 45 bytes on wire (360 bits), 45 bytes captured (360 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (3 bytes)
+
+0000  03 60 00                                          .`.
+    Data: 036000
+    [Length: 3]
+
+No.     Time           Source                Destination           Protocol Length Info
+     32 9.807066       192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 32: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     33 9.807282       192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 33: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     34 9.807349       192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 34: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     35 9.807412       192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 35: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     36 9.807474       192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 36: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  00 b2 4d 22 48 c0 16 28 26 c8 55 2d 16            ..M"H..(&.U-.
+    Data: 1d804453565420000000200002017d3700b24d2248c0162826c8552d16
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     37 9.809778       45.79.43.161          192.168.0.17          UDP      45     20001 → 59095 Len=3
+
+Frame 37: 45 bytes on wire (360 bits), 45 bytes captured (360 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 45.79.43.161, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 20001, Dst Port: 59095
+Data (3 bytes)
+
+0000  03 60 00                                          .`.
+    Data: 036000
+    [Length: 3]
+
+No.     Time           Source                Destination           Protocol Length Info
+     38 9.810177       192.168.0.17          45.79.43.161          UDP      45     59095 → 20001 Len=3
+
+Frame 38: 45 bytes on wire (360 bits), 45 bytes captured (360 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (3 bytes)
+
+0000  03 60 00                                          .`.
+    Data: 036000
+    [Length: 3]
+
+No.     Time           Source                Destination           Protocol Length Info
+     39 9.827480       192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 39: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  01 5e a5 06 52 15 b0 46 20 b6 25 4f 93            .^..R..F .%O.
+    Data: 1d804453565420000000200002017d37015ea5065215b04620b6254f93
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     40 9.846922       192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 40: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  02 5a 66 84 5a 96 ff 6a 80 f0 70 0b da            .Zf.Z..j..p..
+    Data: 1d804453565420000000200002017d37025a66845a96ff6a80f0700bda
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     41 9.867507       192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 41: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  03 4a c5 8e 72 55 38 56 a3 7a 25 1d d6            .J..rU8V.z%..
+    Data: 1d804453565420000000200002017d37034ac58e72553856a37a251dd6
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     42 9.887537       192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 42: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  04 d6 0b 32 71 e3 97 0a da a4 33 1b b3            ...2q.....3..
+    Data: 1d804453565420000000200002017d3704d60b3271e3970adaa4331bb3
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     43 9.907297       192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 43: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  05 0a 24 06 0b 52 b0 0e 86 0e 25 6f d7            ..$..R....%o.
+    Data: 1d804453565420000000200002017d37050a24060b52b00e860e256fd7
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     44 9.927099       192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 44: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  06 6a 85 8c 7a d5 31 6a 50 f6 39 1d d6            .j..z.1jP.9..
+    Data: 1d804453565420000000200002017d37066a858c7ad5316a50f6391dd6
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     45 9.947464       192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 45: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  07 2a 87 84 2b 10 b0 1a 46 c0 25 0c c7            .*..+...F.%..
+    Data: 1d804453565420000000200002017d37072a87842b10b01a46c0250cc7
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     46 9.967311       192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 46: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  08 46 06 82 42 c6 3f 4a e1 b0 50 6f d0            .F..B.?J..Po.
+    Data: 1d804453565420000000200002017d370846068242c63f4ae1b0506fd0
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     47 9.988160       192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 47: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  09 5a 85 0e 72 e7 f8 72 73 7e 25 1e d0            .Z..r..rs~%..
+    Data: 1d804453565420000000200002017d37095a850e72e7f872737e251ed0
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     48 10.007701      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 48: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0a 7a 07 08 7a d7 37 5e e3 7e 21 0c c2            .z..z.7^.~!..
+    Data: 1d804453565420000000200002017d370a7a07087ad7375ee37e210cc2
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     50 10.027586      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 50: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0b 7a 47 8c 6a 14 b8 72 a3 ba 25 6f b3            .zG.j..r..%o.
+    Data: 1d804453565420000000200002017d370b7a478c6a14b872a3ba256fb3
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     51 10.047154      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 51: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0c 3a 65 0e 13 71 31 0a 44 8a 31 06 a5            .:e..q1.D.1..
+    Data: 1d804453565420000000200002017d370c3a650e1371310a448a3106a5
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     53 10.067871      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 53: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0d f6 21 80 f8 c1 e0 6f b4 bc 25 19 c4            ..!....o..%..
+    Data: 1d804453565420000000200002017d370df62180f8c1e06fb4bc2519c4
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     54 10.087864      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 54: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0e a1 8b b4 50 f4 b9 32 c6 66 50 6f b3            ....P..2.fPo.
+    Data: 1d804453565420000000200002017d370ea18bb450f4b932c666506fb3
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     55 10.107504      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 55: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0f 92 46 94 58 a6 f3 5f c5 c1 25 06 d7            ..F.X.._..%..
+    Data: 1d804453565420000000200002017d370f92469458a6f35fc5c12506d7
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     56 10.127049      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 56: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  10 c2 8c bc 48 e4 83 6d 6b 8c 45 7d cb            ....H..mk.E}.
+    Data: 1d804453565420000000200002017d3710c28cbc48e4836d6b8c457dcb
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     57 10.146992      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 57: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  11 4a e7 02 62 66 7a 66 12 f6 21 5b f5            .J..bfzf..![.
+    Data: 1d804453565420000000200002017d37114ae70262667a6612f6215bf5
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     58 10.167403      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 58: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  12 2a 25 84 3b 93 3c 16 34 cc 16 29 f5            .*%.;.<.4..).
+    Data: 1d804453565420000000200002017d37122a25843b933c1634cc1629f5
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     59 10.186988      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 59: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  13 86 4c b2 39 c1 8f 09 7e b0 16 29 f5            ..L.9...~..).
+    Data: 1d804453565420000000200002017d3713864cb239c18f097eb01629f5
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     60 10.206995      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 60: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  14 1a 45 80 0b 71 3c 16 46 88 16 29 f5            ..E..q<.F..).
+    Data: 1d804453565420000000200002017d37141a45800b713c1646881629f5
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     61 10.227852      192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 61: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     62 10.228071      192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 62: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     63 10.228134      192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 63: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     64 10.228248      192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 64: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     65 10.228317      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 65: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  00 6e c4 8c 7a f7 b8 62 f3 b0 55 2d 16            .n..z..b..U-.
+    Data: 1d804453565420000000200002017d37006ec48c7af7b862f3b0552d16
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     66 10.247213      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 66: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  01 4a 44 0c 7a 45 f2 66 43 3e 25 4f 93            .JD.zE.fC>%O.
+    Data: 1d804453565420000000200002017d37014a440c7a45f266433e254f93
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     67 10.267666      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 67: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  02 4e a5 84 5a 14 38 4e f2 b8 70 0b da            .N..Z.8N..p..
+    Data: 1d804453565420000000200002017d37024ea5845a14384ef2b8700bda
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     68 10.287288      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 68: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  03 7f c3 1a 63 26 27 f8 63 a2 25 1d d6            ....c&'.c.%..
+    Data: 1d804453565420000000200002017d37037fc31a632627f863a2251dd6
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     69 10.308633      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 69: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  04 36 05 02 2b f2 f3 16 a4 cc 33 1b b3            .6..+.....3..
+    Data: 1d804453565420000000200002017d37043605022bf2f316a4cc331bb3
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     70 10.327440      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 70: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  05 82 4c b2 39 c1 8f 09 7e b0 25 6f d7            ..L.9...~.%o.
+    Data: 1d804453565420000000200002017d3705824cb239c18f097eb0256fd7
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     71 10.347401      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 71: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  06 1a 25 86 13 52 34 06 57 4a 39 1d d6            ..%..R4.WJ9..
+    Data: 1d804453565420000000200002017d37061a258613523406574a391dd6
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     72 10.367518      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 72: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  07 3e 65 04 33 e1 f9 02 a5 8c 25 0c c7            .>e.3.....%..
+    Data: 1d804453565420000000200002017d37073e650433e1f902a58c250cc7
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     73 10.387276      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 73: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  08 52 07 90 3b 34 a2 63 8b ce 50 6f d0            .R..;4.c..Po.
+    Data: 1d804453565420000000200002017d37085207903b34a2638bce506fd0
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     74 10.407206      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 74: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  09 4a c5 80 5a 15 39 7a b2 76 25 1e d0            .J..Z.9z.v%..
+    Data: 1d804453565420000000200002017d37094ac5805a15397ab276251ed0
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     75 10.451919      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 75: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0a 5e c5 0e 7a 94 f4 66 30 72 21 0c c2            .^..z..f0r!..
+    Data: 1d804453565420000000200002017d370a5ec50e7a94f4663072210cc2
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     76 10.452102      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 76: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0b 4e 07 10 0b 56 a6 47 bb 8a 25 6f b3            .N...V.G..%o.
+    Data: 1d804453565420000000200002017d370b4e07100b56a647bb8a256fb3
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     77 10.467337      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 77: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0c c1 a1 96 01 04 60 5b d6 23 31 06 a5            ......`[.#1..
+    Data: 1d804453565420000000200002017d370cc1a1960104605bd6233106a5
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     78 10.487615      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 78: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0d 22 25 0e 1b 13 b5 12 e5 0a 25 19 c4            ."%.......%..
+    Data: 1d804453565420000000200002017d370d22250e1b13b512e50a2519c4
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     79 10.507293      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 79: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0e 6a e4 0a 7a 95 77 4a f0 f2 50 6f b3            .j..z.wJ..Po.
+    Data: 1d804453565420000000200002017d370e6ae40a7a95774af0f2506fb3
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     80 10.527002      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 80: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0f 3e c7 02 23 52 78 1e 56 8c 25 06 d7            .>..#Rx.V.%..
+    Data: 1d804453565420000000200002017d370f3ec7022352781e568c2506d7
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     81 10.547572      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 81: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  10 7b c3 9e 5b 85 a1 f8 41 a0 45 7d cb            .{..[...A.E}.
+    Data: 1d804453565420000000200002017d37107bc39e5b85a1f841a0457dcb
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     82 10.567851      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 82: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  11 ab 64 22 2a c6 a8 c8 a1 f8 21 5b f5            ..d"*.....![.
+    Data: 1d804453565420000000200002017d3711ab64222ac6a8c8a1f8215bf5
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     83 10.588284      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 83: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  12 5a 44 02 4a 54 73 5a 63 be 16 29 f5            .ZD.JTsZc..).
+    Data: 1d804453565420000000200002017d37125a44024a54735a63be1629f5
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     84 10.607706      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 84: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  13 6f c3 1e 63 a5 26 ec e3 e8 16 29 f5            .o..c.&....).
+    Data: 1d804453565420000000200002017d37136fc31e63a526ece3e81629f5
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     85 10.628038      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 85: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  14 6a 66 8a 62 74 f8 72 20 f2 16 29 f5            .jf.bt.r ..).
+    Data: 1d804453565420000000200002017d37146a668a6274f87220f21629f5
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     86 10.648107      192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 86: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     87 10.648266      192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 87: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     88 10.648326      192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 88: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     89 10.648385      192.168.0.17          45.79.43.161          UDP      100    59095 → 20001 Len=58
+
+Frame 89: 100 bytes on wire (800 bits), 100 bytes captured (800 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (58 bytes)
+
+0000  3a 80 44 53 56 54 10 00 00 00 20 00 02 01 7d 37   :.DSVT.... ...}7
+0010  80 00 00 00 52 45 46 30 33 30 20 43 41 49 36 56   ....REF030 CAI6V
+0020  57 20 20 44 43 51 43 51 43 51 20 20 41 49 36 56   W  DCQCQCQ  AI6V
+0030  57 20 20 20 49 44 35 32 00 0b                     W   ID52..
+    Data: 3a804453565410000000200002017d378000000052454630333020434149365657202044…
+    [Length: 58]
+
+No.     Time           Source                Destination           Protocol Length Info
+     90 10.648444      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 90: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  00 ec e1 36 98 60 e5 06 f0 ec 55 2d 16            ...6.`....U-.
+    Data: 1d804453565420000000200002017d3700ece1369860e506f0ec552d16
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     91 10.667418      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 91: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  01 6e e5 0a 62 54 7c 76 92 7c 25 4f 93            .n..bT|v.|%O.
+    Data: 1d804453565420000000200002017d37016ee50a62547c76927c254f93
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     92 10.687198      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 92: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  02 3f 42 9c 0a e3 a3 8c f6 d4 70 0b da            .?B.......p..
+    Data: 1d804453565420000000200002017d37023f429c0ae3a38cf6d4700bda
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     93 10.707611      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 93: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  03 7a 84 80 5a 15 78 62 22 fa 25 1d d6            .z..Z.xb".%..
+    Data: 1d804453565420000000200002017d37037a84805a15786222fa251dd6
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     94 10.727343      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 94: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  04 63 07 1a 42 c3 fa bf 61 80 33 1b b3            .c..B...a.3..
+    Data: 1d804453565420000000200002017d370463071a42c3fabf6180331bb3
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     95 10.747368      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 95: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  05 6b c2 9e 63 d4 22 f4 03 62 25 6f d7            .k..c."..b%o.
+    Data: 1d804453565420000000200002017d37056bc29e63d422f40362256fd7
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     96 10.767721      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 96: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  06 c8 97 8c 20 36 f5 dd d4 f3 39 1d d6            .... 6....9..
+    Data: 1d804453565420000000200002017d3706c8978c2036f5ddd4f3391dd6
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     97 10.787614      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 97: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  07 43 e2 9c 6b a5 a0 dc 70 a8 25 0c c7            .C..k...p.%..
+    Data: 1d804453565420000000200002017d370743e29c6ba5a0dc70a8250cc7
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     98 10.807231      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 98: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  08 b7 65 1a 88 25 3e ad 11 94 50 6f d0            ..e..%>...Po.
+    Data: 1d804453565420000000200002017d3708b7651a88253ead1194506fd0
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+     99 10.827738      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 99: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  09 7b 01 98 7b 84 67 d4 d0 ee 25 1e d0            .{..{.g...%..
+    Data: 1d804453565420000000200002017d37097b01987b8467d4d0ee251ed0
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+    100 10.847681      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 100: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0a 5b 01 90 5b 85 e9 c0 33 a4 21 0c c2            .[..[...3.!..
+    Data: 1d804453565420000000200002017d370a5b01905b85e9c033a4210cc2
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+    101 10.867485      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 101: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0b 47 83 1c 6b 47 ac e0 92 aa 25 6f b3            .G..kG....%o.
+    Data: 1d804453565420000000200002017d370b47831c6b47ace092aa256fb3
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+    102 10.887420      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 102: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0c 63 c3 9c 6b a5 e4 ec c3 6a 31 06 a5            .c..k....j1..
+    Data: 1d804453565420000000200002017d370c63c39c6ba5e4ecc36a3106a5
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+    103 10.907892      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 103: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0d 7e 26 06 5a 36 77 5a 43 bc 25 19 c4            .~&.Z6wZC.%..
+    Data: 1d804453565420000000200002017d370d7e26065a36775a43bc2519c4
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+    104 10.927909      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 104: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0e 2b 21 1a 3a 83 ac 8c b6 d2 50 6f b3            .+!.:.....Po.
+    Data: 1d804453565420000000200002017d370e2b211a3a83ac8cb6d2506fb3
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+    105 10.947115      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 105: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  0f 73 a2 98 5b 97 27 e0 73 e8 25 06 d7            .s..[.'.s.%..
+    Data: 1d804453565420000000200002017d370f73a2985b9727e073e82506d7
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+    106 10.967303      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 106: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  10 7f c3 1a 6b 36 66 f0 73 a0 45 7d cb            ....k6f.s.E}.
+    Data: 1d804453565420000000200002017d37107fc31a6b3666f073a0457dcb
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+    107 10.987257      192.168.0.17          45.79.43.161          UDP      71     59095 → 20001 Len=29
+
+Frame 107: 71 bytes on wire (568 bits), 71 bytes captured (568 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (29 bytes)
+
+0000  1d 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37   ..DSVT ... ...}7
+0010  11 5b 61 94 4b d4 e3 e0 a0 6a 55 55 55            .[a.K....jUUU
+    Data: 1d804453565420000000200002017d37115b61944bd4e3e0a06a555555
+    [Length: 29]
+
+No.     Time           Source                Destination           Protocol Length Info
+    108 10.992243      192.168.0.17          45.79.43.161          UDP      74     59095 → 20001 Len=32
+
+Frame 108: 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (32 bytes)
+
+0000  20 80 44 53 56 54 20 00 00 00 20 00 02 01 7d 37    .DSVT ... ...}7
+0010  52 9e 8d 32 88 26 1a 3f 61 e8 55 55 55 55 c8 7a   R..2.&.?a.UUUU.z
+    Data: 20804453565420000000200002017d37529e8d3288261a3f61e855555555c87a
+    [Length: 32]
+
+No.     Time           Source                Destination           Protocol Length Info
+    109 11.174835      45.79.43.161          192.168.0.17          UDP      52     20001 → 59095 Len=10
+
+Frame 109: 52 bytes on wire (416 bits), 52 bytes captured (416 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 45.79.43.161, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 20001, Dst Port: 59095
+Data (10 bytes)
+
+0000  0a c0 0b 00 7d 37 3e 00 00 00                     ....}7>...
+    Data: 0ac00b007d373e000000
+    [Length: 10]
+
+No.     Time           Source                Destination           Protocol Length Info
+    112 11.790363      45.79.43.161          192.168.0.17          UDP      45     20001 → 59095 Len=3
+
+Frame 112: 45 bytes on wire (360 bits), 45 bytes captured (360 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 45.79.43.161, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 20001, Dst Port: 59095
+Data (3 bytes)
+
+0000  03 60 00                                          .`.
+    Data: 036000
+    [Length: 3]
+
+No.     Time           Source                Destination           Protocol Length Info
+    113 11.790647      192.168.0.17          45.79.43.161          UDP      45     59095 → 20001 Len=3
+
+Frame 113: 45 bytes on wire (360 bits), 45 bytes captured (360 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (3 bytes)
+
+0000  03 60 00                                          .`.
+    Data: 036000
+    [Length: 3]
+
+No.     Time           Source                Destination           Protocol Length Info
+    121 13.749655      45.79.43.161          192.168.0.17          UDP      45     20001 → 59095 Len=3
+
+Frame 121: 45 bytes on wire (360 bits), 45 bytes captured (360 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 45.79.43.161, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 20001, Dst Port: 59095
+Data (3 bytes)
+
+0000  03 60 00                                          .`.
+    Data: 036000
+    [Length: 3]
+
+No.     Time           Source                Destination           Protocol Length Info
+    122 13.749982      192.168.0.17          45.79.43.161          UDP      45     59095 → 20001 Len=3
+
+Frame 122: 45 bytes on wire (360 bits), 45 bytes captured (360 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (3 bytes)
+
+0000  03 60 00                                          .`.
+    Data: 036000
+    [Length: 3]
+
+No.     Time           Source                Destination           Protocol Length Info
+    123 14.773026      192.168.0.17          45.79.43.161          UDP      47     59095 → 20001 Len=5
+
+Frame 123: 47 bytes on wire (376 bits), 47 bytes captured (376 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: IntelCor_12:45:49 (8c:1d:96:12:45:49), Dst: CompalBr_da:73:2e (90:5c:44:da:73:2e)
+Internet Protocol Version 4, Src: 192.168.0.17, Dst: 45.79.43.161
+User Datagram Protocol, Src Port: 59095, Dst Port: 20001
+Data (5 bytes)
+
+0000  05 00 18 00 00                                    .....
+    Data: 0500180000
+    [Length: 5]
+
+No.     Time           Source                Destination           Protocol Length Info
+    124 14.964616      45.79.43.161          192.168.0.17          UDP      47     20001 → 59095 Len=5
+
+Frame 124: 47 bytes on wire (376 bits), 47 bytes captured (376 bits) on interface \Device\NPF_{331521C4-6989-4D34-8A0A-30F65AD42EF5}, id 0
+Ethernet II, Src: CompalBr_da:73:2e (90:5c:44:da:73:2e), Dst: IntelCor_12:45:49 (8c:1d:96:12:45:49)
+Internet Protocol Version 4, Src: 45.79.43.161, Dst: 192.168.0.17
+User Datagram Protocol, Src Port: 20001, Dst Port: 59095
+Data (5 bytes)
+
+0000  05 00 18 00 00                                    .....
+    Data: 0500180000
+    [Length: 5]

@@ -20,11 +20,11 @@
             {
                 while (!cancellationToken.IsCancellationRequested)
                 {
-                    Receive(block, cancellationToken);
+                    Receive(block);
                 }
             }, cancellationToken);
         }
 
-        public abstract void Receive(BufferBlock<byte> block, CancellationToken cancellationToken);
+        public abstract void Receive(BufferBlock<byte> block);
     }
 }
