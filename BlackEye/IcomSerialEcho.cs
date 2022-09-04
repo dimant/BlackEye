@@ -49,7 +49,6 @@
             Thread.Sleep(50);
             if (echoQueue.Count == 0)
             {
-                writer.SendFrameEot();
                 state = StateType.Receiving;
                 return;
             }
@@ -65,34 +64,44 @@
                 else if (packet is IcomSerialFrame)
                 {
                     var frame = (IcomSerialFrame)packet;
-                    writer.SendFrame(frame.PacketId, frame.AmbeAndData);
+                    if (frame.IsLast())
+                    {
+                        writer.SendFrameEot();
+                    }
+                    else
+                    {
+                        writer.SendFrame(frame.PacketId, frame.AmbeAndData);
+                    }
                 }
             }
         }
 
         public void OnFrame(IcomSerialFrame framePacket)
         {
+            ResetPong();
+
             if (state == StateType.Receiving)
             {
+                echoQueue.Enqueue(framePacket);
+
                 if (framePacket.IsLast())
                 {
                     state = StateType.Transmitting;
+                    Thread.Sleep(1000);
                     EchoPacket();
                 }
-                else
-                {
-                    echoQueue.Enqueue(framePacket);
-                }
             }
-
-            ResetPong();
         }
 
         public void OnFrameAck(IcomSerialFrameAck frameAckPacket)
         {
             ResetPong();
-            echoQueue.Dequeue();
-            EchoPacket();
+
+            if(state == StateType.Transmitting)
+            {
+                echoQueue.Dequeue();
+                EchoPacket();
+            }
         }
 
         public void OnHeader(IcomSerialHeader headerPacket)
@@ -109,7 +118,11 @@
         public void OnHeaderAck(IcomSerialHeaderAck headerAckPacket)
         {
             ResetPong();
-            echoQueue.Dequeue();
+
+            if (state == StateType.Transmitting)
+            {
+                echoQueue.Dequeue();
+            }
         }
 
         public void OnPong(IcomSerialPong pongPacket)
