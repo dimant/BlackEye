@@ -46,7 +46,6 @@
 
         private void EchoPacket()
         {
-            Thread.Sleep(50);
             if (echoQueue.Count == 0)
             {
                 state = StateType.Receiving;
@@ -55,7 +54,7 @@
             else
             {
                 var packet = echoQueue.Peek();
-
+                Thread.Sleep(12);
                 if (packet is IcomSerialHeader)
                 {
                     var header = (IcomSerialHeader)packet;
