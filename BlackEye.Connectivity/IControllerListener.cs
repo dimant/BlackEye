@@ -1,21 +1,17 @@
-﻿namespace BlackEye.Connectivity
+﻿using BlackEye.Connectivity.IcomSerial;
+
+namespace BlackEye.Connectivity
 {
     public interface IControllerListener
     {
-        public void OnPong();
+        public void OnPong(IcomSerialPong pongPacket);
 
-        public void OnHeader(byte[] header);
+        public void OnHeader(IcomSerialHeader headerPacket);
 
-        public void OnHeaderAck();
+        public void OnHeaderAck(IcomSerialHeaderAck headerAckPacket);
 
-        public void OnHeaderNak();
+        public void OnFrame(IcomSerialFrame framePacket);
 
-        public void OnData(byte[] data);
-
-        public void OnDataAck(byte seqNumber);
-
-        public void OnDataNak(byte seqNumber);
-
-        public void OnEot();
+        public void OnFrameAck(IcomSerialFrameAck frameAckPacket);
     }
 }
