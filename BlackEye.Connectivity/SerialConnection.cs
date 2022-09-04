@@ -19,7 +19,7 @@
             this.serialPort = new SerialPort(portName)
             {
                 PortName = portName,
-                BaudRate = 38400,
+                BaudRate = 19200,
                 DataBits = 8,
                 Parity = Parity.None,
                 StopBits = StopBits.One,

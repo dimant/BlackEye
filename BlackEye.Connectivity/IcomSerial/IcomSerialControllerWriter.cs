@@ -20,9 +20,9 @@ namespace BlackEye.Connectivity.IcomSerial
 
         public void SendReset()
         {
-            for (int i = 0; i < 127; i++)
+            for (int i = 0; i < 5; i++)
             {
-                serialConnection.Send(new byte[2] { 255, 255 });
+                serialConnection.Send(new byte[3] { 0xff, 0xff, 0xff });
             }
         }
 
@@ -54,15 +54,15 @@ namespace BlackEye.Connectivity.IcomSerial
         public void SendHeader(byte[] dstarHeader)
         {
             var tag = new byte[] { 0x29, 0x20, 0x01, 0x00, 0x00 };
-            var buffer = new byte[41];
+            var buffer = new byte[42];
             tag.CopyTo(buffer, 0);
             dstarHeader.CopyTo(buffer, 5);
-            buffer[40] = 0xff;
+            buffer[41] = 0xff;
 
             serialConnection.Send(buffer);
         }
 
-        public void SendFrame(short packetId, byte[] data)
+        public void SendFrame(ushort packetId, byte[] data)
         {
             if (data.Length != 12)
             {
@@ -72,10 +72,10 @@ namespace BlackEye.Connectivity.IcomSerial
             byte packetIdLow = (byte) (packetId & 0xff);
             byte packetIdHigh = (byte) ((packetId >> 8) & 0xff);
             var tag = new byte[] { 0x10, 0x22, packetIdHigh, packetIdLow};
-            var buffer = new byte[16];
+            var buffer = new byte[17];
             tag.CopyTo(buffer, 0);
             data.CopyTo(buffer, 4);
-            buffer[15] = 0xff;
+            buffer[16] = 0xff;
 
             serialConnection.Send(buffer);
         }

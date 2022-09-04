@@ -6,13 +6,23 @@
 
     public class IcomSerialEcho : IControllerListener
     {
+        private enum StateType
+        {
+            Receiving,
+            Transmitting
+        };
+
         private DateTime lastPong = DateTime.Now;
 
         private readonly TimeSpan maxPongWait = new TimeSpan(hours: 0, minutes: 0, seconds: 5);
 
-        private System.Timers.Timer pingTimer = new System.Timers.Timer();
+        private Timer pingTimer = new Timer();
 
         private IcomSerialControllerWriter writer;
+
+        private StateType state = StateType.Receiving;
+
+        private Queue<IcomSerialPacket> echoQueue = new Queue<IcomSerialPacket>();
 
         public IcomSerialEcho(IcomSerialControllerWriter writer)
         {
@@ -34,29 +44,83 @@
             });
         }
 
+        private void EchoPacket()
+        {
+            Thread.Sleep(50);
+            if (echoQueue.Count == 0)
+            {
+                writer.SendFrameEot();
+                state = StateType.Receiving;
+                return;
+            }
+            else
+            {
+                var packet = echoQueue.Peek();
+
+                if (packet is IcomSerialHeader)
+                {
+                    var header = (IcomSerialHeader)packet;
+                    writer.SendHeader("AI6VW  L", "AI6VW  G", "AI6VW   ", "AI6VW  G", header.Suffix);
+                }
+                else if (packet is IcomSerialFrame)
+                {
+                    var frame = (IcomSerialFrame)packet;
+                    writer.SendFrame(frame.PacketId, frame.AmbeAndData);
+                }
+            }
+        }
+
         public void OnFrame(IcomSerialFrame framePacket)
         {
+            if (state == StateType.Receiving)
+            {
+                if (framePacket.IsLast())
+                {
+                    state = StateType.Transmitting;
+                    EchoPacket();
+                }
+                else
+                {
+                    echoQueue.Enqueue(framePacket);
+                }
+            }
+
             ResetPong();
         }
 
         public void OnFrameAck(IcomSerialFrameAck frameAckPacket)
         {
             ResetPong();
+            echoQueue.Dequeue();
+            EchoPacket();
         }
 
         public void OnHeader(IcomSerialHeader headerPacket)
         {
+            if (state == StateType.Receiving)
+            {
+                echoQueue = new Queue<IcomSerialPacket>();
+                echoQueue.Enqueue(headerPacket);
+            }
+
             ResetPong();
         }
 
         public void OnHeaderAck(IcomSerialHeaderAck headerAckPacket)
         {
             ResetPong();
+            echoQueue.Dequeue();
         }
 
         public void OnPong(IcomSerialPong pongPacket)
         {
             ResetPong();
+
+            if (state == StateType.Transmitting
+                && pongPacket.PongType == IcomSerialPong.PongPacketType.Ack)
+            {
+                EchoPacket();
+            }
         }
 
         public void OnIgnore()
