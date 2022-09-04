@@ -6,7 +6,7 @@
     {
         private BufferBlock<byte> block = new BufferBlock<byte>();
 
-        public void OnData(byte[] data)
+        public void OnReceived(byte[] data)
         {
             foreach (var b in data)
             {
@@ -14,7 +14,7 @@
             }
         }
 
-        public Task Run(CancellationToken cancellationToken)
+        public Task Start(CancellationToken cancellationToken)
         {
             return Task.Run(() =>
             {

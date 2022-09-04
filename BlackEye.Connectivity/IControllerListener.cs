@@ -13,5 +13,7 @@ namespace BlackEye.Connectivity
         public void OnFrame(IcomSerialFrame framePacket);
 
         public void OnFrameAck(IcomSerialFrameAck frameAckPacket);
+
+        public void OnIgnore();
     }
 }

@@ -18,6 +18,14 @@ namespace BlackEye.Connectivity.IcomSerial
             serialConnection.Send(cmd);
         }
 
+        public void SendReset()
+        {
+            for (int i = 0; i < 127; i++)
+            {
+                serialConnection.Send(new byte[2] { 255, 255 });
+            }
+        }
+
         public void SendPoll()
         {
             byte[] buffer = new byte[] { 0xff, 0xff, 0xff };

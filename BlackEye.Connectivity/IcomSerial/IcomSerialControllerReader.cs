@@ -7,26 +7,36 @@
     {
         private IControllerListener controllerListener;
 
+        public byte lastByte = 0x00;
+
+        public byte currentByte = 0x00;
+
         public IcomSerialControllerReader(IControllerListener controllerListener)
         {
             this.controllerListener = controllerListener ?? throw new ArgumentNullException(nameof(controllerListener));
         }
 
+        private byte ReceiveContext(BufferBlock<byte> block)
+        {
+            lastByte = currentByte;
+            currentByte = block.Receive();
+            return currentByte;
+        }
+
         public override void Receive(BufferBlock<byte> block)
         {
-            var b = block.Receive();
+            byte len = 0;
 
-            if (b == 0xFF)
+            while (!(lastByte == 0xff && currentByte != 0xff))
             {
-                return;
+                len = ReceiveContext(block);
             }
 
-            var len = block.Receive();
             var buffer = new byte[len];
 
             for (int i = 0; i < len; i++)
             {
-                buffer[i] = block.Receive();
+                buffer[i] = ReceiveContext(block);
             }
 
             var type = (IcomSerialPacket.PacketType)buffer[0];

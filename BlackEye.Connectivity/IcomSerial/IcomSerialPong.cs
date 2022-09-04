@@ -26,7 +26,7 @@
                 return false;
             }
 
-            if (!Enum.IsDefined(typeof(PongPacketType), buffer[1]))
+            if (!Enum.IsDefined(typeof(PongPacketType), (int)buffer[1]))
             {
                 return false;
             }
