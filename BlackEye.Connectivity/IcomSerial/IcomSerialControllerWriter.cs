@@ -54,7 +54,7 @@ namespace BlackEye.Connectivity.IcomSerial
             serialConnection.Send(buffer);
         }
 
-        public void SendFrame(UInt16 packetId, byte[] data)
+        public void SendFrame(short packetId, byte[] data)
         {
             if (data.Length != 12)
             {
