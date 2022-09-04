@@ -7,7 +7,7 @@ namespace BlackEye.Connectivity.IcomSerial
         public string To
         {   get
             {
-                return Encoding.UTF8.GetString(buffer[5..12]);
+                return Encoding.UTF8.GetString(buffer[4..12]);
             }
         }
 
@@ -15,7 +15,7 @@ namespace BlackEye.Connectivity.IcomSerial
         {
             get
             {
-                return Encoding.UTF8.GetString(buffer[13..20]);
+                return Encoding.UTF8.GetString(buffer[12..20]);
             }
         }
 
@@ -23,7 +23,7 @@ namespace BlackEye.Connectivity.IcomSerial
         {
             get
             {
-                return Encoding.UTF8.GetString(buffer[21..28]);
+                return Encoding.UTF8.GetString(buffer[20..28]);
             }
         }
 
@@ -31,7 +31,7 @@ namespace BlackEye.Connectivity.IcomSerial
         {
             get
             {
-                return Encoding.UTF8.GetString(buffer[29..36]);
+                return Encoding.UTF8.GetString(buffer[28..36]);
             }
         }
 
@@ -39,7 +39,7 @@ namespace BlackEye.Connectivity.IcomSerial
         {
             get
             {
-                return Encoding.UTF8.GetString(buffer[37..40]);
+                return Encoding.UTF8.GetString(buffer[36..40]);
             }
         }
 

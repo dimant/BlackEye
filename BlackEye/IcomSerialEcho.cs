@@ -23,7 +23,6 @@
         {
             pingTimer = new System.Timers.Timer(1000);
             pingTimer.Elapsed += Ping;
-            pingTimer.AutoReset = true;
             pingTimer.Enabled = true;
 
             writer.SendReset();
@@ -68,6 +67,7 @@
         private void ResetPong()
         {
             lastPong = DateTime.Now;
+            pingTimer.Stop();
             pingTimer.Start();
         }
 
