@@ -252,19 +252,22 @@ Length 14 bytes
 
 ## Keep Alive
 
-Sent periodically by the server to see if the client is still around.
+Sent periodically by the server to see if the client is still around. There are 2 versions of the ping packet, 1 with 9 bytes length and 1 with 22 bytes length. It's ok to ignore the 9 byte ping and only reply to the 22 byte ping.
 
 Example:
 
-    0020  xx xx xx xx xx xx xx xx xx xx 44 43 53 38 30 31   ..uc......DCS801
-    0030  20 20 00
+    0020                                44 43 53 38 30 31             DCS801
+    0030  20 41 20 41 49 36 56 57 20 20 44 44 0a 00 20 20    A AI6VW  DD..  
 
-Length 9 bytes
+Length 22 bytes
 
 | Bytes | Description |
 |-------|-------------|
-| 0..7  | ur call 'DCS801  '  |
-| 8     | 0x00 |
+| 0..7  | urcall 'DCS801 A'   |
+| 8     | ' '                 |
+| 9..16 | mycall 'AI6VW  D'   |
+| 17    | mymodule 'D'        |
+| 18..21| 0x0a 0x00 0x20 0x20 |
 
 The client then responds with a pong.
 
@@ -319,6 +322,87 @@ Length 14 bytes
 | 10..12 | 'N' 'A' 'K' |
 | 13     | 0x00        |
 
+
+## Ignore Packet
+
+Valid but ignore.
+
+Length 15 bytes
+
+| Bytes  | Description |
+|--------|-------------|
+| 0..15  | 0x00        |
+
+## Dv Packet
+
+In the DCS protocol, the dv header is sent with each packet. A packet will have: dvheader + dv voice or dv header + dv last frame.
+
+Example:
+
+    0020                                30 30 30 31 00 00             0001..
+    0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+    0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+    0050  20 49 44 35 32 39 30 0e 5f c2 8e 63 d7 13 a2 35    ID5290._..c...5
+    0060  9a 50 6f b3 23 00 00 01 00 21 44 6f 6f 7a 79 20   .Po.#....!Doozy 
+    0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+    0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+Length 100 bytes.
+
+| Bytes  | Description |
+|--------|-------------|
+| 0..3   | '0' '0' '0' '1'   |
+| 4..6   | 0x00              |
+| 7..14  | to     'DCS801 A' |
+| 15..22 | from   'AI6VW  D' |
+| 23..30 | urcall 'CQCQCQ  ' |
+| 31..38 | mycall 'AI6VW   ' |
+| 39..42 | suffix 'ID52'     |
+| 43..44 | session id        |
+| 45     | packet id         |
+| 46..57 | 12 bytes = 9 bytes voice + 3 bytes data |
+| 58..60 | 3 bytes dcs session counter least to most significant byte |
+| 61     | 0x01              |
+| 62     | 0x00              |
+| 63..99 | 38 bytes 0x00     |
+
+Alternatively, 63..69 may be used as 1 byte len, string with client info, pad with 0x00 (kind of) as in the example above.
+
+## Dv Last Packet
+
+The structure of the last packet is dictated by dstar. The DCS layer is unchanged.
+
+Example:
+
+    0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+    0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
+    0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
+    0050  20 49 44 35 32 39 30 40 55 55 55 55 c8 7a 00 00    ID5290@UUUU.z..
+    0060  00 00 00 00 40 00 00 01 00 21 44 6f 6f 7a 79 20   ....@....!Doozy 
+    0070  66 6f 72 20 57 69 6e 64 6f 77 73 20 20 20 00 00   for Windows   ..
+    0080  00 00 00 00 00 00 00 00 00 00 00 00 00 00         ..............
+
+| Bytes  | Description |
+|--------|-------------|
+| 0..3   | '0' '0' '0' '1'   |
+| 4..6   | 0x00              |
+| 7..14  | to     'DCS801 A' |
+| 15..22 | from   'AI6VW  D' |
+| 23..30 | urcall 'CQCQCQ  ' |
+| 31..38 | mycall 'AI6VW   ' |
+| 39..42 | suffix 'ID52'     |
+| 43..44 | session id        |
+| 45     | 0x40              |
+| 46..49 | 0x55              |
+| 50     | c8                |
+| 51     | 7a                |
+| 52..57 | 0x00              |
+| 58..60 | 0x40 0x00 0x00    |
+| 61     | 0x01              |
+| 62     | 0x00              |
+| 63..99 | 38 bytes 0x00     |
+
+
 # Terminal Mode Serial Protocol
 
 ## Ping
@@ -355,11 +439,11 @@ to rs-ms3w
 | 2      | 0x00 |
 | 3      | 0x00 |
 | 4      | 0x00 |
-| 5..12  | RPT ('DIRECT  ') |
-| 13..20 | RPT ('DIRECT  ') |
-| 21..28 | UR  ('CQCQCQ  ') |
-| 29..36 | MY  ('AI6VW   ') |
-| 37..40 | SUFFIX |
+| 5..12  | to   ('DIRECT  ') |
+| 13..20 | from ('DIRECT  ') |
+| 21..28 | ur  ('CQCQCQ  ')  |
+| 29..36 | my  ('AI6VW   ')  |
+| 37..40 | suffix |
 | 41     | 0x14 |
 | 42     | 0x00 |
 | 43     | 0xff |
@@ -415,10 +499,10 @@ from rs-ms3w
 | 2     | 0x01 |
 | 3     | 0x00 |
 | 4     | 0x00 |
-| 5..12 | mycall L (8 bytes) |
-| 13..20 | mycall G (8 bytes) |
-| 21..28 | mycall G (8 bytes) |
-| 29..36 | mycall G (8 bytes) |
+| 5..12  | to mycall L (8 bytes) |
+| 13..20 | from mycall G (8 bytes) |
+| 21..28 | ur mycall (8 bytes) |
+| 29..36 | my mycall G (8 bytes) |
 | 37..40 | suffix (4 bytes) |
 
 response:
@@ -461,7 +545,7 @@ response:
     0x04 0x23 0x00 0x00 0xff    presumably: ack packet 0x00 0x00
     0x04 0x23 0x00 0x01 0xff    presumably: ack packet 0x01 0x01
 
-## Dv Frame end of voice transmission
+## Dv Frame end of voice transmission to terminal
 
 from rs-ms3w
 ```
