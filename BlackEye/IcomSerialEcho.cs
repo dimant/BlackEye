@@ -23,7 +23,7 @@
 
         private StateType state = StateType.Receiving;
 
-        private Queue<IcomSerialPacket> outputQueue = new Queue<IcomSerialPacket>();
+        private Queue<IcomSerialPacket> transceiverQueue = new Queue<IcomSerialPacket>();
 
         public IcomSerialEcho(IcomSerialControllerWriter writer)
         {
@@ -47,7 +47,7 @@
 
         private void EchoHeader()
         {
-            var packet = outputQueue.Peek();
+            var packet = transceiverQueue.Peek();
             if (packet is IcomSerialHeader)
             {
                 writer.SendHeader("AI6VW  L", "AI6VW  G", "AI6VW   ", "AI6VW  L", "    ");
@@ -56,13 +56,13 @@
 
         private void EchoFrame()
         {
-            var packet = outputQueue.Peek();
+            var packet = transceiverQueue.Peek();
             if (packet is IcomSerialFrame)
             {
                 var frame = (IcomSerialFrame)packet;
                 if (frame.IsLast())
                 {
-                    outputQueue.Dequeue();
+                    transceiverQueue.Dequeue();
                     writer.SendFrameEot();
                     state = StateType.Receiving;
                 }
@@ -79,7 +79,7 @@
 
             if (state == StateType.Receiving)
             {
-                outputQueue.Enqueue(framePacket);
+                transceiverQueue.Enqueue(framePacket);
 
                 if (framePacket.IsLast())
                 {
@@ -98,7 +98,7 @@
             {
                 if (frameAckPacket.Ack)
                 {
-                    outputQueue.Dequeue();
+                    transceiverQueue.Dequeue();
                     Thread.Sleep(12);
                     EchoFrame();
                 }
@@ -111,8 +111,8 @@
 
             if (state == StateType.Receiving)
             {
-                outputQueue = new Queue<IcomSerialPacket>();
-                outputQueue.Enqueue(headerPacket);
+                transceiverQueue = new Queue<IcomSerialPacket>();
+                transceiverQueue.Enqueue(headerPacket);
             }
         }
 
@@ -122,7 +122,7 @@
 
             if (state == StateType.TransmittingHeader)
             {
-                outputQueue.Dequeue();
+                transceiverQueue.Dequeue();
             }
             else
             {
