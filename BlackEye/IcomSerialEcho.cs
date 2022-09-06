@@ -9,7 +9,8 @@
         private enum StateType
         {
             Receiving,
-            Transmitting
+            TransmittingHeader,
+            TransmittingFrames
         };
 
         private DateTime lastPong = DateTime.Now;
@@ -22,7 +23,7 @@
 
         private StateType state = StateType.Receiving;
 
-        private Queue<IcomSerialPacket> echoQueue = new Queue<IcomSerialPacket>();
+        private Queue<IcomSerialPacket> outputQueue = new Queue<IcomSerialPacket>();
 
         public IcomSerialEcho(IcomSerialControllerWriter writer)
         {
@@ -44,33 +45,30 @@
             });
         }
 
-        private void EchoPacket()
+        private void EchoHeader()
         {
-            if (echoQueue.Count == 0)
+            var packet = outputQueue.Peek();
+            if (packet is IcomSerialHeader)
             {
-                state = StateType.Receiving;
-                return;
+                writer.SendHeader("AI6VW  L", "AI6VW  G", "AI6VW   ", "AI6VW  L", "    ");
             }
-            else
+        }
+
+        private void EchoFrame()
+        {
+            var packet = outputQueue.Peek();
+            if (packet is IcomSerialFrame)
             {
-                var packet = echoQueue.Peek();
-                Thread.Sleep(12);
-                if (packet is IcomSerialHeader)
+                var frame = (IcomSerialFrame)packet;
+                if (frame.IsLast())
                 {
-                    var header = (IcomSerialHeader)packet;
-                    writer.SendHeader("AI6VW  L", "AI6VW  G", "AI6VW   ", "AI6VW  G", header.Suffix);
+                    outputQueue.Dequeue();
+                    writer.SendFrameEot();
+                    state = StateType.Receiving;
                 }
-                else if (packet is IcomSerialFrame)
+                else
                 {
-                    var frame = (IcomSerialFrame)packet;
-                    if (frame.IsLast())
-                    {
-                        writer.SendFrameEot();
-                    }
-                    else
-                    {
-                        writer.SendFrame(frame.PacketId, frame.AmbeAndData);
-                    }
+                    writer.SendFrame(frame.PacketId, frame.AmbeAndData);
                 }
             }
         }
@@ -81,13 +79,13 @@
 
             if (state == StateType.Receiving)
             {
-                echoQueue.Enqueue(framePacket);
+                outputQueue.Enqueue(framePacket);
 
                 if (framePacket.IsLast())
                 {
-                    state = StateType.Transmitting;
+                    state = StateType.TransmittingHeader;
                     Thread.Sleep(1000);
-                    EchoPacket();
+                    EchoHeader();
                 }
             }
         }
@@ -96,31 +94,40 @@
         {
             ResetPong();
 
-            if(state == StateType.Transmitting)
+            if(state == StateType.TransmittingFrames)
             {
-                echoQueue.Dequeue();
-                EchoPacket();
+                if (frameAckPacket.Ack)
+                {
+                    outputQueue.Dequeue();
+                    Thread.Sleep(12);
+                    EchoFrame();
+                }
             }
         }
 
         public void OnHeader(IcomSerialHeader headerPacket)
         {
+            ResetPong();
+
             if (state == StateType.Receiving)
             {
-                echoQueue = new Queue<IcomSerialPacket>();
-                echoQueue.Enqueue(headerPacket);
+                outputQueue = new Queue<IcomSerialPacket>();
+                outputQueue.Enqueue(headerPacket);
             }
-
-            ResetPong();
         }
 
         public void OnHeaderAck(IcomSerialHeaderAck headerAckPacket)
         {
             ResetPong();
 
-            if (state == StateType.Transmitting)
+            if (state == StateType.TransmittingHeader)
             {
-                echoQueue.Dequeue();
+                outputQueue.Dequeue();
+            }
+            else
+            {
+                Thread.Sleep(50);
+                EchoHeader();
             }
         }
 
@@ -128,10 +135,11 @@
         {
             ResetPong();
 
-            if (state == StateType.Transmitting
+            if (state == StateType.TransmittingHeader
                 && pongPacket.PongType == IcomSerialPong.PongPacketType.Ack)
             {
-                EchoPacket();
+                state = StateType.TransmittingFrames;
+                EchoFrame();
             }
         }
 

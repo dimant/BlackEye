@@ -1,10 +1,10 @@
 ﻿namespace BlackEye.Connectivity.IcomSerial
 {
-    public class IcomSerialFrameAck : IcomSerialPacket
+    public class IcomSerialFrameAck : IcomSerialPacket, IIcomSerialAck
     {
-        public byte PacketIdHigh { get { return buffer[1]; } }
+        public byte PacketId { get { return buffer[1]; } }
 
-        public byte PacketIdLow { get { return buffer[2]; } }
+        public bool Ack { get { return buffer[2] == 0x00; } }
 
         public bool IsEotAck()
         {

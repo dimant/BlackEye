@@ -113,8 +113,8 @@ Example:
 | 17    | 0x00 |
 | 18    | 0x00 |
 | 19    | 0x00 |
-| 20..27 | 'REF030 C' to     |
-| 28..35 | 'AI6VW  D' from   |
+| 20..27 | 'REF030 C' Rpt2     |
+| 28..35 | 'AI6VW  D' Rpt1   |
 | 36..43 | 'CQCQCQ  ' ur call|
 | 44..51 | 'AI6VW   ' my call|
 | 52..55 | 'ID52'     suffix |
@@ -353,8 +353,8 @@ Length 100 bytes.
 |--------|-------------|
 | 0..3   | '0' '0' '0' '1'   |
 | 4..6   | 0x00              |
-| 7..14  | to     'DCS801 A' |
-| 15..22 | from   'AI6VW  D' |
+| 7..14  | Rpt2   'DCS801 A' |
+| 15..22 | Rpt1   'AI6VW  D' |
 | 23..30 | urcall 'CQCQCQ  ' |
 | 31..38 | mycall 'AI6VW   ' |
 | 39..42 | suffix 'ID52'     |
@@ -386,8 +386,8 @@ Example:
 |--------|-------------|
 | 0..3   | '0' '0' '0' '1'   |
 | 4..6   | 0x00              |
-| 7..14  | to     'DCS801 A' |
-| 15..22 | from   'AI6VW  D' |
+| 7..14  | Rpt2   'DCS801 A' |
+| 15..22 | Rpt1   'AI6VW  D' |
 | 23..30 | urcall 'CQCQCQ  ' |
 | 31..38 | mycall 'AI6VW   ' |
 | 39..42 | suffix 'ID52'     |
@@ -439,8 +439,8 @@ to rs-ms3w
 | 2      | 0x00 |
 | 3      | 0x00 |
 | 4      | 0x00 |
-| 5..12  | to   ('DIRECT  ') |
-| 13..20 | from ('DIRECT  ') |
+| 5..12  | Rpt1   ('DIRECT  ') |
+| 13..20 | Rpt2 ('DIRECT  ') |
 | 21..28 | ur  ('CQCQCQ  ')  |
 | 29..36 | my  ('AI6VW   ')  |
 | 37..40 | suffix |
@@ -499,8 +499,8 @@ from rs-ms3w
 | 2     | 0x01 |
 | 3     | 0x00 |
 | 4     | 0x00 |
-| 5..12  | to mycall L (8 bytes) |
-| 13..20 | from mycall G (8 bytes) |
+| 5..12  | Rpt1 mycall L (8 bytes) |
+| 13..20 | Rpt2 mycall G (8 bytes) |
 | 21..28 | ur mycall (8 bytes) |
 | 29..36 | my mycall G (8 bytes) |
 | 37..40 | suffix (4 bytes) |

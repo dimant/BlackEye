@@ -1,0 +1,118 @@
+# Frame
+
+Byte 14: 0000 0000
+Top 3 bits are significant (bitmask 0xE0).
+Bitmask 0x40 (0100 0000) puts the main loop in "sendactive" mode.
+
+The bottom 5 bits are the sequence number within the current packet burst.
+Bitmask 0x1F (0001 1111). However the actual range of sequence numbers is 0..20
+
+Bytes:
+    0       Len (16 bytes)
+    1       0x22 type frames
+    2       sequence id
+    3       packet id (number in the output send buffer)
+    4..12   Ambe
+    13..15  Data
+    16      0xff
+
+There are 5 types of frame:
+
+    1. Ambe and Data as received from network
+
+    2. empty voice: { 158, 141, 50, 136, 38, 26, 63, 97, 232 }
+        a. data sync: { 85, 45, 22 }
+        b. empty data: { 151, 203, 229 }
+    
+    3. empty voice, and data 85 85 85 (indicating last frame)
+
+    4. last frame without voice: { 85, 200, 122, 85, 85, 85, 85, 85, 85, 85, 85, 85 }
+
+    5. empty voice, empty data (unknown): { 22, 41, 245 }
+
+The first packet sent after the header is 1.a. (empty voice, data sync).
+
+# Pong
+0x03 0x03 0x00 0xff
+
+Byte 3: 0x01 indicates we are a-go to send frames to the transceiver
+
+
+# Algorithm
+
+send receive states:
+
+8
+64
+128
+256
+
+## Sending
+
+Main loop:
+    1. send the Header
+
+    2. wait for 0x03 0x03 0x01 0xff
+        if we don't get a-go within 100ms, we give up
+        we sleep 10ms in each iteration of the wait loop
+
+    3. sleep 50ms
+
+    4. take 10 packets off the network input buffer and put them in the serial output buffer
+
+    5. set number = 0, sequence = 0
+
+    6. if the packet[number] has been read, set its buffer to empty
+
+    7. set packet[number] sequence to 0
+
+    8. send packet[number] to transceiver
+
+    9. if the packet[number] is last, send EOT packet
+
+    10. wait and if any of the conditions occur, send EOT:
+        - last packet was sent longer than 5 seconds ago
+        - we got 0x03 0x03 0x00 0xff
+        - we lost connectivity to network, udp
+        - user stopped session
+        sleep 10ms
+
+    11. sleep 10ms
+
+Received Ack Frame:
+    1. take a packet off the network input buffer and put it in the serial output buffer
+
+    3 cases:
+        1. we got an ack for the current sequence id
+            increase sequence id by 1 (wrap around 255)
+            increase number by 1 (wrap around 20)
+
+            if the packet at the current number has been read already,
+                emptysend++
+                set to empty frame type 2.b. (empty voice, empty data) 
+            else
+                emptysend = 0
+
+            if there have been more than 100 empty packets in a row
+                set to empty frame type 3. (empty voice, data { 85, 85, 85})
+                lastsend = true
+
+            if this is the last package 
+                send EOT
+
+            send packet to transceiver
+
+        2. we got an ack for some other sequence id
+            same as 1. but change sendrecv state
+
+        3. we got an ack for some other sequence id and lastsend == true
+            increase sequence id by 1 (wrap around 255)
+            increase number by 1 (wrap around 20)
+
+            mark package as last
+
+            set to empty frame 4.
+
+            send packet to transceiver
+
+            send EOT

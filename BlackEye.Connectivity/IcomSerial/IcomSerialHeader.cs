@@ -4,14 +4,14 @@ namespace BlackEye.Connectivity.IcomSerial
 {
     public class IcomSerialHeader : IcomSerialPacket
     {
-        public string To
+        public string Rpt1
         {   get
             {
                 return Encoding.UTF8.GetString(buffer[4..12]);
             }
         }
 
-        public string From
+        public string Rpt2
         {
             get
             {

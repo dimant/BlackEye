@@ -35,15 +35,15 @@ namespace BlackEye.Connectivity.IcomSerial
 
         public void SendHeader(string to, string from, string urcall, string mycall, string suffix)
         {
-            var toBytes = Encoding.UTF8.GetBytes(to);
             var fromBytes = Encoding.UTF8.GetBytes(from);
+            var toBytes = Encoding.UTF8.GetBytes(to);
             var urcallBytes = Encoding.UTF8.GetBytes(urcall);
             var mycallBytes = Encoding.UTF8.GetBytes(mycall);
             var suffixBytes = Encoding.UTF8.GetBytes(suffix);
 
             var dstarHeader = new byte[36];
-            toBytes.CopyTo(dstarHeader, 0);
-            fromBytes.CopyTo(dstarHeader, 8);
+            fromBytes.CopyTo(dstarHeader, 0);
+            toBytes.CopyTo(dstarHeader, 8);
             urcallBytes.CopyTo(dstarHeader, 16);
             mycallBytes.CopyTo(dstarHeader, 24);
             suffixBytes.CopyTo(dstarHeader, 32);
