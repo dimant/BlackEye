@@ -30,6 +30,14 @@
 
             switch (type)
             {
+                case 0x00:
+                    var connectAck = new byte[] { 0x05, 0x00, 0x18, 0x00, 0x01 };
+
+                    if (connectAck.SequenceEqual(buffer))
+                    {
+                        dPlusListener.OnConnectAck();
+                    }
+                    break;
                 case 0xC0:
                     if (buffer[2] == 0x04)
                     {
@@ -39,20 +47,22 @@
                     }
                     else if (buffer[2] == 0x0b)
                     {
-                        // ack disconnect
-                        var tag = new byte[] { 0x0A, 0xC0, 0x0B, 0x00, 0x7D, 0x37, 0x3E, 0x00, 0x00, 0x00 };
+                        // ack eot
+                        var eotAck = new byte[] { 0x0A, 0xC0, 0x0B, 0x00 };
 
-                        var ack = buffer.SequenceEqual(tag);
-
-                        dPlusListener.OnDisconnectAck();
+                        if (buffer[0..4].SequenceEqual(eotAck))
+                        {
+                            dPlusListener.OnEotAck();
+                        }
                     }
                     break;
                 case 0x60:
                     var pong = new byte[] { 0x03, 0x060, 0x00 };
 
-                    var valid = buffer.SequenceEqual(pong);
-
-                    dPlusListener.OnPong();
+                    if (buffer.SequenceEqual(pong))
+                    {
+                        dPlusListener.OnPong();
+                    }
                     break;
                 case 0x80:
                     if (buffer[6] == 0x10)

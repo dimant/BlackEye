@@ -26,13 +26,6 @@ namespace BlackEye.Connectivity.IcomSerial
             }
         }
 
-        public void SendPoll()
-        {
-            byte[] buffer = new byte[] { 0xff, 0xff, 0xff };
-
-            serialConnection.Send(buffer);
-        }
-
         public void SendHeader(string to, string from, string urcall, string mycall, string suffix)
         {
             var fromBytes = Encoding.UTF8.GetBytes(from);

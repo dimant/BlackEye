@@ -1,6 +1,6 @@
 ﻿namespace BlackEye.Connectivity.IcomSerial
 {
-    public interface IControllerListener
+    public interface ISerialListener
     {
         public void OnPong(IcomSerialPong pongPacket);
 
