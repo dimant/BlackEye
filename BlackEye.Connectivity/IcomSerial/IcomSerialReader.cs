@@ -3,15 +3,15 @@
     using System;
     using System.Threading.Tasks.Dataflow;
 
-    public class IcomSerialControllerReader : BlockDataReceiver
+    public class IcomSerialReader : BlockDataReceiver
     {
-        private IControllerListener controllerListener;
+        private ISerialListener controllerListener;
 
         public byte lastByte = 0x00;
 
         public byte currentByte = 0x00;
 
-        public IcomSerialControllerReader(IControllerListener controllerListener)
+        public IcomSerialReader(ISerialListener controllerListener)
         {
             this.controllerListener = controllerListener ?? throw new ArgumentNullException(nameof(controllerListener));
         }

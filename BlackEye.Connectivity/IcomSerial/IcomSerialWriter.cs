@@ -2,11 +2,11 @@
 
 namespace BlackEye.Connectivity.IcomSerial
 {
-    public class IcomSerialControllerWriter
+    public class IcomSerialWriter
     {
         private IConnection serialConnection;
 
-        public IcomSerialControllerWriter(IConnection serialConnection)
+        public IcomSerialWriter(IConnection serialConnection)
         {
             this.serialConnection = serialConnection ?? throw new ArgumentNullException(nameof(serialConnection));
         }

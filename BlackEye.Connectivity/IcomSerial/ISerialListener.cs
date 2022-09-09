@@ -1,6 +1,4 @@
-﻿using BlackEye.Connectivity.IcomSerial;
-
-namespace BlackEye.Connectivity
+﻿namespace BlackEye.Connectivity.IcomSerial
 {
     public interface IControllerListener
     {

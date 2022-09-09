@@ -4,7 +4,7 @@
     using BlackEye.Connectivity.IcomSerial;
     using System.Timers;
 
-    public class IcomSerialEcho : IControllerListener
+    public class IcomSerialEcho : ISerialListener
     {
         private enum StateType
         {
@@ -19,13 +19,13 @@
 
         private Timer pingTimer = new Timer();
 
-        private IcomSerialControllerWriter writer;
+        private IcomSerialWriter writer;
 
         private StateType state = StateType.Receiving;
 
         private Queue<IcomSerialPacket> transceiverQueue = new Queue<IcomSerialPacket>();
 
-        public IcomSerialEcho(IcomSerialControllerWriter writer)
+        public IcomSerialEcho(IcomSerialWriter writer)
         {
             this.writer = writer ?? throw new ArgumentNullException(nameof(writer));
         }

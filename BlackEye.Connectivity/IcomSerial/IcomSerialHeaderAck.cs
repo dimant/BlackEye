@@ -1,6 +1,6 @@
 ﻿namespace BlackEye.Connectivity.IcomSerial
 {
-    public class IcomSerialHeaderAck : IcomSerialPacket, IIcomSerialAck
+    public class IcomSerialHeaderAck : IcomSerialPacket
     {
         public bool Ack { get { return buffer[1] == 0x00; } }
 

@@ -252,7 +252,7 @@ Length 14 bytes
 
 ## Keep Alive
 
-Sent periodically by the server to see if the client is still around. There are 2 versions of the ping packet, 1 with 9 bytes length and 1 with 22 bytes length. It's ok to ignore the 9 byte ping and only reply to the 22 byte ping.
+Sent periodically by the client to see if the server is still around. There are 2 versions of the ping packet, 1 with 9 bytes length and 1 with 22 bytes length. It's ok to ignore the 9 byte ping and only reply to the 22 byte ping.
 
 Example:
 
@@ -269,7 +269,7 @@ Length 22 bytes
 | 17    | mymodule 'D'        |
 | 18..21| 0x0a 0x00 0x20 0x20 |
 
-The client then responds with a pong.
+The server then responds with a pong.
 
 Example:
 
@@ -374,7 +374,7 @@ The structure of the last packet is dictated by dstar. The DCS layer is unchange
 
 Example:
 
-    0020  47 11 d6 b9 75 63 00 6c dd 77 30 30 30 31 00 00   G...uc.l.w0001..
+    0020                                30 30 30 31 00 00             0001..
     0030  00 44 43 53 38 30 31 20 41 41 49 36 56 57 20 20   .DCS801 AAI6VW  
     0040  44 43 51 43 51 43 51 20 20 41 49 36 56 57 20 20   DCQCQCQ  AI6VW  
     0050  20 49 44 35 32 39 30 40 55 55 55 55 c8 7a 00 00    ID5290@UUUU.z..

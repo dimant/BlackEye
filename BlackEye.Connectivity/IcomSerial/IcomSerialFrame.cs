@@ -1,6 +1,6 @@
 ﻿namespace BlackEye.Connectivity.IcomSerial
 {
-    public class IcomSerialFrame : IcomSerialPacket
+    public class IcomSerialFrame : IcomSerialPacket, IDStarFrame
     {
         public int PacketIdHigh { get { return buffer[1]; } }
 

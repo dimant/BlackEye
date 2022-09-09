@@ -10,9 +10,9 @@ namespace BlackEye
             var cancellationTokenSource = new CancellationTokenSource();
             var cancellationToken = cancellationTokenSource.Token;
             var serialConnection = new SerialConnection("COM4", cancellationTokenSource);
-            var icomWriter = new IcomSerialControllerWriter(serialConnection);
+            var icomWriter = new IcomSerialWriter(serialConnection);
             var echo = new IcomSerialEcho(icomWriter);
-            var icomReader = new IcomSerialControllerReader(echo);
+            var icomReader = new IcomSerialReader(echo);
 
             serialConnection.ReceivedCallback = icomReader.OnReceived;
             icomReader.Start(cancellationToken);

@@ -20,8 +20,6 @@
 
         public PacketType Type { get { return (PacketType)buffer[1]; } }
 
-        public byte[] Buffer { set { buffer = value; } }
-
         public IcomSerialPacket(byte[] buffer)
         {
             this.buffer = buffer ?? throw new ArgumentNullException(nameof(buffer));

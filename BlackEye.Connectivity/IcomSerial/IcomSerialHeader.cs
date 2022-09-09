@@ -2,10 +2,11 @@
 
 namespace BlackEye.Connectivity.IcomSerial
 {
-    public class IcomSerialHeader : IcomSerialPacket
+    public class IcomSerialHeader : IcomSerialPacket, IDStarHeader
     {
         public string Rpt1
-        {   get
+        {
+            get
             {
                 return Encoding.UTF8.GetString(buffer[4..12]);
             }
@@ -49,7 +50,7 @@ namespace BlackEye.Connectivity.IcomSerial
 
         public override bool IsValid()
         {
-            if(!base.IsValid())
+            if (!base.IsValid())
             {
                 return false;
             }

@@ -1,6 +1,6 @@
 ﻿namespace BlackEye.Connectivity.IcomSerial
 {
-    public class IcomSerialFrameAck : IcomSerialPacket, IIcomSerialAck
+    public class IcomSerialFrameAck : IcomSerialPacket
     {
         public byte PacketId { get { return buffer[1]; } }
 
