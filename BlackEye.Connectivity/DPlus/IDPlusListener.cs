@@ -1,6 +1,6 @@
 ﻿namespace BlackEye.Connectivity.DPlus
 {
-    internal interface IDPlusListener
+    public interface IDPlusListener
     {
         public void OnLoginAck(DPlusLoginAckPacket dPlusLoginAckPacket);
 

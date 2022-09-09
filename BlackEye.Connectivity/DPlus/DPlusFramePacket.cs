@@ -1,6 +1,6 @@
 ﻿namespace BlackEye.Connectivity.DPlus
 {
-    internal class DPlusFramePacket : DPlusPacket, IDStarFrame
+    public class DPlusFramePacket : DPlusPacket, IDStarFrame
     {
         public byte[] Ambe => buffer[16..25];
 

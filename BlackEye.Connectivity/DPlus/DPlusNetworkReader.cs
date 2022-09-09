@@ -1,6 +1,6 @@
 ﻿namespace BlackEye.Connectivity.DPlus
 {
-    internal class DPlusNetworkReader
+    public class DPlusNetworkReader
     {
         private IDPlusListener dPlusListener;
 

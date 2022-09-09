@@ -2,7 +2,7 @@
 {
     using System.Text;
 
-    internal class DPlusHeaderPacket : DPlusPacket, IDStarHeader
+    public class DPlusHeaderPacket : DPlusPacket, IDStarHeader
     {
         public string Rpt2 => Encoding.UTF8.GetString(buffer[20..28]);
 
