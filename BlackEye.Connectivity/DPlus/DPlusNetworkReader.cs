@@ -47,7 +47,6 @@
                     }
                     else if (buffer[2] == 0x0b)
                     {
-                        // ack eot
                         var eotAck = new byte[] { 0x0A, 0xC0, 0x0B, 0x00 };
 
                         if (buffer[0..4].SequenceEqual(eotAck))

@@ -1,38 +1,31 @@
-﻿using System.Text;
-
-namespace BlackEye.Connectivity.DPlus
+﻿namespace BlackEye.Connectivity.DPlus
 {
+    using System.Text;
+
     public class DPlusNetworkWriter
     {
-        private IConnection udpConnection;
-
-        public DPlusNetworkWriter(IConnection udpConnection)
-        {
-            this.udpConnection = udpConnection ?? throw new ArgumentNullException(nameof(udpConnection));
-        }
-
-        public void SendPing()
+        public byte[] WritePing()
         {
             var buffer = new byte[] { 0x03, 0x60, 0x00 };
 
-            udpConnection.Send(buffer);
+            return buffer;
         }
 
-        public void SendConnect()
+        public byte[] WriteConnect()
         {
             var buffer = new byte[] { 0x05, 0x00, 0x18, 0x00, 0x01 };
 
-            udpConnection.Send(buffer);
+            return buffer;
         }
 
-        public void SendDisconnect()
+        public byte[] WriteDisconnect()
         {
             var buffer = new byte[] { 0x05, 0x00, 0x18, 0x00, 0x00 };
 
-            udpConnection.Send(buffer);
+            return buffer;
         }
 
-        public void SendLogin(string mycall)
+        public byte[] WriteLogin(string mycall)
         {
             var buffer = new byte[] {
                 0x1C, 0xC0, 0x04, 0x00,
@@ -45,10 +38,10 @@ namespace BlackEye.Connectivity.DPlus
 
             mycallBytes.CopyTo(buffer, 4);
 
-            udpConnection.Send(buffer);
+            return buffer;
         }
 
-        public void SendHeader(string rpt1, string rpt2, string urcall, string mycall, string suffix, short sessionid)
+        public byte[] WriteHeader(string rpt1, string rpt2, string urcall, string mycall, string suffix, short sessionid)
         {
             var rpt1Bytes = Encoding.UTF8.GetBytes(rpt1);
             var rpt2Bytes = Encoding.UTF8.GetBytes(rpt2);
@@ -66,10 +59,10 @@ namespace BlackEye.Connectivity.DPlus
             mycallBytes.CopyTo(dstarHeader, 24);
             suffixBytes.CopyTo(dstarHeader, 32);
 
-            SendHeader(dstarHeader, sessionIdHigh, sessionIdLow);
+            return WriteHeader(dstarHeader, sessionIdHigh, sessionIdLow);
         }
 
-        public void SendHeader(byte[] dstarHeader, byte sessionIdHigh, byte sessionIdLow)
+        public byte[] WriteHeader(byte[] dstarHeader, byte sessionIdHigh, byte sessionIdLow)
         {
             var buffer = new byte[58]
             {
@@ -87,10 +80,10 @@ namespace BlackEye.Connectivity.DPlus
 
             dstarHeader.CopyTo(dstarHeader, 20);
 
-            udpConnection.Send(buffer);
+            return buffer;
         }
 
-        public void SendFrame(byte[] ambe, byte[] data, short sessionid, byte packetid)
+        public byte[] WriteFrame(byte[] ambe, byte[] data, short sessionid, byte packetid)
         {
             byte sessionIdHigh = (byte)(sessionid >> 8);
             byte sessionIdLow = (byte)(sessionid & 0xFF);
@@ -99,10 +92,10 @@ namespace BlackEye.Connectivity.DPlus
             ambe.CopyTo(ambeAndData, 0);
             data.CopyTo(ambeAndData, 9);
 
-            SendFrame(ambeAndData, sessionIdHigh, sessionIdLow, packetid);
+            return WriteFrame(ambeAndData, sessionIdHigh, sessionIdLow, packetid);
         }
 
-        public void SendFrame(byte[] ambeAndData, byte sessionIdHigh, byte sessionIdLow, byte packetid)
+        public byte[] WriteFrame(byte[] ambeAndData, byte sessionIdHigh, byte sessionIdLow, byte packetid)
         {
             var buffer = new byte[29]
             {
@@ -114,10 +107,10 @@ namespace BlackEye.Connectivity.DPlus
 
             ambeAndData.CopyTo(buffer, 17);
 
-            udpConnection.Send(buffer);
+            return buffer;
         }
 
-        public void SendFrameEot(short sessionid, byte packetid)
+        public byte[] WriteFrameEot(short sessionid, byte packetid)
         {
             byte sessionIdHigh = (byte)(sessionid >> 8);
             byte sessionIdLow = (byte)(sessionid & 0xFF);
@@ -131,7 +124,7 @@ namespace BlackEye.Connectivity.DPlus
                 0x55, 0xC8, 0x7A
             };
 
-            udpConnection.Send(buffer);
+            return buffer;
         }
     }
 }

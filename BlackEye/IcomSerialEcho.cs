@@ -21,13 +21,16 @@
 
         private IcomSerialWriter writer;
 
+        private IConnection serialConnection;
+
         private StateType state = StateType.Receiving;
 
         private Queue<IcomSerialPacket> transceiverQueue = new Queue<IcomSerialPacket>();
 
-        public IcomSerialEcho(IcomSerialWriter writer)
+        public IcomSerialEcho(IcomSerialWriter writer, IConnection serialConnection)
         {
             this.writer = writer ?? throw new ArgumentNullException(nameof(writer));
+            this.serialConnection = serialConnection;
         }
 
         public Task Start()
@@ -36,8 +39,15 @@
             pingTimer.Elapsed += Ping;
             pingTimer.Enabled = true;
 
-            writer.SendReset();
-            writer.SendPing();
+            var resetBytes = writer.WriteReset();
+
+            for (int i = 0; i < 5; i++)
+            {
+                serialConnection.Send(resetBytes);
+            }
+
+            var pingBytes = writer.WritePing();
+            serialConnection.Send(pingBytes);
 
             return Task.Run(() =>
             {
@@ -50,7 +60,8 @@
             var packet = transceiverQueue.Peek();
             if (packet is IcomSerialHeader)
             {
-                writer.SendHeader("AI6VW  L", "AI6VW  G", "AI6VW   ", "AI6VW  L", "    ");
+                var headerBytes = writer.WriteHeader("AI6VW  L", "AI6VW  G", "AI6VW   ", "AI6VW  L", "    ");
+                serialConnection.Send(headerBytes);
             }
         }
 
@@ -63,12 +74,14 @@
                 if (frame.IsLast())
                 {
                     transceiverQueue.Dequeue();
-                    writer.SendFrameEot();
+                    var eotBytes = writer.WriteFrameEot();
+                    serialConnection.Send(eotBytes);
                     state = StateType.Receiving;
                 }
                 else
                 {
-                    writer.SendFrame(frame.PacketId, frame.AmbeAndData);
+                    var frameBytes = writer.WriteFrame(frame.PacketId, frame.AmbeAndData);
+                    serialConnection.Send(frameBytes);
                 }
             }
         }
@@ -160,11 +173,13 @@
             var delta = DateTime.Now - lastPong;
             if (delta > maxPongWait)
             {
-                writer.SendReset();
+                var resetBytes = writer.WriteReset();
+                serialConnection.Send(resetBytes);
             }
             else
             {
-                writer.SendPing();
+                var pingBytes = writer.WritePing();
+                serialConnection.Send(pingBytes);
             }
         }
     }

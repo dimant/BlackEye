@@ -4,29 +4,21 @@ namespace BlackEye.Connectivity.IcomSerial
 {
     public class IcomSerialWriter
     {
-        private IConnection serialConnection;
-
-        public IcomSerialWriter(IConnection serialConnection)
+        public byte[] WritePing()
         {
-            this.serialConnection = serialConnection ?? throw new ArgumentNullException(nameof(serialConnection));
+            byte[] buffer = new byte[] { 0x02, 0x02, 0xff };
+
+            return buffer;
         }
 
-        public void SendPing()
+        public byte[] WriteReset()
         {
-            byte[] cmd = new byte[] { 0x02, 0x02, 0xff };
+            var buffer = new byte[3] { 0xff, 0xff, 0xff };
 
-            serialConnection.Send(cmd);
+            return buffer;
         }
 
-        public void SendReset()
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                serialConnection.Send(new byte[3] { 0xff, 0xff, 0xff });
-            }
-        }
-
-        public void SendHeader(string to, string from, string urcall, string mycall, string suffix)
+        public byte[] WriteHeader(string to, string from, string urcall, string mycall, string suffix)
         {
             var fromBytes = Encoding.UTF8.GetBytes(from);
             var toBytes = Encoding.UTF8.GetBytes(to);
@@ -41,10 +33,10 @@ namespace BlackEye.Connectivity.IcomSerial
             mycallBytes.CopyTo(dstarHeader, 24);
             suffixBytes.CopyTo(dstarHeader, 32);
 
-            this.SendHeader(dstarHeader);
+            return WriteHeader(dstarHeader);
         }
 
-        public void SendHeader(byte[] dstarHeader)
+        public byte[] WriteHeader(byte[] dstarHeader)
         {
             var tag = new byte[] { 0x29, 0x20, 0x01, 0x00, 0x00 };
             var buffer = new byte[42];
@@ -52,10 +44,10 @@ namespace BlackEye.Connectivity.IcomSerial
             dstarHeader.CopyTo(buffer, 5);
             buffer[41] = 0xff;
 
-            serialConnection.Send(buffer);
+            return buffer;
         }
 
-        public void SendFrame(ushort packetId, byte[] data)
+        public byte[] WriteFrame(ushort packetId, byte[] data)
         {
             if (data.Length != 12)
             {
@@ -70,10 +62,10 @@ namespace BlackEye.Connectivity.IcomSerial
             data.CopyTo(buffer, 4);
             buffer[16] = 0xff;
 
-            serialConnection.Send(buffer);
+            return buffer;
         }
 
-        public void SendFrameEot()
+        public byte[] WriteFrameEot()
         {
             byte[] buffer = new byte[17] {
                 0x10, 0x22, 0x08, 0x48, 0x55, 0xc8, 0x7a, 0x55,
@@ -81,7 +73,7 @@ namespace BlackEye.Connectivity.IcomSerial
                 0xff
             };
 
-            serialConnection.Send(buffer);
+            return buffer;
         }
     }
 }
