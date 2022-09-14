@@ -95,6 +95,14 @@
             return WriteFrame(ambeAndData, sessionIdHigh, sessionIdLow, packetid);
         }
 
+        public byte[] WriteFrame(byte[] ambeAndData, short sessionid, byte packetid)
+        {
+            byte sessionIdHigh = (byte)(sessionid >> 8);
+            byte sessionIdLow = (byte)(sessionid & 0xFF);
+
+            return WriteFrame(ambeAndData, sessionIdHigh, sessionIdLow, packetid);
+        }
+
         public byte[] WriteFrame(byte[] ambeAndData, byte sessionIdHigh, byte sessionIdLow, byte packetid)
         {
             var buffer = new byte[29]

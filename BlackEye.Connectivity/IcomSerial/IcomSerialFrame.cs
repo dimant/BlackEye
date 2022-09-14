@@ -2,20 +2,11 @@
 {
     public class IcomSerialFrame : IcomSerialPacket, IDStarFrame
     {
-        public int PacketIdHigh { get { return buffer[1]; } }
+        public int SequenceId { get { return buffer[1]; } }
 
-        public int PacketIdLow { get { return buffer[2]; } }
+        public int Number { get { return buffer[2] & 0x1F; } }
 
-        public ushort PacketId
-        {
-            get
-            {
-                int result = 0x00;
-                result |= PacketIdLow;
-                result |= PacketIdHigh << 8;
-                return (ushort)result;
-            }
-        }
+        public int FrameType { get { return buffer[2] & 0xC0; } }
 
         public byte[] AmbeAndData { get { return this.buffer[3..15]; } }
 

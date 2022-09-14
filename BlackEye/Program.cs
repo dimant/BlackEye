@@ -1,8 +1,8 @@
-﻿using BlackEye.Connectivity;
-using BlackEye.Connectivity.IcomSerial;
-
-namespace BlackEye
+﻿namespace BlackEye
 {
+    using BlackEye.Connectivity;
+    using BlackEye.Connectivity.IcomSerial;
+
     internal class Program
     {
         static void Main(string[] args)

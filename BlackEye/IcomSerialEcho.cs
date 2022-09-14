@@ -2,7 +2,6 @@
 {
     using BlackEye.Connectivity;
     using BlackEye.Connectivity.IcomSerial;
-    using System.Timers;
 
     public class IcomSerialEcho : ISerialListener
     {
@@ -10,18 +9,15 @@
         {
             Receiving,
             TransmittingHeader,
-            TransmittingFrames
+            TransmittingFrames,
+            Error
         };
-
-        private DateTime lastPong = DateTime.Now;
-
-        private readonly TimeSpan maxPongWait = new TimeSpan(hours: 0, minutes: 0, seconds: 5);
-
-        private Timer pingTimer = new Timer();
 
         private IcomSerialWriter writer;
 
         private IConnection serialConnection;
+
+        private PingHandler pingHandler;
 
         private StateType state = StateType.Receiving;
 
@@ -31,14 +27,23 @@
         {
             this.writer = writer ?? throw new ArgumentNullException(nameof(writer));
             this.serialConnection = serialConnection;
+
+            this.pingHandler = new PingHandler(
+            pingAction: () =>
+            {
+                var pingBytes = writer.WritePing();
+                serialConnection.Send(pingBytes);
+            },
+            timeOutAction: () =>
+            {
+                var resetBytes = writer.WriteReset();
+                serialConnection.Send(resetBytes);
+            },
+            errorAction: () => state = StateType.Error );
         }
 
         public Task Start()
         {
-            pingTimer = new System.Timers.Timer(1000);
-            pingTimer.Elapsed += Ping;
-            pingTimer.Enabled = true;
-
             var resetBytes = writer.WriteReset();
 
             for (int i = 0; i < 5; i++)
@@ -46,12 +51,14 @@
                 serialConnection.Send(resetBytes);
             }
 
-            var pingBytes = writer.WritePing();
-            serialConnection.Send(pingBytes);
+            pingHandler.Start();
 
             return Task.Run(() =>
             {
-                while (true) ;
+                while (true)
+                {
+                    Thread.Sleep(250);
+                };
             });
         }
 
@@ -88,7 +95,7 @@
 
         public void OnFrame(IcomSerialFrame framePacket)
         {
-            ResetPong();
+            pingHandler.Pong();
 
             if (state == StateType.Receiving)
             {
@@ -105,7 +112,7 @@
 
         public void OnFrameAck(IcomSerialFrameAck frameAckPacket)
         {
-            ResetPong();
+            pingHandler.Pong();
 
             if(state == StateType.TransmittingFrames)
             {
@@ -120,7 +127,7 @@
 
         public void OnHeader(IcomSerialHeader headerPacket)
         {
-            ResetPong();
+            pingHandler.Pong();
 
             if (state == StateType.Receiving)
             {
@@ -131,7 +138,7 @@
 
         public void OnHeaderAck(IcomSerialHeaderAck headerAckPacket)
         {
-            ResetPong();
+            pingHandler.Pong();
 
             if (state == StateType.TransmittingHeader)
             {
@@ -146,7 +153,7 @@
 
         public void OnPong(IcomSerialPong pongPacket)
         {
-            ResetPong();
+            pingHandler.Pong();
 
             if (state == StateType.TransmittingHeader
                 && pongPacket.PongType == IcomSerialPong.PongPacketType.Ack)
@@ -158,29 +165,7 @@
 
         public void OnIgnore()
         {
-            ResetPong();
-        }
-
-        private void ResetPong()
-        {
-            lastPong = DateTime.Now;
-            pingTimer.Stop();
-            pingTimer.Start();
-        }
-
-        private void Ping(object? sender, ElapsedEventArgs e)
-        {
-            var delta = DateTime.Now - lastPong;
-            if (delta > maxPongWait)
-            {
-                var resetBytes = writer.WriteReset();
-                serialConnection.Send(resetBytes);
-            }
-            else
-            {
-                var pingBytes = writer.WritePing();
-                serialConnection.Send(pingBytes);
-            }
+            pingHandler.Pong();
         }
     }
 }

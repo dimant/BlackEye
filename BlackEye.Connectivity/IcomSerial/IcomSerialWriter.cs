@@ -1,7 +1,7 @@
-﻿using System.Text;
-
-namespace BlackEye.Connectivity.IcomSerial
+﻿namespace BlackEye.Connectivity.IcomSerial
 {
+    using System.Text;
+
     public class IcomSerialWriter
     {
         public byte[] WritePing()
@@ -18,17 +18,17 @@ namespace BlackEye.Connectivity.IcomSerial
             return buffer;
         }
 
-        public byte[] WriteHeader(string to, string from, string urcall, string mycall, string suffix)
+        public byte[] WriteHeader(string rpt2, string rpt1, string urcall, string mycall, string suffix)
         {
-            var fromBytes = Encoding.UTF8.GetBytes(from);
-            var toBytes = Encoding.UTF8.GetBytes(to);
+            var rpt1Bytes = Encoding.UTF8.GetBytes(rpt1);
+            var rpt2Bytes = Encoding.UTF8.GetBytes(rpt2);
             var urcallBytes = Encoding.UTF8.GetBytes(urcall);
             var mycallBytes = Encoding.UTF8.GetBytes(mycall);
             var suffixBytes = Encoding.UTF8.GetBytes(suffix);
 
             var dstarHeader = new byte[36];
-            fromBytes.CopyTo(dstarHeader, 0);
-            toBytes.CopyTo(dstarHeader, 8);
+            rpt1Bytes.CopyTo(dstarHeader, 0);
+            rpt2Bytes.CopyTo(dstarHeader, 8);
             urcallBytes.CopyTo(dstarHeader, 16);
             mycallBytes.CopyTo(dstarHeader, 24);
             suffixBytes.CopyTo(dstarHeader, 32);
@@ -47,19 +47,17 @@ namespace BlackEye.Connectivity.IcomSerial
             return buffer;
         }
 
-        public byte[] WriteFrame(ushort packetId, byte[] data)
+        public byte[] WriteFrame(byte sequenceId, byte number, byte[] ambeAndData)
         {
-            if (data.Length != 12)
+            if (ambeAndData.Length != 12)
             {
-                throw new ArgumentException($"{nameof(data)} must be 12 bytes. 9 bytes AMBE and 3 bytes data.");
+                throw new ArgumentException($"{nameof(ambeAndData)} must be 12 bytes. 9 bytes AMBE and 3 bytes data.");
             }
 
-            byte packetIdLow = (byte) (packetId & 0xff);
-            byte packetIdHigh = (byte) ((packetId >> 8) & 0xff);
-            var tag = new byte[] { 0x10, 0x22, packetIdHigh, packetIdLow};
+            var tag = new byte[] { 0x10, 0x22, sequenceId, number};
             var buffer = new byte[17];
             tag.CopyTo(buffer, 0);
-            data.CopyTo(buffer, 4);
+            ambeAndData.CopyTo(buffer, 4);
             buffer[16] = 0xff;
 
             return buffer;
