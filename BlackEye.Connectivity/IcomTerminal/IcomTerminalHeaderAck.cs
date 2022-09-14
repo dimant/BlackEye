@@ -1,12 +1,12 @@
-﻿namespace BlackEye.Connectivity.IcomSerial
+﻿namespace BlackEye.Connectivity.IcomTerminal
 {
-    public class IcomSerialHeaderAck : IcomSerialPacket
+    public class IcomTerminalHeaderAck : IcomTerminalPacket
     {
         public bool Ack { get { return buffer[1] == 0x00; } }
 
         public byte PacketId { get { return 0x00; } }
 
-        public IcomSerialHeaderAck(byte[] buffer) : base(buffer)
+        public IcomTerminalHeaderAck(byte[] buffer) : base(buffer)
         {
         }
 

@@ -1,6 +1,6 @@
-﻿namespace BlackEye.Connectivity.IcomSerial
+﻿namespace BlackEye.Connectivity.IcomTerminal
 {
-    public class IcomSerialPacket
+    public class IcomTerminalPacket
     {
         public enum PacketType
         {
@@ -20,7 +20,7 @@
 
         public PacketType Type { get { return (PacketType)buffer[1]; } }
 
-        public IcomSerialPacket(byte[] buffer)
+        public IcomTerminalPacket(byte[] buffer)
         {
             this.buffer = buffer ?? throw new ArgumentNullException(nameof(buffer));
         }

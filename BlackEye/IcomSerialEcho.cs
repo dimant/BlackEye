@@ -1,9 +1,9 @@
 ﻿namespace BlackEye
 {
     using BlackEye.Connectivity;
-    using BlackEye.Connectivity.IcomSerial;
+    using BlackEye.Connectivity.IcomTerminal;
 
-    public class IcomSerialEcho : ISerialListener
+    public class IcomTerminalEcho : ITerminalListener
     {
         private enum StateType
         {
@@ -13,7 +13,7 @@
             Error
         };
 
-        private IcomSerialWriter writer;
+        private IcomTerminalWriter writer;
 
         private IConnection serialConnection;
 
@@ -21,9 +21,9 @@
 
         private StateType state = StateType.Receiving;
 
-        private Queue<IcomSerialPacket> transceiverQueue = new Queue<IcomSerialPacket>();
+        private Queue<IcomTerminalPacket> transceiverQueue = new Queue<IcomTerminalPacket>();
 
-        public IcomSerialEcho(IcomSerialWriter writer, IConnection serialConnection)
+        public IcomTerminalEcho(IcomTerminalWriter writer, IConnection serialConnection)
         {
             this.writer = writer ?? throw new ArgumentNullException(nameof(writer));
             this.serialConnection = serialConnection;
@@ -65,7 +65,7 @@
         private void EchoHeader()
         {
             var packet = transceiverQueue.Peek();
-            if (packet is IcomSerialHeader)
+            if (packet is IcomTerminalHeader)
             {
                 var headerBytes = writer.WriteHeader("AI6VW  L", "AI6VW  G", "AI6VW   ", "AI6VW  L", "    ");
                 serialConnection.Send(headerBytes);
@@ -75,9 +75,9 @@
         private void EchoFrame()
         {
             var packet = transceiverQueue.Peek();
-            if (packet is IcomSerialFrame)
+            if (packet is IcomTerminalFrame)
             {
-                var frame = (IcomSerialFrame)packet;
+                var frame = (IcomTerminalFrame)packet;
                 if (frame.IsLast())
                 {
                     transceiverQueue.Dequeue();
@@ -87,13 +87,13 @@
                 }
                 else
                 {
-                    var frameBytes = writer.WriteFrame(frame.PacketId, frame.AmbeAndData);
+                    var frameBytes = writer.WriteFrame(frame.SequenceId, frame.Number, frame.AmbeAndData);
                     serialConnection.Send(frameBytes);
                 }
             }
         }
 
-        public void OnFrame(IcomSerialFrame framePacket)
+        public void OnFrame(IcomTerminalFrame framePacket)
         {
             pingHandler.Pong();
 
@@ -110,7 +110,7 @@
             }
         }
 
-        public void OnFrameAck(IcomSerialFrameAck frameAckPacket)
+        public void OnFrameAck(IcomTerminalFrameAck frameAckPacket)
         {
             pingHandler.Pong();
 
@@ -125,18 +125,18 @@
             }
         }
 
-        public void OnHeader(IcomSerialHeader headerPacket)
+        public void OnHeader(IcomTerminalHeader headerPacket)
         {
             pingHandler.Pong();
 
             if (state == StateType.Receiving)
             {
-                transceiverQueue = new Queue<IcomSerialPacket>();
+                transceiverQueue = new Queue<IcomTerminalPacket>();
                 transceiverQueue.Enqueue(headerPacket);
             }
         }
 
-        public void OnHeaderAck(IcomSerialHeaderAck headerAckPacket)
+        public void OnHeaderAck(IcomTerminalHeaderAck headerAckPacket)
         {
             pingHandler.Pong();
 
@@ -151,12 +151,12 @@
             }
         }
 
-        public void OnPong(IcomSerialPong pongPacket)
+        public void OnPong(IcomTerminalPong pongPacket)
         {
             pingHandler.Pong();
 
             if (state == StateType.TransmittingHeader
-                && pongPacket.PongType == IcomSerialPong.PongPacketType.Ack)
+                && pongPacket.PongType == IcomTerminalPong.PongPacketType.Ack)
             {
                 state = StateType.TransmittingFrames;
                 EchoFrame();

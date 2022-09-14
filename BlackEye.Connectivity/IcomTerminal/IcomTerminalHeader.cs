@@ -1,8 +1,8 @@
 ﻿using System.Text;
 
-namespace BlackEye.Connectivity.IcomSerial
+namespace BlackEye.Connectivity.IcomTerminal
 {
-    public class IcomSerialHeader : IcomSerialPacket, IDStarHeader
+    public class IcomTerminalHeader : IcomTerminalPacket, IDStarHeader
     {
         public string Rpt1
         {
@@ -44,7 +44,7 @@ namespace BlackEye.Connectivity.IcomSerial
             }
         }
 
-        public IcomSerialHeader(byte[] buffer) : base(buffer)
+        public IcomTerminalHeader(byte[] buffer) : base(buffer)
         {
         }
 

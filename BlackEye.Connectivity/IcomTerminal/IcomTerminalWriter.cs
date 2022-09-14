@@ -1,8 +1,8 @@
-﻿namespace BlackEye.Connectivity.IcomSerial
+﻿namespace BlackEye.Connectivity.IcomTerminal
 {
     using System.Text;
 
-    public class IcomSerialWriter
+    public class IcomTerminalWriter
     {
         public byte[] WritePing()
         {
@@ -65,10 +65,46 @@
 
         public byte[] WriteFrameEot()
         {
-            byte[] buffer = new byte[17] {
+            var buffer = new byte[17] {
                 0x10, 0x22, 0x08, 0x48, 0x55, 0xc8, 0x7a, 0x55,
                 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55,
                 0xff
+            };
+
+            return buffer;
+        }
+
+        public byte[] WriteEmptyVoiceEmptyData()
+        {
+            var buffer = new byte[]
+            {
+                0x10, 0x22, 0x00, 0x00, 0x9E, 0x8D, 0x32, 0x88,
+                0x26, 0x1A, 0x3F, 0x61, 0xE8, 0x97, 0xCB, 0xE5,
+                0xFF
+            };
+
+            return buffer;
+        }
+
+        public byte[] WriteEmptyVoiceSyncData()
+        {
+            var buffer = new byte[]
+            {
+                0x10, 0x22, 0x00, 0x00, 0x9E, 0x8D, 0x32, 0x88,
+                0x26, 0x1A, 0x3F, 0x61, 0xE8, 0x55, 0x2D, 0x16,
+                0xFF
+            };
+
+            return buffer;
+        }
+
+        public byte[] WriteEmptyVoiceLastFrame()
+        {
+            var buffer = new byte[]
+            {
+                0x10, 0x22, 0x00, 0x00, 0x9E, 0x8D, 0x32, 0x88,
+                0x26, 0x1A, 0x3F, 0x61, 0xE8, 0x55, 0x55, 0x55,
+                0xFF
             };
 
             return buffer;

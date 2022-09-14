@@ -1,6 +1,6 @@
-﻿namespace BlackEye.Connectivity.IcomSerial
+﻿namespace BlackEye.Connectivity.IcomTerminal
 {
-    public class IcomSerialFrameAck : IcomSerialPacket
+    public class IcomTerminalFrameAck : IcomTerminalPacket
     {
         public byte PacketId { get { return buffer[1]; } }
 
@@ -11,7 +11,7 @@
             return (buffer[1] == 0x80 && buffer[2] == 0x00);
         }
 
-        public IcomSerialFrameAck(byte[] buffer) : base(buffer)
+        public IcomTerminalFrameAck(byte[] buffer) : base(buffer)
         {
         }
     }

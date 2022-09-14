@@ -1,7 +1,7 @@
 ﻿namespace BlackEye
 {
     using BlackEye.Connectivity;
-    using BlackEye.Connectivity.IcomSerial;
+    using BlackEye.Connectivity.IcomTerminal;
 
     internal class Program
     {
@@ -10,9 +10,9 @@
             var cancellationTokenSource = new CancellationTokenSource();
             var cancellationToken = cancellationTokenSource.Token;
             var serialConnection = new SerialConnection("COM4", cancellationTokenSource);
-            var icomWriter = new IcomSerialWriter();
-            var echo = new IcomSerialEcho(icomWriter, serialConnection);
-            var icomReader = new IcomSerialReader(echo);
+            var icomWriter = new IcomTerminalWriter();
+            var echo = new IcomTerminalEcho(icomWriter, serialConnection);
+            var icomReader = new IcomTerminalReader(echo);
 
             serialConnection.ReceivedCallback = icomReader.OnReceived;
             icomReader.Start(cancellationToken);

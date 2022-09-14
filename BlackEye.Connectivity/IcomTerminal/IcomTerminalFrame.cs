@@ -1,12 +1,12 @@
-﻿namespace BlackEye.Connectivity.IcomSerial
+﻿namespace BlackEye.Connectivity.IcomTerminal
 {
-    public class IcomSerialFrame : IcomSerialPacket, IDStarFrame
+    public class IcomTerminalFrame : IcomTerminalPacket, IDStarFrame
     {
-        public int SequenceId { get { return buffer[1]; } }
+        public byte SequenceId { get { return buffer[1]; } }
 
-        public int Number { get { return buffer[2] & 0x1F; } }
+        public byte Number { get { return (byte) (buffer[2] & 0x1F); } }
 
-        public int FrameType { get { return buffer[2] & 0xC0; } }
+        public byte FrameType { get { return (byte) (buffer[2] & 0xC0); } }
 
         public byte[] AmbeAndData { get { return this.buffer[3..15]; } }
 
@@ -14,7 +14,7 @@
 
         public byte[] Data { get { return this.buffer[12..15]; } }
 
-        public IcomSerialFrame(byte[] buffer) : base(buffer)
+        public IcomTerminalFrame(byte[] buffer) : base(buffer)
         {
         }
 

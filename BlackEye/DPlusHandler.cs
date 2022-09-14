@@ -2,10 +2,9 @@
 {
     using BlackEye.Connectivity;
     using BlackEye.Connectivity.DPlus;
-    using BlackEye.Connectivity.IcomSerial;
+    using BlackEye.Connectivity.IcomTerminal;
+    using System;
     using System.Collections.Concurrent;
-    using System.ComponentModel.DataAnnotations;
-    using System.Timers;
 
     /// <summary>
     /// If state is Idle:
@@ -14,7 +13,7 @@
     ///
     /// If we get a header from the terminal and we're idle:
     ///     change state to transmitting
-    ///     start writing frames to the udp connection as they come in from serial
+    ///     start writing frames to the udp connection as they come in from terminal
     ///     on EOT switch back to idle
     ///
     /// If we get a header from DPlus and we're idle:
@@ -34,25 +33,44 @@
 
         private const int TransceiverState_Receiving = 0x03;
 
-        private const int TrasnceiverState_ReceivingHeader = 0x04;
+        private const int TransceiverState_Transmitting = 0x04;
 
-        private const int TransceiverState_Transmitting = 0x05;
-
-        private const int TransceiverState_Error = 0x06;
+        private const int TransceiverState_Error = 0x05;
 
         private LockedState state = new LockedState(TransceiverState_Idle);
 
-        private ConcurrentQueue<byte[]> serialConnectionQueue = new ConcurrentQueue<byte[]>();
+        private ConcurrentQueue<byte[]> terminalConnectionQueue = new ConcurrentQueue<byte[]>();
 
         private DPlusNetworkWriter networkWriter;
 
-        private IcomSerialWriter serialWriter;
+        private IcomTerminalWriter terminalWriter;
 
-        private IConnection serialConnection;
+        private IConnection terminalConnection;
 
         private IConnection udpConnection;
 
-        private object iolock = new object();
+        private TerminalToDPlus terminalToDPlus;
+
+        private DPlusToTerminal dplusToTerminal;
+
+        public ITerminalListener TerminalListener { get => terminalToDPlus; }
+
+        public IDPlusListener DPlusListener { get => dplusToTerminal; }
+
+        public DPlusHandler(
+            DPlusNetworkWriter networkWriter,
+            IcomTerminalWriter terminalWriter,
+            IConnection terminalConnection,
+            IConnection udpConnection)
+        {
+            this.networkWriter = networkWriter ?? throw new ArgumentNullException(nameof(networkWriter));
+            this.terminalWriter = terminalWriter ?? throw new ArgumentNullException(nameof(terminalWriter));
+            this.terminalConnection = terminalConnection ?? throw new ArgumentNullException(nameof(terminalConnection));
+            this.udpConnection = udpConnection ?? throw new ArgumentNullException(nameof(udpConnection));
+
+            this.terminalToDPlus = new TerminalToDPlus(this);
+            this.dplusToTerminal = new DPlusToTerminal(this);
+        }
 
         private void Error()
         {
@@ -62,8 +80,12 @@
             });
         }
 
-        private class TerminalToDPlus : ISerialListener
+        private class TerminalToDPlus : ITerminalListener
         {
+            private const int headerSends = 5;
+
+            private const int FrameSleepMs = 12;
+
             private Random random = new Random();
 
             private DPlusHandler dplusHandler;
@@ -74,19 +96,19 @@
 
             private byte packetId = 0;
 
-            private byte[]? lastHeaderPacket = null;
+            private int emptyFrames = 0;
 
-            private const int headerSends = 5;
+            private byte[]? lastHeaderPacket = null;
 
             public TerminalToDPlus(DPlusHandler dplusHandler)
             {
                 this.dplusHandler = dplusHandler ?? throw new ArgumentNullException(nameof(dplusHandler));
                 
-                var pingBytes = dplusHandler.serialWriter.WritePing();
-                var resetBytes = dplusHandler.serialWriter.WriteReset();
+                var pingBytes = dplusHandler.terminalWriter.WritePing();
+                var resetBytes = dplusHandler.terminalWriter.WriteReset();
                 this.pingHandler = new PingHandler(
-                    pingAction: () => dplusHandler.serialConnection.Send(pingBytes),
-                    timeOutAction: () => dplusHandler.serialConnection.Send(resetBytes),
+                    pingAction: () => dplusHandler.terminalConnection.Send(pingBytes),
+                    timeOutAction: () => dplusHandler.terminalConnection.Send(resetBytes),
                     errorAction: () => dplusHandler.Error());
             }
 
@@ -95,7 +117,42 @@
                 pingHandler.Start();
             }
 
-            public void OnFrame(IcomSerialFrame framePacket)
+            private void ReceiveFrame()
+            {
+                byte[]? buffer;
+                Thread.Sleep(FrameSleepMs);
+
+                if (emptyFrames > 100)
+                {
+                    dplusHandler.state.CompareExchangeExecute(TransceiverState_Receiving, TransceiverState_Idle, () =>
+                    {
+                        buffer = dplusHandler.terminalWriter.WriteEmptyVoiceLastFrame();
+
+                        dplusHandler.terminalConnection.Send(buffer);
+                    });
+                }
+
+                dplusHandler.state.CompareExecute(TransceiverState_Receiving, () =>
+                {
+                    if (!dplusHandler.terminalConnectionQueue.TryDequeue(out buffer))
+                    {
+                        emptyFrames++;
+
+                        if (packetId == 0)
+                        {
+                            buffer = dplusHandler.terminalWriter.WriteEmptyVoiceSyncData();
+                        }
+                        else
+                        {
+                            buffer = dplusHandler.terminalWriter.WriteEmptyVoiceEmptyData();
+                        }
+                    }
+
+                    dplusHandler.terminalConnection.Send(buffer);
+                });
+            }
+
+            public void OnFrame(IcomTerminalFrame framePacket)
             {
                 pingHandler.Pong();
 
@@ -132,22 +189,17 @@
                 }
             }
 
-            public void OnFrameAck(IcomSerialFrameAck frameAckPacket)
+            public void OnFrameAck(IcomTerminalFrameAck frameAckPacket)
             {
                 pingHandler.Pong();
 
                 if (frameAckPacket.Ack)
                 {
-                    dplusHandler.state.CompareExecute(TransceiverState_Receiving, () =>
-                    {
-                        // try to dequeue from network receiving queue
-                        // if we got something, send to transceiver
-                        // else send empty to transceiver
-                    });
+                    ReceiveFrame();
                 }
             }
 
-            public void OnHeader(IcomSerialHeader headerPacket)
+            public void OnHeader(IcomTerminalHeader headerPacket)
             {
                 pingHandler.Pong();
 
@@ -171,11 +223,11 @@
                 });
             }
 
-            public void OnHeaderAck(IcomSerialHeaderAck headerAckPacket)
+            public void OnHeaderAck(IcomTerminalHeaderAck headerAckPacket)
             {
                 pingHandler.Pong();
 
-                dplusHandler.state.CompareExchangeExecute(TrasnceiverState_ReceivingHeader, TransceiverState_Receiving, () =>
+                dplusHandler.state.CompareExecute(TransceiverState_Receiving, () =>
                 {
 
                 });
@@ -186,17 +238,15 @@
                 pingHandler.Pong();
             }
 
-            public void OnPong(IcomSerialPong pongPacket)
+            public void OnPong(IcomTerminalPong pongPacket)
             {
                 pingHandler.Pong();
 
-                if (pongPacket.PongType == IcomSerialPong.PongPacketType.Ack)
+                if (pongPacket.PongType == IcomTerminalPong.PongPacketType.Ack)
                 {
                     dplusHandler.state.CompareExecute(TransceiverState_Receiving, () =>
                     {
-                        // try to dequeue from network receiving queue
-                        // if we got something, send to transceiver
-                        // else send empty to transceiver
+                        ReceiveFrame();
                     });
                 }
             }
@@ -231,9 +281,10 @@
             {
                 dplusHandler.state.CompareExecute(TransceiverState_Disconnected, () =>
                 {
-                    // send login
+                    dplusHandler.networkWriter.WriteLogin("");
                 });
             }
+
             public void OnLoginAck(DPlusLoginAckPacket packet)
             {
                 if (packet.Ack)
@@ -251,14 +302,14 @@
 
                 dplusHandler.state.CompareExchangeExecute(TransceiverState_Idle, TransceiverState_Receiving, () =>
                 {
-                    var buffer = dplusHandler.serialWriter.WriteHeader(
+                    var buffer = dplusHandler.terminalWriter.WriteHeader(
                         packet.Rpt2,
                         packet.Rpt1,
                         packet.UrCall,
                         packet.MyCall,
                         packet.Suffix);
 
-                    dplusHandler.serialConnection.Send(buffer);
+                    dplusHandler.terminalConnection.Send(buffer);
                 });
             }
 
@@ -270,8 +321,8 @@
                 {
                     dplusHandler.state.CompareExchangeExecute(TransceiverState_Receiving, TransceiverState_Idle, () =>
                     {
-                        var buffer = dplusHandler.serialWriter.WriteFrameEot();
-                        dplusHandler.serialConnectionQueue.Enqueue(buffer);
+                        var buffer = dplusHandler.terminalWriter.WriteFrameEot();
+                        dplusHandler.terminalConnectionQueue.Enqueue(buffer);
                     });
                 }
                 else
@@ -287,8 +338,8 @@
                             number = 0;
                         }
 
-                        var buffer = dplusHandler.serialWriter.WriteFrame(sequenceId, number, packet.AmbeAndData);
-                        dplusHandler.serialConnectionQueue.Enqueue(buffer);
+                        var buffer = dplusHandler.terminalWriter.WriteFrame(sequenceId, number, packet.AmbeAndData);
+                        dplusHandler.terminalConnectionQueue.Enqueue(buffer);
                     });
                 }
             }

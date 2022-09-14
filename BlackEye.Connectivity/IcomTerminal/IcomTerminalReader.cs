@@ -1,17 +1,17 @@
-﻿namespace BlackEye.Connectivity.IcomSerial
+﻿namespace BlackEye.Connectivity.IcomTerminal
 {
     using System;
     using System.Threading.Tasks.Dataflow;
 
-    public class IcomSerialReader : BlockDataReceiver
+    public class IcomTerminalReader : BlockDataReceiver
     {
-        private ISerialListener controllerListener;
+        private ITerminalListener controllerListener;
 
         public byte lastByte = 0x00;
 
         public byte currentByte = 0x00;
 
-        public IcomSerialReader(ISerialListener controllerListener)
+        public IcomTerminalReader(ITerminalListener controllerListener)
         {
             this.controllerListener = controllerListener ?? throw new ArgumentNullException(nameof(controllerListener));
         }
@@ -39,40 +39,40 @@
                 buffer[i] = ReceiveContext(block);
             }
 
-            var type = (IcomSerialPacket.PacketType)buffer[0];
+            var type = (IcomTerminalPacket.PacketType)buffer[0];
 
             switch (type)
             {
-                case IcomSerialPacket.PacketType.Pong:
-                    var pongPacket = new IcomSerialPong(buffer);
+                case IcomTerminalPacket.PacketType.Pong:
+                    var pongPacket = new IcomTerminalPong(buffer);
                     if (pongPacket.IsValid())
                     {
                         this.controllerListener.OnPong(pongPacket);
                     }
                     break;
-                case IcomSerialPacket.PacketType.HeaderFromSerial:
-                    var headerPacket = new IcomSerialHeader(buffer);
+                case IcomTerminalPacket.PacketType.HeaderFromSerial:
+                    var headerPacket = new IcomTerminalHeader(buffer);
                     if (headerPacket.IsValid())
                     {
                         this.controllerListener.OnHeader(headerPacket);
                     }
                     break;
-                case IcomSerialPacket.PacketType.HeaderToSerialAck:
-                    var headerAckPacket = new IcomSerialHeaderAck(buffer);
+                case IcomTerminalPacket.PacketType.HeaderToSerialAck:
+                    var headerAckPacket = new IcomTerminalHeaderAck(buffer);
                     if (headerAckPacket.IsValid())
                     {
                         this.controllerListener.OnHeaderAck(headerAckPacket);
                     }
                     break;
-                case IcomSerialPacket.PacketType.FrameFromSerial:
-                    var framePacket = new IcomSerialFrame(buffer);
+                case IcomTerminalPacket.PacketType.FrameFromSerial:
+                    var framePacket = new IcomTerminalFrame(buffer);
                     if (framePacket.IsValid())
                     {
                         this.controllerListener.OnFrame(framePacket);
                     }
                     break;
-                case IcomSerialPacket.PacketType.FrameToSerialAck:
-                    var frameAckPacket = new IcomSerialFrameAck(buffer);
+                case IcomTerminalPacket.PacketType.FrameToSerialAck:
+                    var frameAckPacket = new IcomTerminalFrameAck(buffer);
                     if (frameAckPacket.IsValid())
                     {
                         this.controllerListener.OnFrameAck(frameAckPacket);

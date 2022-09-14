@@ -1,6 +1,6 @@
-﻿namespace BlackEye.Connectivity.IcomSerial
+﻿namespace BlackEye.Connectivity.IcomTerminal
 {
-    public class IcomSerialPong : IcomSerialPacket
+    public class IcomTerminalPong : IcomTerminalPacket
     {
         public enum PongPacketType
         {
@@ -10,7 +10,7 @@
 
         public PongPacketType PongType { get { return (PongPacketType)buffer[1]; } }
 
-        public IcomSerialPong(byte[] buffer) : base(buffer)
+        public IcomTerminalPong(byte[] buffer) : base(buffer)
         {
         }
 
