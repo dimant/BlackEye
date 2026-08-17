@@ -6,9 +6,6 @@ namespace BlackEye.Tests
 
     /// <summary>
     /// Covers the DPlus writer against the captures.
-    ///
-    /// WriteFrameEot is deliberately absent: it is wrong today (finding F03) and
-    /// Task 3 of the conformance plan adds the failing tests that drive that fix.
     /// </summary>
     public class DPlusNetworkWriterTests
     {
@@ -232,6 +229,61 @@ namespace BlackEye.Tests
             Assert.Equal(0x80, frame[1]);
             Assert.Equal("DSVT", System.Text.Encoding.UTF8.GetString(frame[2..6]));
             Assert.Equal(0x20, frame[6]);
+        }
+
+        [Fact]
+        public void EndOfTransmissionFrameMatchesTheCapture()
+        {
+            // 18 is the plain packet id; the writer emits 0x52 = 0x40 | 18.
+            var eot = writer.WriteFrameEot((short)0x7D37, 18);
+
+            Assert.Equal(CaptureBytes.DPlusFrameEot, eot);
+        }
+
+        [Fact]
+        public void EndOfTransmissionFrameLengthByteCountsItself()
+        {
+            var eot = writer.WriteFrameEot((short)0x0001, 0);
+
+            Assert.Equal(32, eot.Length);
+            Assert.Equal(0x20, eot[0]);
+            Assert.Equal(eot.Length, eot[0]);
+        }
+
+        [Fact]
+        public void EndOfTransmissionFrameSetsTheLastFrameBitOnThePacketId()
+        {
+            for (byte packetId = 0; packetId <= 20; packetId++)
+            {
+                var eot = writer.WriteFrameEot((short)0x0001, packetId);
+
+                Assert.Equal(0x40, eot[16] & 0x40);
+                Assert.Equal(packetId, (byte)(eot[16] & 0x1F));
+            }
+        }
+
+        [Fact]
+        public void EndOfTransmissionFrameCarriesSilentVoiceAndTheEndOfStreamMarker()
+        {
+            var eot = writer.WriteFrameEot((short)0x0001, 0);
+
+            Assert.Equal(CaptureBytes.SilentAmbe, eot[17..26]);
+            Assert.Equal(new byte[] { 0x55, 0x55, 0x55 }, eot[26..29]);
+
+            // Bytes 29..31 are read by no known implementation but are present in
+            // every captured end-of-transmission frame.
+            Assert.Equal(new byte[] { 0x55, 0xc8, 0x7a }, eot[29..32]);
+        }
+
+        [Fact]
+        public void EndOfTransmissionFrameSharesTheFrameHeaderWithOrdinaryFrames()
+        {
+            var frame = writer.WriteFrame(new byte[12], (short)0x7D37, 0x05);
+            var eot = writer.WriteFrameEot((short)0x7D37, 0x05);
+
+            // Everything from the DSVT tag to the session id is identical; only the
+            // length byte and the packet id's flag bit differ.
+            Assert.Equal(frame[1..16], eot[1..16]);
         }
 
         [Fact]

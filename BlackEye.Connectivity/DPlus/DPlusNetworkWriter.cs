@@ -134,15 +134,20 @@
             return buffer;
         }
 
+        /// <summary>
+        /// The last frame of a stream. Pass the plain 0..20 packet id, as for
+        /// WriteFrame: this sets the 0x40 last-frame bit itself.
+        /// </summary>
         public byte[] WriteFrameEot(short sessionid, byte packetid)
         {
             byte sessionIdHigh = (byte)(sessionid >> 8);
             byte sessionIdLow = (byte)(sessionid & 0xFF);
+            byte lastPacketId = (byte)(packetid | 0x40);
 
             var buffer = new byte[32]
             {
-                0X1D, 0x80, 0x44, 0x53, 0x56, 0x54, 0x20, 0x00, 0x00, 0x00, 0x20, 0x00, 0x02, 0x01,
-                sessionIdHigh, sessionIdLow, packetid,
+                0x20, 0x80, 0x44, 0x53, 0x56, 0x54, 0x20, 0x00, 0x00, 0x00, 0x20, 0x00, 0x02, 0x01,
+                sessionIdHigh, sessionIdLow, lastPacketId,
                 0x9E, 0x8D, 0x32, 0x88, 0x26, 0x1A, 0x3F, 0x61, 0xE8,
                 0x55, 0x55, 0x55,
                 0x55, 0xC8, 0x7A

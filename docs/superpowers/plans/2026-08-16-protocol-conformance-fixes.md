@@ -8,7 +8,7 @@
 
 **Tech Stack:** .NET 10 (`net10.0`), C# 14, nullable enabled, implicit usings, TPL Dataflow, `System.IO.Ports` 10.0.11, xUnit 2.9.3 + coverlet.
 
-**Status:** Tasks 0, 1 and 2 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 108 passing tests. Tasks 3-11 are not started.
+**Status:** Tasks 0-3 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 113 passing tests. Tasks 4-11 are not started.
 
 **Spec:**
 - `../dstardocs/DPlusProtocol.md` — DPlus (REF/XRF) field-by-field
@@ -39,7 +39,7 @@ Severity: **C**ritical (wrong bytes on the wire or a dead code path in the prima
 |----|-----|---------|------|------|--------|
 | F01 | C | `WriteHeader` copies `dstarHeader` into itself → `ArgumentException` at runtime, callsigns never populated | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:81` | 1 | **Fixed** |
 | F02 | C | Login buffer is 27 bytes but declares `0x1C` (28); tail is `DV19994`, capture says `DV019994` (missing `0x30`) | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:30-35` | 2 | **Fixed** |
-| F03 | C | EOT frame declares length `0x1D` (29) but is 32 bytes; packet id never gets the `0x40` last-frame bit | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:121-135`, `BlackEye/DPlusHandler.cs:163` | 3 | Not started |
+| F03 | C | EOT frame declares length `0x1D` (29) but is 32 bytes; packet id never gets the `0x40` last-frame bit | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:121-135`, `BlackEye/DPlusHandler.cs:163` | 3 | **Fixed** |
 | F04 | C | Frame payload offsets off by one (payload starts at 17, not 16) → `Data` is 4 bytes, `IsLast()` can never be true, `AmbeAndData` is 13 bytes and throws in `IcomTerminalWriter.WriteFrame` | `BlackEye.Connectivity/DPlus/DPlusFramePacket.cs:5-9` | 4 | Not started |
 | F05 | L | `Length`/`Type` read wire offsets on a length-stripped buffer → `Length` returns the type, `Type` returns the first payload byte (currently unused) | `BlackEye.Connectivity/IcomTerminal/IcomTerminalPacket.cs:19-21` | 6 | Not started |
 | F06 | L | `IsEotAck()` looks for packet id `0x80`; `23 80` occurs in zero bytes of all eight dumps — dead code | `BlackEye.Connectivity/IcomTerminal/IcomTerminalFrameAck.cs:9-12` | 6 | Not started |
@@ -312,7 +312,7 @@ git commit -m "fix(dplus): login packet is 28 bytes ending DV019994"
 - Consumes: `CaptureBytes.DPlusFrame`, `CaptureBytes.DPlusFrameEot`.
 - Produces: `WriteFrameEot(short sessionid, byte packetid)` — **the writer now sets bit `0x40` itself**. Callers pass the plain 0..20 packet id, exactly as they do for `WriteFrame`. Task 8 depends on this.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Add to `DPlusNetworkWriterTests`:
 
@@ -343,12 +343,12 @@ Add to `DPlusNetworkWriterTests`:
         }
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `dotnet test --filter DPlusNetworkWriterTests`
 Expected: `WriteFrame_MatchesCapture` PASSES (that layout is already correct); `WriteFrameEot_MatchesCaptureAndSetsLastFrameBit` FAILS on byte 0 (`0x1D` vs `0x20`) and byte 16 (`0x12` vs `0x52`).
 
-- [ ] **Step 3: Fix the length byte and set the last-frame bit**
+- [x] **Step 3: Fix the length byte and set the last-frame bit**
 
 Replace `WriteFrameEot` with:
 
@@ -374,12 +374,12 @@ Replace `WriteFrameEot` with:
         }
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `dotnet test --filter DPlusNetworkWriterTests`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs BlackEye.Tests/DPlusNetworkWriterTests.cs
