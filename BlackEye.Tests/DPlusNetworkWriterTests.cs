@@ -7,9 +7,8 @@ namespace BlackEye.Tests
     /// <summary>
     /// Covers the DPlus writer against the captures.
     ///
-    /// WriteLogin and WriteFrameEot are deliberately absent: both are wrong today
-    /// (findings F02, F03) and Tasks 2-3 of the conformance plan add the failing
-    /// tests that drive those fixes.
+    /// WriteFrameEot is deliberately absent: it is wrong today (finding F03) and
+    /// Task 3 of the conformance plan adds the failing tests that drive that fix.
     /// </summary>
     public class DPlusNetworkWriterTests
     {
@@ -37,6 +36,62 @@ namespace BlackEye.Tests
             Assert.Equal(connect[0..4], disconnect[0..4]);
             Assert.Equal(0x01, connect[4]);
             Assert.Equal(0x00, disconnect[4]);
+        }
+
+        [Fact]
+        public void LoginMatchesTheCapture()
+        {
+            var login = writer.WriteLogin("AI6VW");
+
+            Assert.Equal(CaptureBytes.DPlusLogin, login);
+        }
+
+        [Fact]
+        public void LoginLengthByteCountsItself()
+        {
+            var login = writer.WriteLogin("AI6VW");
+
+            Assert.Equal(28, login.Length);
+            Assert.Equal(0x1c, login[0]);
+            Assert.Equal(login.Length, login[0]);
+        }
+
+        [Fact]
+        public void LoginPlacesMycallAtFourZeroPaddedToEightBytes()
+        {
+            var login = writer.WriteLogin("AI6VW");
+
+            Assert.Equal("AI6VW", System.Text.Encoding.UTF8.GetString(login[4..9]));
+            Assert.Equal(new byte[] { 0x00, 0x00, 0x00 }, login[9..12]);
+
+            // Bytes 12..19 are unidentified and zero in the capture.
+            Assert.All(login[12..20], b => Assert.Equal(0x00, b));
+        }
+
+        [Fact]
+        public void LoginEndsWithTheDvSerialTail()
+        {
+            var login = writer.WriteLogin("AI6VW");
+
+            Assert.Equal("DV019994", System.Text.Encoding.UTF8.GetString(login[20..28]));
+        }
+
+        [Fact]
+        public void LoginAcceptsAFullEightCharacterCallsign()
+        {
+            var login = writer.WriteLogin("AI6VWXYZ");
+
+            Assert.Equal(28, login.Length);
+            Assert.Equal("AI6VWXYZ", System.Text.Encoding.UTF8.GetString(login[4..12]));
+            Assert.Equal("DV019994", System.Text.Encoding.UTF8.GetString(login[20..28]));
+        }
+
+        [Fact]
+        public void LoginRejectsACallsignLongerThanTheField()
+        {
+            // Without this guard a long callsign silently overwrites the bytes that
+            // follow the mycall field.
+            Assert.Throws<ArgumentException>(() => writer.WriteLogin("AI6VWXYZ0"));
         }
 
         [Fact]

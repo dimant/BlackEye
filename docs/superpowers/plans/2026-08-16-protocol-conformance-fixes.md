@@ -8,7 +8,7 @@
 
 **Tech Stack:** .NET 10 (`net10.0`), C# 14, nullable enabled, implicit usings, TPL Dataflow, `System.IO.Ports` 10.0.11, xUnit 2.9.3 + coverlet.
 
-**Status:** Tasks 0 and 1 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 102 passing tests. Tasks 2-11 are not started.
+**Status:** Tasks 0, 1 and 2 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 108 passing tests. Tasks 3-11 are not started.
 
 **Spec:**
 - `../dstardocs/DPlusProtocol.md` — DPlus (REF/XRF) field-by-field
@@ -38,7 +38,7 @@ Severity: **C**ritical (wrong bytes on the wire or a dead code path in the prima
 | ID | Sev | Finding | Site | Task | Status |
 |----|-----|---------|------|------|--------|
 | F01 | C | `WriteHeader` copies `dstarHeader` into itself → `ArgumentException` at runtime, callsigns never populated | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:81` | 1 | **Fixed** |
-| F02 | C | Login buffer is 27 bytes but declares `0x1C` (28); tail is `DV19994`, capture says `DV019994` (missing `0x30`) | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:30-35` | 2 | Not started |
+| F02 | C | Login buffer is 27 bytes but declares `0x1C` (28); tail is `DV19994`, capture says `DV019994` (missing `0x30`) | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:30-35` | 2 | **Fixed** |
 | F03 | C | EOT frame declares length `0x1D` (29) but is 32 bytes; packet id never gets the `0x40` last-frame bit | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:121-135`, `BlackEye/DPlusHandler.cs:163` | 3 | Not started |
 | F04 | C | Frame payload offsets off by one (payload starts at 17, not 16) → `Data` is 4 bytes, `IsLast()` can never be true, `AmbeAndData` is 13 bytes and throws in `IcomTerminalWriter.WriteFrame` | `BlackEye.Connectivity/DPlus/DPlusFramePacket.cs:5-9` | 4 | Not started |
 | F05 | L | `Length`/`Type` read wire offsets on a length-stripped buffer → `Length` returns the type, `Type` returns the first payload byte (currently unused) | `BlackEye.Connectivity/IcomTerminal/IcomTerminalPacket.cs:19-21` | 6 | Not started |
@@ -251,7 +251,7 @@ git commit -m "fix(dplus): copy dstar header into the outgoing buffer"
 - Consumes: `CaptureBytes.DPlusLogin`.
 - Produces: `WriteLogin(string mycall)` — unchanged signature, now returns exactly 28 bytes. Callers must pass an 8-char space-padded callsign; anything shorter leaves the remaining bytes zero, which is what the capture shows.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Add to `DPlusNetworkWriterTests`:
 
@@ -268,12 +268,12 @@ Add to `DPlusNetworkWriterTests`:
         }
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `dotnet test --filter WriteLogin_MatchesCapture`
 Expected: FAIL — actual is 27 bytes and the tail reads `DV19994`.
 
-- [ ] **Step 3: Restore the missing byte**
+- [x] **Step 3: Restore the missing byte**
 
 Replace the buffer literal in `WriteLogin` with:
 
@@ -288,12 +288,12 @@ Replace the buffer literal in `WriteLogin` with:
 
 (`44 56 30 31 39 39 39 34` = `DV019994`; the `0x30` was missing, which is why the buffer was one byte short of its own length byte.)
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `dotnet test --filter WriteLogin_MatchesCapture`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs BlackEye.Tests/DPlusNetworkWriterTests.cs
