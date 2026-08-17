@@ -363,3 +363,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Coverage output from dotnet test --collect
+[Tt]est[Rr]esults/
