@@ -7,10 +7,6 @@ namespace BlackEye.Tests
     /// <summary>
     /// The DPlus reader keeps the whole datagram, so these offsets match
     /// DPlusProtocol.md exactly.
-    ///
-    /// Frame payload offsets are deliberately not asserted here: they are wrong in
-    /// the current code (finding F04) and Task 4 of the conformance plan adds the
-    /// tests that drive the fix.
     /// </summary>
     public class DPlusPacketTests
     {
@@ -53,6 +49,83 @@ namespace BlackEye.Tests
             Assert.Equal("REF030 C", System.Text.Encoding.UTF8.GetString(CaptureBytes.DPlusHeader[20..28]));
             Assert.Equal(dplus.Rpt2, System.Text.Encoding.UTF8.GetString(CaptureBytes.DPlusHeader[20..28]));
             Assert.Equal(dplus.Rpt1, System.Text.Encoding.UTF8.GetString(CaptureBytes.DPlusHeader[28..36]));
+        }
+
+        [Fact]
+        public void FramePayloadStartsAtSeventeen()
+        {
+            // Byte 16 is the packet id; the 12 byte payload runs from 17 to 28.
+            var frame = new DPlusFramePacket(CaptureBytes.DPlusFrame);
+
+            Assert.Equal(9, frame.Ambe.Length);
+            Assert.Equal(3, frame.Data.Length);
+            Assert.Equal(12, frame.AmbeAndData.Length);
+            Assert.Equal(new byte[] { 0x5b, 0x61, 0x94, 0x4b, 0xd4, 0xe3, 0xe0, 0xa0, 0x6a }, frame.Ambe);
+            Assert.Equal(new byte[] { 0x55, 0x55, 0x55 }, frame.Data);
+        }
+
+        [Fact]
+        public void FrameAmbeAndDataIsTheConcatenationOfItsTwoHalves()
+        {
+            var frame = new DPlusFramePacket(CaptureBytes.DPlusVoiceFrame(0x0a));
+
+            Assert.Equal(frame.Ambe, frame.AmbeAndData[0..9]);
+            Assert.Equal(frame.Data, frame.AmbeAndData[9..12]);
+        }
+
+        [Fact]
+        public void TheEndOfTransmissionFramesTrailingBytesAreNotPayload()
+        {
+            // This frame is 32 bytes: an open ended range would swallow the three
+            // trailing bytes and break both the payload and IsLast().
+            var eot = new DPlusFramePacket(CaptureBytes.DPlusFrameEot);
+
+            Assert.Equal(12, eot.AmbeAndData.Length);
+            Assert.Equal(3, eot.Data.Length);
+            Assert.Equal(CaptureBytes.SilentAmbe, eot.Ambe);
+        }
+
+        [Fact]
+        public void TheLastVoiceFrameOfAStreamIsRecognised()
+        {
+            Assert.True(new DPlusFramePacket(CaptureBytes.DPlusFrame).IsLast());
+        }
+
+        [Fact]
+        public void TheEndOfTransmissionFrameIsRecognisedAsLast()
+        {
+            Assert.True(new DPlusFramePacket(CaptureBytes.DPlusFrameEot).IsLast());
+        }
+
+        [Fact]
+        public void OrdinaryVoiceFramesAreNotLast()
+        {
+            Assert.False(new DPlusFramePacket(CaptureBytes.DPlusVoiceFrame(0x00)).IsLast());
+            Assert.False(new DPlusFramePacket(CaptureBytes.DPlusVoiceFrame(0x14)).IsLast());
+        }
+
+        [Fact]
+        public void APayloadReadOffTheWireCanBeWrittenBackUnchanged()
+        {
+            var frame = new DPlusFramePacket(CaptureBytes.DPlusFrame);
+
+            var rewritten = new DPlusNetworkWriter().WriteFrame(frame.AmbeAndData, (short)0x7D37, 0x11);
+
+            Assert.Equal(CaptureBytes.DPlusFrame, rewritten);
+        }
+
+        [Fact]
+        public void APayloadReadOffTheWireIsAcceptedByTheIcomWriter()
+        {
+            // This is what the bridge actually does with it, and it throws unless
+            // the payload is exactly 12 bytes.
+            var frame = new DPlusFramePacket(CaptureBytes.DPlusVoiceFrame(0x03));
+
+            var terminalFrame = new BlackEye.Connectivity.IcomTerminal.IcomTerminalWriter()
+                .WriteFrame(sequenceId: 0x03, number: 0x03, ambeAndData: frame.AmbeAndData);
+
+            Assert.Equal(17, terminalFrame.Length);
+            Assert.Equal(frame.AmbeAndData, terminalFrame[4..16]);
         }
 
         [Fact]

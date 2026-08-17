@@ -8,7 +8,7 @@
 
 **Tech Stack:** .NET 10 (`net10.0`), C# 14, nullable enabled, implicit usings, TPL Dataflow, `System.IO.Ports` 10.0.11, xUnit 2.9.3 + coverlet.
 
-**Status:** Tasks 0-3 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 113 passing tests. Tasks 4-11 are not started.
+**Status:** Tasks 0-4 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 121 passing tests. Tasks 5-11 are not started.
 
 **Spec:**
 - `../dstardocs/DPlusProtocol.md` — DPlus (REF/XRF) field-by-field
@@ -40,7 +40,7 @@ Severity: **C**ritical (wrong bytes on the wire or a dead code path in the prima
 | F01 | C | `WriteHeader` copies `dstarHeader` into itself → `ArgumentException` at runtime, callsigns never populated | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:81` | 1 | **Fixed** |
 | F02 | C | Login buffer is 27 bytes but declares `0x1C` (28); tail is `DV19994`, capture says `DV019994` (missing `0x30`) | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:30-35` | 2 | **Fixed** |
 | F03 | C | EOT frame declares length `0x1D` (29) but is 32 bytes; packet id never gets the `0x40` last-frame bit | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:121-135`, `BlackEye/DPlusHandler.cs:163` | 3 | **Fixed** |
-| F04 | C | Frame payload offsets off by one (payload starts at 17, not 16) → `Data` is 4 bytes, `IsLast()` can never be true, `AmbeAndData` is 13 bytes and throws in `IcomTerminalWriter.WriteFrame` | `BlackEye.Connectivity/DPlus/DPlusFramePacket.cs:5-9` | 4 | Not started |
+| F04 | C | Frame payload offsets off by one (payload starts at 17, not 16) → `Data` is 4 bytes, `IsLast()` can never be true, `AmbeAndData` is 13 bytes and throws in `IcomTerminalWriter.WriteFrame` | `BlackEye.Connectivity/DPlus/DPlusFramePacket.cs:5-9` | 4 | **Fixed** |
 | F05 | L | `Length`/`Type` read wire offsets on a length-stripped buffer → `Length` returns the type, `Type` returns the first payload byte (currently unused) | `BlackEye.Connectivity/IcomTerminal/IcomTerminalPacket.cs:19-21` | 6 | Not started |
 | F06 | L | `IsEotAck()` looks for packet id `0x80`; `23 80` occurs in zero bytes of all eight dumps — dead code | `BlackEye.Connectivity/IcomTerminal/IcomTerminalFrameAck.cs:9-12` | 6 | Not started |
 | F07 | H | All four special frames hard-code their sequence/number bytes (`00 00`, and `08 48` for EOT); doc and captures require the live transmission's ids | `BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs:66-111` | 7 | Not started |
@@ -398,7 +398,7 @@ git commit -m "fix(dplus): EOT frame length 0x20 and 0x40 last-frame bit"
 - Consumes: `CaptureBytes.DPlusFrame`, `CaptureBytes.DPlusFrameEot`, `CaptureBytes.DPlusHeader`.
 - Produces: `DPlusFramePacket.Ambe` (9 bytes), `.Data` (3 bytes), `.AmbeAndData` (12 bytes), `.IsLast()`. Task 9 relies on `AmbeAndData` being exactly 12 bytes so it can hand it to `IcomTerminalWriter.WriteFrame`.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Add these to the existing `DPlusPacketTests` class — drop the wrapper, skip `HeaderCallsignOffsets` (the baseline already has it), and delete the class-comment note saying the frame accessors are deliberately untested:
 
@@ -449,12 +449,12 @@ namespace BlackEye.Tests
 }
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `dotnet test --filter DPlusPacketTests`
 Expected: `HeaderCallsignOffsets` PASSES (header offsets are already right). The three frame tests FAIL — `Data` comes back 4 bytes for the normal frame and 7 for the EOT frame, so both `IsLast()` calls return false.
 
-- [ ] **Step 3: Shift the payload offsets by one**
+- [x] **Step 3: Shift the payload offsets by one**
 
 In `DPlusFramePacket.cs`, byte 16 is the packet id and the payload is 17..28:
 
@@ -468,12 +468,12 @@ In `DPlusFramePacket.cs`, byte 16 is the packet id and the payload is 17..28:
 
 (Fixed upper bounds, not open-ended ranges — the EOT frame is 32 bytes and its trailing three bytes are not payload.)
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `dotnet test --filter DPlusPacketTests`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add BlackEye.Connectivity/DPlus/DPlusFramePacket.cs BlackEye.Tests/DPlusPacketTests.cs
