@@ -8,7 +8,7 @@
 
 **Tech Stack:** .NET 10 (`net10.0`), C# 14, nullable enabled, implicit usings, TPL Dataflow, `System.IO.Ports` 10.0.11, xUnit 2.9.3 + coverlet.
 
-**Status:** Task 0 is complete — the solution is on `net10.0` and `BlackEye.Tests` holds 96 passing tests covering the protocol layer. Tasks 1-12 are not started.
+**Status:** Tasks 0 and 1 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 102 passing tests. Tasks 2-11 are not started.
 
 **Spec:**
 - `../dstardocs/DPlusProtocol.md` — DPlus (REF/XRF) field-by-field
@@ -37,7 +37,7 @@ Severity: **C**ritical (wrong bytes on the wire or a dead code path in the prima
 
 | ID | Sev | Finding | Site | Task | Status |
 |----|-----|---------|------|------|--------|
-| F01 | C | `WriteHeader` copies `dstarHeader` into itself → `ArgumentException` at runtime, callsigns never populated | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:81` | 1 | Not started |
+| F01 | C | `WriteHeader` copies `dstarHeader` into itself → `ArgumentException` at runtime, callsigns never populated | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:81` | 1 | **Fixed** |
 | F02 | C | Login buffer is 27 bytes but declares `0x1C` (28); tail is `DV19994`, capture says `DV019994` (missing `0x30`) | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:30-35` | 2 | Not started |
 | F03 | C | EOT frame declares length `0x1D` (29) but is 32 bytes; packet id never gets the `0x40` last-frame bit | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:121-135`, `BlackEye/DPlusHandler.cs:163` | 3 | Not started |
 | F04 | C | Frame payload offsets off by one (payload starts at 17, not 16) → `Data` is 4 bytes, `IsLast()` can never be true, `AmbeAndData` is 13 bytes and throws in `IcomTerminalWriter.WriteFrame` | `BlackEye.Connectivity/DPlus/DPlusFramePacket.cs:5-9` | 4 | Not started |
@@ -170,7 +170,7 @@ than a line or two.
 - Consumes: `CaptureBytes.DPlusHeader`.
 - Produces: unchanged public signatures — `WriteHeader(string rpt1, string rpt2, string urcall, string mycall, string suffix, short sessionid)` and `WriteHeader(byte[] dstarHeader, byte sessionIdHigh, byte sessionIdLow)`. The `byte[]` overload's parameter is a 36-byte blob ordered **Rpt2, Rpt1, urcall, mycall, suffix** — the DPlus wire order, which is *not* the Icom order.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Add this to the existing `DPlusNetworkWriterTests` class — drop the namespace and class wrapper shown here, and delete the sentence in its class comment saying `WriteHeader` is deliberately absent:
 
@@ -203,12 +203,12 @@ namespace BlackEye.Tests
 }
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `dotnet test --filter WriteHeader_MatchesCaptureThroughCallsigns`
 Expected: FAIL with `System.ArgumentException: Destination array was not long enough` thrown from `WriteHeader`.
 
-- [ ] **Step 3: Fix the copy target**
+- [x] **Step 3: Fix the copy target**
 
 In `DPlusNetworkWriter.WriteHeader(byte[] dstarHeader, byte sessionIdHigh, byte sessionIdLow)`, replace:
 
@@ -227,12 +227,12 @@ with:
             dstarHeader.CopyTo(buffer, 20);
 ```
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `dotnet test --filter WriteHeader_MatchesCaptureThroughCallsigns`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs BlackEye.Tests/DPlusNetworkWriterTests.cs

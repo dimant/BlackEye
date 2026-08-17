@@ -62,8 +62,19 @@
             return WriteHeader(dstarHeader, sessionIdHigh, sessionIdLow);
         }
 
+        /// <summary>
+        /// dstarHeader is 36 bytes ordered Rpt2, Rpt1, urcall, mycall (8 each) then
+        /// suffix (4). NOTE: IcomTerminalWriter's equivalent overload expects Rpt1
+        /// first - the two protocols carry those two fields swapped, so the blobs
+        /// are not interchangeable between the two writers.
+        /// </summary>
         public byte[] WriteHeader(byte[] dstarHeader, byte sessionIdHigh, byte sessionIdLow)
         {
+            if (dstarHeader.Length != 36)
+            {
+                throw new ArgumentException($"{nameof(dstarHeader)} must be 36 bytes: rpt2, rpt1, urcall, mycall (8 each) then suffix (4).");
+            }
+
             var buffer = new byte[58]
             {
                 0x3A, 0x80, (byte)'D', (byte)'S', (byte)'V', (byte)'T',
@@ -78,7 +89,7 @@
                 0x00, 0x0B
             };
 
-            dstarHeader.CopyTo(dstarHeader, 20);
+            dstarHeader.CopyTo(buffer, 20);
 
             return buffer;
         }
