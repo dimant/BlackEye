@@ -8,7 +8,7 @@
 
 **Tech Stack:** .NET 10 (`net10.0`), C# 14, nullable enabled, implicit usings, TPL Dataflow, `System.IO.Ports` 10.0.11, xUnit 2.9.3 + coverlet.
 
-**Status:** Tasks 0-8 are complete (bar Task 7's hardware check, which needs a Windows host and the radio). The solution is on `net10.0` and `BlackEye.Tests` holds 151 passing tests. Tasks 9-11 are not started.
+**Status:** Tasks 0-9 are complete (bar Task 7's hardware check, which needs a Windows host and the radio). The solution is on `net10.0` and `BlackEye.Tests` holds 165 passing tests at 80% line coverage. Tasks 10-11 are not started.
 
 **Spec:**
 - `../dstardocs/DPlusProtocol.md` — DPlus (REF/XRF) field-by-field
@@ -51,10 +51,10 @@ Severity: **C**ritical (wrong bytes on the wire or a dead code path in the prima
 | F12 | M | Echo sends Rpt1/Rpt2 in the opposite order to the rs-ms3w capture; the two writers' `byte[] dstarHeader` overloads also expect opposite field orders | `BlackEye/IcomSerialEcho.cs:70`, both `WriteHeader(byte[])` overloads | 7 | **Fixed** |
 | F13 | C | `packetId` is never incremented → every DPlus frame carries packet id 0 and the every-20-frames header resend never fires | `BlackEye/DPlusHandler.cs:172-187` | 8 | **Fixed** |
 | F14 | H | `var lastHeaderPacket` shadows the field → field stays null, resend loop is dead even once F13 is fixed | `BlackEye/DPlusHandler.cs:211` | 8 | **Fixed** |
-| F15 | H | `sequenceId`/`number` are never reset per transmission and increment before the write, so the first frame is `01 01` not `00 00` | `BlackEye/DPlusHandler.cs:261-263,303` | 9 | Not started |
-| F16 | H | Sync-frame decision reads `TerminalToDPlus.packetId` — the radio→network counter — instead of the radio-bound frame number | `BlackEye/DPlusHandler.cs:141` | 9 | Not started |
-| F17 | H | `emptyFrames` is never reset to 0, so after 100 cumulative fillers every later receive tears down immediately | `BlackEye/DPlusHandler.cs:99,139` | 9 | Not started |
-| F18 | M | Teardown sends the empty-voice-last-frame but never the EOT frame; separately, the network EOT flips state to Idle at *enqueue* time so the queued EOT is never sent | `BlackEye/DPlusHandler.cs:125-133,320-327` | 9 | Not started |
+| F15 | H | `sequenceId`/`number` are never reset per transmission and increment before the write, so the first frame is `01 01` not `00 00` | `BlackEye/DPlusHandler.cs:261-263,303` | 9 | **Fixed** |
+| F16 | H | Sync-frame decision reads `TerminalToDPlus.packetId` — the radio→network counter — instead of the radio-bound frame number | `BlackEye/DPlusHandler.cs:141` | 9 | **Fixed** |
+| F17 | H | `emptyFrames` is never reset to 0, so after 100 cumulative fillers every later receive tears down immediately | `BlackEye/DPlusHandler.cs:99,139` | 9 | **Fixed** |
+| F18 | M | Teardown sends the empty-voice-last-frame but never the EOT frame; separately, the network EOT flips state to Idle at *enqueue* time so the queued EOT is never sent | `BlackEye/DPlusHandler.cs:125-133,320-327` | 9 | **Fixed** |
 | F19 | C | `WriteLogin("")` is built and discarded, mycall is empty, and `state` starts at `Idle` so the `Disconnected`-guarded connect/login path is unreachable; nothing calls `WriteConnect` | `BlackEye/DPlusHandler.cs:40,280-286` | 10 | Not started |
 | F20 | H | Radio's Rpt1/Rpt2 (`DIRECT`/`DIRECT`) forwarded verbatim; the reflector verifies mycall and rpt2, so the stream is dropped | `BlackEye/DPlusHandler.cs:211-217` | 10 | Not started |
 | F21 | M | Header CRC hard-coded `00 0b` (a constant copied from one capture, not a CRC of its own contents); `IcomTerminalHeader` exposes no CRC accessor | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:78` | 5 | **Fixed** |
@@ -1324,7 +1324,7 @@ The root cause of all four is that ids are stamped when a frame is **enqueued** 
 - Consumes: `IcomTerminalWriter.WriteEmptyVoice*(byte, byte)` and `WriteFrameEot(byte, byte)` from Task 7; `DPlusFramePacket.AmbeAndData` (12 bytes) from Task 4.
 - Produces: `DPlusHandler.QueuedFrame` (private nested record); `TerminalToDPlus.BeginReceiveStream()` — called by `DPlusToTerminal.OnHeader` to reset the radio-bound counters. Task 10 calls neither.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Add to `DPlusHandlerTests`:
 
@@ -1431,12 +1431,12 @@ Add to `DPlusHandlerTests`:
 
 Note: these tests exercise `ReceiveFrame`, which sleeps 12 ms per call — the suite stays under a second.
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `dotnet test --filter DPlusHandlerTests`
 Expected: FAIL — first frame is numbered `01 01`, fillers all carry `00 00`, and the network EOT never reaches the radio because the state flipped to Idle at enqueue time.
 
-- [ ] **Step 3: Queue payloads instead of finished packets**
+- [x] **Step 3: Queue payloads instead of finished packets**
 
 Change the queue field on `DPlusHandler` and add the record:
 
@@ -1451,7 +1451,7 @@ Change the queue field on `DPlusHandler` and add the record:
         private record QueuedFrame(byte[]? AmbeAndData, bool IsEot);
 ```
 
-- [ ] **Step 4: Move the counters to the sending side**
+- [x] **Step 4: Move the counters to the sending side**
 
 In `TerminalToDPlus`, replace the `emptyFrames` field block with:
 
@@ -1484,7 +1484,7 @@ In `TerminalToDPlus`, replace the `emptyFrames` field block with:
             }
 ```
 
-- [ ] **Step 5: Rewrite `ReceiveFrame`**
+- [x] **Step 5: Rewrite `ReceiveFrame`**
 
 ```csharp
             private void ReceiveFrame()
@@ -1543,7 +1543,7 @@ In `TerminalToDPlus`, replace the `emptyFrames` field block with:
             }
 ```
 
-- [ ] **Step 6: Enqueue payloads and reset on the header**
+- [x] **Step 6: Enqueue payloads and reset on the header**
 
 In `DPlusToTerminal`, delete the `sequenceId` and `number` fields, then:
 
@@ -1585,12 +1585,12 @@ In `DPlusToTerminal`, delete the `sequenceId` and `number` fields, then:
 
 Note `WriteHeader`'s argument order is now rpt1-first, matching Task 7's signature.
 
-- [ ] **Step 7: Run tests to verify they pass**
+- [x] **Step 7: Run tests to verify they pass**
 
 Run: `dotnet test`
 Expected: PASS
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add BlackEye/DPlusHandler.cs BlackEye.Tests/DPlusHandlerTests.cs

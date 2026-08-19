@@ -23,6 +23,36 @@ namespace BlackEye.Tests
             handler = new DPlusHandler(new DPlusNetworkWriter(), new IcomTerminalWriter(), serial, udp);
         }
 
+        private static DPlusHeaderPacket NetworkHeader() =>
+            new DPlusHeaderPacket(CaptureBytes.DPlusHeader);
+
+        private static DPlusFramePacket NetworkFrame(byte packetId) =>
+            new DPlusFramePacket(CaptureBytes.DPlusVoiceFrame(packetId));
+
+        private static DPlusFramePacket NetworkEot() =>
+            new DPlusFramePacket(CaptureBytes.DPlusFrameEot);
+
+        private static IcomTerminalFrameAck FrameAck(byte packetId) =>
+            new IcomTerminalFrameAck(CaptureBytes.Stripped(new byte[] { 0x04, 0x23, packetId, 0x00, 0xff }));
+
+        /// <summary>Frames the bridge wrote to the radio, i.e. type 0x22.</summary>
+        private byte[][] RadioFrames() =>
+            serial.Sent.Where(b => b.Length == 17 && b[1] == 0x22).ToArray();
+
+        private void StartReceiveStream()
+        {
+            handler.DPlusListener.OnHeader(NetworkHeader());
+            serial.Clear();
+        }
+
+        private void AckFrames(int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                handler.TerminalListener.OnFrameAck(FrameAck((byte)i));
+            }
+        }
+
         private static IcomTerminalFrame VoiceFrame(byte sequenceId, byte number)
         {
             var wire = new byte[]
@@ -189,6 +219,215 @@ namespace BlackEye.Tests
 
             Assert.Equal(0x00, Assert.Single(SentOfLength(29))[16]);
             Assert.NotEqual(firstSessionId, SentOfLength(58)[0][14..16]);
+        }
+
+        // ---------------------------------------------------------------
+        // Network to radio: ack-pulled, with filler frames keeping the
+        // radio's timing alive when no audio has arrived.
+        // ---------------------------------------------------------------
+
+        [Fact]
+        public void ANetworkHeaderIsForwardedToTheRadio()
+        {
+            handler.DPlusListener.OnHeader(NetworkHeader());
+
+            var header = Assert.Single(serial.Sent);
+            Assert.Equal(42, header.Length);
+            Assert.Equal(0x20, header[1]);
+            Assert.Equal("AI6VW  D", System.Text.Encoding.UTF8.GetString(header[5..13]));
+            Assert.Equal("REF030 C", System.Text.Encoding.UTF8.GetString(header[13..21]));
+        }
+
+        [Fact]
+        public void NothingIsSentToTheRadioUntilItAcks()
+        {
+            StartReceiveStream();
+
+            handler.DPlusListener.OnFrame(NetworkFrame(0x01));
+            handler.DPlusListener.OnFrame(NetworkFrame(0x02));
+
+            Assert.Empty(RadioFrames());
+        }
+
+        [Fact]
+        public void TheFirstRadioBoundFrameIsNumberedZero()
+        {
+            StartReceiveStream();
+            handler.DPlusListener.OnFrame(NetworkFrame(0x11));
+
+            AckFrames(1);
+
+            var frame = Assert.Single(RadioFrames());
+            Assert.Equal(0x00, frame[2]);
+            Assert.Equal(0x00, frame[3]);
+        }
+
+        [Fact]
+        public void QueuedAudioIsSentOneFramePerAck()
+        {
+            StartReceiveStream();
+            handler.DPlusListener.OnFrame(NetworkFrame(0x01));
+            handler.DPlusListener.OnFrame(NetworkFrame(0x02));
+
+            AckFrames(2);
+
+            var frames = RadioFrames();
+            Assert.Equal(2, frames.Length);
+            Assert.Equal(new byte[] { 0x00, 0x01 }, frames.Select(f => f[2]).ToArray());
+            Assert.Equal(new byte[] { 0x00, 0x01 }, frames.Select(f => f[3]).ToArray());
+            Assert.All(frames, f => Assert.Equal(NetworkFrame(0x01).AmbeAndData, f[4..16]));
+        }
+
+        [Fact]
+        public void FillerFramesAdvanceTheCountersToo()
+        {
+            // Nothing queued, so every ack produces a filler. If fillers did not
+            // advance the ids the radio would see the same frame number repeatedly.
+            StartReceiveStream();
+
+            AckFrames(3);
+
+            var frames = RadioFrames();
+            Assert.Equal(3, frames.Length);
+            Assert.Equal(new byte[] { 0x00, 0x01, 0x02 }, frames.Select(f => f[2]).ToArray());
+            Assert.Equal(new byte[] { 0x00, 0x01, 0x02 }, frames.Select(f => f[3]).ToArray());
+        }
+
+        [Fact]
+        public void TheIdsRunContinuouslyAcrossFillerAndAudio()
+        {
+            StartReceiveStream();
+
+            AckFrames(2);
+            handler.DPlusListener.OnFrame(NetworkFrame(0x05));
+            handler.TerminalListener.OnFrameAck(FrameAck(0x02));
+
+            var frames = RadioFrames();
+            Assert.Equal(3, frames.Length);
+            Assert.Equal(new byte[] { 0x00, 0x01, 0x02 }, frames.Select(f => f[3]).ToArray());
+
+            // The third frame is the queued audio, not another filler.
+            Assert.Equal(NetworkFrame(0x05).AmbeAndData, frames[2][4..16]);
+        }
+
+        [Fact]
+        public void TheFrameNumberWrapsAtTwentyWhileTheSequenceIdKeepsCounting()
+        {
+            StartReceiveStream();
+
+            AckFrames(22);
+
+            var frames = RadioFrames();
+            Assert.Equal(22, frames.Length);
+            Assert.Equal(0x14, frames[20][3]);
+            Assert.Equal(0x00, frames[21][3]);
+            Assert.Equal(0x15, frames[21][2]);
+        }
+
+        [Fact]
+        public void TheSyncFrameIsSentAtNumberZeroAndEmptyDataOtherwise()
+        {
+            StartReceiveStream();
+
+            AckFrames(2);
+
+            var frames = RadioFrames();
+            Assert.Equal(new byte[] { 0x55, 0x2d, 0x16 }, frames[0][13..16]);
+            Assert.Equal(new byte[] { 0x16, 0x29, 0xf5 }, frames[1][13..16]);
+        }
+
+        [Fact]
+        public void TheNetworkEndOfTransmissionReachesTheRadio()
+        {
+            StartReceiveStream();
+            handler.DPlusListener.OnFrame(NetworkEot());
+
+            AckFrames(1);
+
+            var eot = Assert.Single(RadioFrames());
+            Assert.Equal(0x40, eot[3] & 0x40);
+            Assert.Equal(new byte[] { 0x55, 0xc8, 0x7a }, eot[4..7]);
+        }
+
+        [Fact]
+        public void TheStreamEndsOnlyOnceTheEndOfTransmissionHasBeenSent()
+        {
+            StartReceiveStream();
+            handler.DPlusListener.OnFrame(NetworkFrame(0x01));
+            handler.DPlusListener.OnFrame(NetworkEot());
+
+            // The EOT is queued behind the audio; the stream is still live.
+            AckFrames(1);
+            Assert.Single(RadioFrames());
+
+            AckFrames(1);
+            Assert.Equal(2, RadioFrames().Length);
+
+            // Now it has gone out, further acks produce nothing.
+            AckFrames(2);
+            Assert.Equal(2, RadioFrames().Length);
+        }
+
+        [Fact]
+        public void ASecondStreamStartsFromZeroAgain()
+        {
+            StartReceiveStream();
+            AckFrames(3);
+            handler.DPlusListener.OnFrame(NetworkEot());
+            AckFrames(1);
+
+            handler.DPlusListener.OnHeader(NetworkHeader());
+            serial.Clear();
+            AckFrames(1);
+
+            var frame = Assert.Single(RadioFrames());
+            Assert.Equal(0x00, frame[2]);
+            Assert.Equal(0x00, frame[3]);
+        }
+
+        [Fact]
+        public void AStreamIsTornDownAfterTooManyMissingFrames()
+        {
+            StartReceiveStream();
+
+            AckFrames(100);
+            Assert.Equal(100, RadioFrames().Length);
+            Assert.All(RadioFrames(), f => Assert.Equal(0x00, f[3] & 0x40));
+
+            // The 101st missing frame gives up: the empty voice last frame is
+            // followed by the end of transmission frame, as the doc requires.
+            AckFrames(1);
+
+            var frames = RadioFrames();
+            Assert.Equal(102, frames.Length);
+            Assert.Equal(new byte[] { 0x55, 0x55, 0x55 }, frames[100][13..16]);
+            Assert.Equal(0x40, frames[101][3] & 0x40);
+            Assert.Equal(new byte[] { 0x55, 0xc8, 0x7a }, frames[101][4..7]);
+        }
+
+        [Fact]
+        public void AudioArrivingInTimeResetsTheMissingFrameCount()
+        {
+            StartReceiveStream();
+
+            AckFrames(60);
+            handler.DPlusListener.OnFrame(NetworkFrame(0x01));
+            AckFrames(1);
+            AckFrames(60);
+
+            // 121 acks with only one real frame, but never 100 missing in a row,
+            // so the stream is still live and nothing was torn down.
+            Assert.Equal(121, RadioFrames().Length);
+            Assert.All(RadioFrames(), f => Assert.Equal(0x00, f[3] & 0x40));
+        }
+
+        [Fact]
+        public void FramesFromTheNetworkAreIgnoredWithoutAHeader()
+        {
+            handler.DPlusListener.OnFrame(NetworkFrame(0x01));
+            handler.TerminalListener.OnFrameAck(FrameAck(0x00));
+
+            Assert.Empty(serial.Sent);
         }
     }
 }

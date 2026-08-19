@@ -39,7 +39,14 @@
 
         private LockedState state = new LockedState(TransceiverState_Idle);
 
-        private ConcurrentQueue<byte[]> terminalConnectionQueue = new ConcurrentQueue<byte[]>();
+        private ConcurrentQueue<QueuedFrame> terminalConnectionQueue = new ConcurrentQueue<QueuedFrame>();
+
+        /// <summary>
+        /// A radio-bound frame waiting for the radio to ack the previous one. The
+        /// sequence id and number are stamped when the frame is actually sent, not
+        /// here, so that filler frames advance the same counters.
+        /// </summary>
+        private record QueuedFrame(byte[]? AmbeAndData, bool IsEot);
 
         private DPlusNetworkWriter networkWriter;
 
@@ -96,9 +103,17 @@
 
             private byte packetId = 0;
 
+            private const int MaxEmptyFrames = 100;
+
             private int emptyFrames = 0;
 
             private byte[]? lastHeaderPacket = null;
+
+            // Radio-bound counters. They live here because this is the class that
+            // writes to the serial port, on the radio's frame acks.
+            private byte txSequenceId = 0;
+
+            private byte txNumber = 0;
 
             public TerminalToDPlus(DPlusHandler dplusHandler)
             {
@@ -117,39 +132,82 @@
                 pingHandler.Start();
             }
 
+            /// <summary>
+            /// Called when a stream starts from the network, before its header goes
+            /// out to the radio.
+            /// </summary>
+            public void BeginReceiveStream()
+            {
+                txSequenceId = 0;
+                txNumber = 0;
+                emptyFrames = 0;
+
+                dplusHandler.terminalConnectionQueue.Clear();
+            }
+
+            private void AdvanceTxCounters()
+            {
+                txSequenceId++;                                          // wraps at 255
+                txNumber = (byte)(txNumber >= 20 ? 0 : txNumber + 1);    // 0..20
+            }
+
             private void ReceiveFrame()
             {
-                byte[]? buffer;
                 Thread.Sleep(FrameSleepMs);
-
-                if (emptyFrames > 100)
-                {
-                    dplusHandler.state.CompareExchangeExecute(TransceiverState_Receiving, TransceiverState_Idle, () =>
-                    {
-                        buffer = dplusHandler.terminalWriter.WriteEmptyVoiceLastFrame(0x00, 0x00);
-
-                        dplusHandler.terminalConnection.Send(buffer);
-                    });
-                }
 
                 dplusHandler.state.CompareExecute(TransceiverState_Receiving, () =>
                 {
-                    if (!dplusHandler.terminalConnectionQueue.TryDequeue(out buffer))
+                    byte[] buffer;
+
+                    if (dplusHandler.terminalConnectionQueue.TryDequeue(out var queued))
+                    {
+                        emptyFrames = 0;
+
+                        if (queued.IsEot)
+                        {
+                            SendAndGoIdle(dplusHandler.terminalWriter.WriteFrameEot(txSequenceId, txNumber));
+                            return;
+                        }
+
+                        buffer = dplusHandler.terminalWriter.WriteFrame(txSequenceId, txNumber, queued.AmbeAndData!);
+                    }
+                    else
                     {
                         emptyFrames++;
 
-                        if (packetId == 0)
+                        if (emptyFrames > MaxEmptyFrames)
                         {
-                            buffer = dplusHandler.terminalWriter.WriteEmptyVoiceSyncData(0x00, 0x00);
+                            // Give up on the network. The doc: the empty voice last
+                            // frame is followed by the end of transmission frame.
+                            dplusHandler.terminalConnection.Send(
+                                dplusHandler.terminalWriter.WriteEmptyVoiceLastFrame(txSequenceId, txNumber));
+
+                            AdvanceTxCounters();
+
+                            SendAndGoIdle(dplusHandler.terminalWriter.WriteFrameEot(txSequenceId, txNumber));
+                            return;
                         }
-                        else
-                        {
-                            buffer = dplusHandler.terminalWriter.WriteEmptyVoiceEmptyData(0x00, 0x00);
-                        }
+
+                        buffer = txNumber == 0
+                            ? dplusHandler.terminalWriter.WriteEmptyVoiceSyncData(txSequenceId, txNumber)
+                            : dplusHandler.terminalWriter.WriteEmptyVoiceEmptyData(txSequenceId, txNumber);
                     }
 
                     dplusHandler.terminalConnection.Send(buffer);
+
+                    AdvanceTxCounters();
                 });
+            }
+
+            private void SendAndGoIdle(byte[] buffer)
+            {
+                dplusHandler.terminalConnection.Send(buffer);
+
+                emptyFrames = 0;
+
+                // LockedState uses a Monitor, which is reentrant on this thread, so
+                // transitioning from inside the enclosing CompareExecute is safe.
+                dplusHandler.state.ExchangeExecute(TransceiverState_Idle, () => { });
             }
 
             public void OnFrame(IcomTerminalFrame framePacket)
@@ -257,10 +315,6 @@
 
             private PingHandler pingHandler;
 
-            private byte sequenceId = 0;
-
-            private byte number = 0;
-
             public DPlusToTerminal(DPlusHandler dplusHnadler)
             {
                 this.dplusHandler = dplusHnadler ?? throw new ArgumentNullException(nameof(dplusHnadler));
@@ -301,6 +355,8 @@
 
                 dplusHandler.state.CompareExchangeExecute(TransceiverState_Idle, TransceiverState_Receiving, () =>
                 {
+                    dplusHandler.terminalToDPlus.BeginReceiveStream();
+
                     var buffer = dplusHandler.terminalWriter.WriteHeader(
                         packet.Rpt1,
                         packet.Rpt2,
@@ -316,31 +372,16 @@
             {
                 pingHandler.Pong();
 
-                if (packet.IsLast())
+                dplusHandler.state.CompareExecute(TransceiverState_Receiving, () =>
                 {
-                    dplusHandler.state.CompareExchangeExecute(TransceiverState_Receiving, TransceiverState_Idle, () =>
-                    {
-                        var buffer = dplusHandler.terminalWriter.WriteFrameEot(sequenceId, number);
-                        dplusHandler.terminalConnectionQueue.Enqueue(buffer);
-                    });
-                }
-                else
-                {
-                    dplusHandler.state.CompareExecute(TransceiverState_Receiving, () =>
-                    {
-                        // bytes go from 0 to 0xFF (255 decimal)
-                        sequenceId += 1;
-
-                        number += 1;
-                        if (number > 20)
-                        {
-                            number = 0;
-                        }
-
-                        var buffer = dplusHandler.terminalWriter.WriteFrame(sequenceId, number, packet.AmbeAndData);
-                        dplusHandler.terminalConnectionQueue.Enqueue(buffer);
-                    });
-                }
+                    // Only the payload is queued: the ids are stamped when the frame
+                    // is actually sent. The state changes to Idle when the end of
+                    // transmission has gone out to the radio, not when it is queued.
+                    dplusHandler.terminalConnectionQueue.Enqueue(
+                        packet.IsLast()
+                            ? new QueuedFrame(null, true)
+                            : new QueuedFrame(packet.AmbeAndData, false));
+                });
             }
 
             public void OnEotAck()
