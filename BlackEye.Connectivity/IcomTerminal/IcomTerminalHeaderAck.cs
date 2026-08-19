@@ -17,7 +17,7 @@
                 return false;
             }
 
-            if (buffer[1] != 0x00)
+            if (!((PacketType)buffer[0] == PacketType.HeaderToSerialAck))
             {
                 return false;
             }

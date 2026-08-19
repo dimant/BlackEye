@@ -89,6 +89,17 @@ namespace BlackEye.Tests
         }
 
         [Fact]
+        public void ARejectedHeaderReachesTheListener()
+        {
+            // The radio's nak has to be reported: a listener that never hears it
+            // cannot tell rejection from silence.
+            var listener = ReadAll(new byte[] { 0x03, 0x21, 0x01, 0xff });
+
+            var ack = Assert.Single(listener.HeaderAcks);
+            Assert.False(ack.Ack);
+        }
+
+        [Fact]
         public void ReadsAFrameAck()
         {
             var listener = ReadAll(CaptureBytes.IcomFrameAckWire);

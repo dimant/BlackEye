@@ -140,6 +140,14 @@
         {
             pingHandler.Pong();
 
+            if (!headerAckPacket.Ack)
+            {
+                // The radio rejected the header. Naks used to be dropped during
+                // validation and never reached a listener at all; do not now treat
+                // one as an acceptance and start playing frames.
+                return;
+            }
+
             if (state == StateType.TransmittingHeader)
             {
                 transceiverQueue.Dequeue();

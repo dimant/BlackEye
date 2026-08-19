@@ -18,14 +18,15 @@
         {
         }
 
+        /// <summary>
+        /// The radio marks its terminator frame with bit 0x40 in the frame type
+        /// bits: dumps/rs-ms3w-rs232-dump.txt shows 10 12 56 42 55 c8 7a 00...
+        /// directly after the last voice frame. Testing for zero bytes in the
+        /// payload instead also matched ordinary AMBE.
+        /// </summary>
         public bool IsLast()
         {
-            if (!(buffer[10] == 0x00 && buffer[11] == 0x00 && buffer[12] == 0x00))
-            {
-                return false;
-            }
-
-            return true;
+            return (FrameType & 0x40) == 0x40;
         }
 
         public override bool IsValid()

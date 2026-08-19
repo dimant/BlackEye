@@ -195,6 +195,79 @@ namespace BlackEye.Tests
         }
 
         [Fact]
+        public void TypeReadsTheStrippedBuffersFirstByte()
+        {
+            var header = new IcomTerminalHeader(CaptureBytes.Stripped(CaptureBytes.IcomHeaderFromRadioWire));
+            var frame = new IcomTerminalFrame(CaptureBytes.Stripped(CaptureBytes.IcomFrameFromRadioWire));
+            var pong = new IcomTerminalPong(CaptureBytes.Stripped(CaptureBytes.IcomPongWire));
+            var frameAck = new IcomTerminalFrameAck(CaptureBytes.Stripped(CaptureBytes.IcomFrameAckWire));
+
+            Assert.Equal(IcomTerminalPacket.PacketType.HeaderFromSerial, header.Type);
+            Assert.Equal(IcomTerminalPacket.PacketType.FrameFromSerial, frame.Type);
+            Assert.Equal(IcomTerminalPacket.PacketType.Pong, pong.Type);
+            Assert.Equal(IcomTerminalPacket.PacketType.FrameToSerialAck, frameAck.Type);
+        }
+
+        [Fact]
+        public void PayloadLengthIsWhatTheReaderHandedOver()
+        {
+            // The wire length byte is consumed by the reader and not retained, so
+            // an Icom packet with wire length L occupies L bytes here.
+            var header = new IcomTerminalHeader(CaptureBytes.Stripped(CaptureBytes.IcomHeaderFromRadioWire));
+
+            Assert.Equal(CaptureBytes.IcomHeaderFromRadioWire[0], header.PayloadLength);
+            Assert.Equal(0x2c, header.PayloadLength);
+        }
+
+        [Fact]
+        public void AVoiceFrameWithZeroBytesInTheAmbeIsNotTreatedAsLast()
+        {
+            // Three zero bytes can occur inside ordinary AMBE. Only the 0x40 bit in
+            // byte 3 marks the radio's terminator frame.
+            var wire = new byte[]
+            {
+                0x10, 0x12, 0x33, 0x0a,
+                0x4a, 0x7c, 0x1b, 0xef, 0x20, 0xe6, 0xcb, 0x00, 0x00,
+                0x00, 0x2d, 0x16,
+                0xff
+            };
+
+            var frame = new IcomTerminalFrame(CaptureBytes.Stripped(wire));
+
+            Assert.Equal(0x00, frame.FrameType);
+            Assert.False(frame.IsLast());
+        }
+
+        [Fact]
+        public void AnyFrameCarryingTheLastFrameBitIsLast()
+        {
+            for (byte number = 0; number <= 20; number++)
+            {
+                var wire = (byte[])CaptureBytes.IcomFrameFromRadioWire.Clone();
+                wire[3] = (byte)(number | 0x40);
+
+                Assert.True(new IcomTerminalFrame(CaptureBytes.Stripped(wire)).IsLast());
+            }
+        }
+
+        [Fact]
+        public void HeaderNakSurvivesValidationSoItCanBeReported()
+        {
+            var nak = new IcomTerminalHeaderAck(CaptureBytes.Stripped(new byte[] { 0x03, 0x21, 0x01, 0xff }));
+
+            Assert.True(nak.IsValid());
+            Assert.False(nak.Ack);
+        }
+
+        [Fact]
+        public void HeaderAckOfTheWrongTypeIsInvalid()
+        {
+            var ack = new IcomTerminalHeaderAck(CaptureBytes.Stripped(new byte[] { 0x03, 0x23, 0x00, 0xff }));
+
+            Assert.False(ack.IsValid());
+        }
+
+        [Fact]
         public void HeaderAckReportsAcceptance()
         {
             var ack = new IcomTerminalHeaderAck(CaptureBytes.Stripped(CaptureBytes.IcomHeaderAckWire));

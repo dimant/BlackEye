@@ -16,9 +16,14 @@
 
         protected byte[] buffer;
 
-        public int Length { get { return buffer[0]; } }
+        /// <summary>
+        /// Number of bytes the reader handed over. The wire length byte is consumed
+        /// during framing and not retained, so a packet with wire length L occupies
+        /// L bytes here and code index = wire index - 1 throughout.
+        /// </summary>
+        public int PayloadLength { get { return buffer.Length; } }
 
-        public PacketType Type { get { return (PacketType)buffer[1]; } }
+        public PacketType Type { get { return (PacketType)buffer[0]; } }
 
         public IcomTerminalPacket(byte[] buffer)
         {

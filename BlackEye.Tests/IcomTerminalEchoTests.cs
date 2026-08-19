@@ -91,6 +91,24 @@ namespace BlackEye.Tests
         }
 
         [Fact]
+        public void ARejectedHeaderDoesNotAdvancePlayback()
+        {
+            var serial = new FakeConnection();
+            var echo = new IcomTerminalEcho(new IcomTerminalWriter(), serial);
+
+            echo.OnHeader(Header());
+            echo.OnFrame(Frame(CaptureBytes.IcomFrameFromRadioWire));
+            echo.OnFrame(Frame(CaptureBytes.IcomEotFrameFromRadioWire));
+            serial.Clear();
+
+            // A nak must not be mistaken for an acceptance.
+            echo.OnHeaderAck(new IcomTerminalHeaderAck(CaptureBytes.Stripped(new byte[] { 0x03, 0x21, 0x01, 0xff })));
+            echo.OnPong(GoAhead());
+
+            Assert.Empty(serial.Sent);
+        }
+
+        [Fact]
         public void AFrameAckArrivingBeforePlaybackStartsIsIgnored()
         {
             var serial = new FakeConnection();

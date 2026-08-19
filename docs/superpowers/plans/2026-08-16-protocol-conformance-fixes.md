@@ -8,7 +8,7 @@
 
 **Tech Stack:** .NET 10 (`net10.0`), C# 14, nullable enabled, implicit usings, TPL Dataflow, `System.IO.Ports` 10.0.11, xUnit 2.9.3 + coverlet.
 
-**Status:** Tasks 0-5 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 129 passing tests. Tasks 6-11 are not started.
+**Status:** Tasks 0-6 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 137 passing tests. Tasks 7-11 are not started.
 
 **Spec:**
 - `../dstardocs/DPlusProtocol.md` — DPlus (REF/XRF) field-by-field
@@ -41,12 +41,12 @@ Severity: **C**ritical (wrong bytes on the wire or a dead code path in the prima
 | F02 | C | Login buffer is 27 bytes but declares `0x1C` (28); tail is `DV19994`, capture says `DV019994` (missing `0x30`) | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:30-35` | 2 | **Fixed** |
 | F03 | C | EOT frame declares length `0x1D` (29) but is 32 bytes; packet id never gets the `0x40` last-frame bit | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:121-135`, `BlackEye/DPlusHandler.cs:163` | 3 | **Fixed** |
 | F04 | C | Frame payload offsets off by one (payload starts at 17, not 16) → `Data` is 4 bytes, `IsLast()` can never be true, `AmbeAndData` is 13 bytes and throws in `IcomTerminalWriter.WriteFrame` | `BlackEye.Connectivity/DPlus/DPlusFramePacket.cs:5-9` | 4 | **Fixed** |
-| F05 | L | `Length`/`Type` read wire offsets on a length-stripped buffer → `Length` returns the type, `Type` returns the first payload byte (currently unused) | `BlackEye.Connectivity/IcomTerminal/IcomTerminalPacket.cs:19-21` | 6 | Not started |
-| F06 | L | `IsEotAck()` looks for packet id `0x80`; `23 80` occurs in zero bytes of all eight dumps — dead code | `BlackEye.Connectivity/IcomTerminal/IcomTerminalFrameAck.cs:9-12` | 6 | Not started |
+| F05 | L | `Length`/`Type` read wire offsets on a length-stripped buffer → `Length` returns the type, `Type` returns the first payload byte (currently unused) | `BlackEye.Connectivity/IcomTerminal/IcomTerminalPacket.cs:19-21` | 6 | **Fixed** |
+| F06 | L | `IsEotAck()` looks for packet id `0x80`; `23 80` occurs in zero bytes of all eight dumps — dead code | `BlackEye.Connectivity/IcomTerminal/IcomTerminalFrameAck.cs:9-12` | 6 | **Fixed** |
 | F07 | H | All four special frames hard-code their sequence/number bytes (`00 00`, and `08 48` for EOT); doc and captures require the live transmission's ids | `BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs:66-111` | 7 | Not started |
 | F08 | H | `WriteEmptyVoiceEmptyData` sends `97 CB E5` — zero occurrences across all dumps; both reference apps send `16 29 F5` | `BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs:77-87` | 7 | Not started |
-| F09 | M | `IsLast()` tests three zero bytes spanning AMBE and slow data; the real marker is byte 3 bit `0x40` | `BlackEye.Connectivity/IcomTerminal/IcomTerminalFrame.cs:21-29` | 6 | Not started |
-| F10 | M | `IsValid()` returns false for a NAK, so the reader drops it and the listener can never learn the header was rejected | `BlackEye.Connectivity/IcomTerminal/IcomTerminalHeaderAck.cs:20` | 6 | Not started |
+| F09 | M | `IsLast()` tests three zero bytes spanning AMBE and slow data; the real marker is byte 3 bit `0x40` | `BlackEye.Connectivity/IcomTerminal/IcomTerminalFrame.cs:21-29` | 6 | **Fixed** |
+| F10 | M | `IsValid()` returns false for a NAK, so the reader drops it and the listener can never learn the header was rejected | `BlackEye.Connectivity/IcomTerminal/IcomTerminalHeaderAck.cs:20` | 6 | **Fixed** |
 | F11 | L | `WriteReset` emits 3 × `0xFF`; the doc calls for 5–100 | `BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs:14-19` | 7 | Not started |
 | F12 | M | Echo sends Rpt1/Rpt2 in the opposite order to the rs-ms3w capture; the two writers' `byte[] dstarHeader` overloads also expect opposite field orders | `BlackEye/IcomSerialEcho.cs:70`, both `WriteHeader(byte[])` overloads | 7 | Not started |
 | F13 | C | `packetId` is never incremented → every DPlus frame carries packet id 0 and the every-20-frames header resend never fires | `BlackEye/DPlusHandler.cs:172-187` | 8 | Not started |
@@ -671,7 +671,7 @@ git commit -m "feat: compute D-STAR header CRC instead of hard-coding a captured
 - Consumes: `CaptureBytes.IcomHeaderFromRadioWire`, `CaptureBytes.IcomEotFrameFromRadioWire`, `CaptureBytes.Stripped`.
 - Produces: `IcomTerminalPacket.Type` (now reads `buffer[0]`); `IcomTerminalPacket.Length` removed; `IcomTerminalFrame.IsLast()` keyed off bit `0x40`; `IcomTerminalHeaderAck.IsValid()` no longer rejects a NAK. Task 7 and Task 9 consume `IsLast()`.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Add these to the existing `IcomTerminalPacketTests` class — drop the namespace and class wrapper shown here, and skip `HeaderCallsignOffsets`, which the baseline already covers:
 
@@ -742,12 +742,12 @@ namespace BlackEye.Tests
 }
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `dotnet test --filter IcomTerminalPacketTests`
 Expected: `TypeReadsTheStrippedBuffersFirstByte` FAILS (`Type` reads `buffer[1]`); `TerminatorFrameIsDetectedByTheLastFrameBit` PASSES by accident (its bytes 10-12 are zero); `VoiceFrameWithZeroAmbeBytesIsNotTreatedAsLast` FAILS; `HeaderNakSurvivesValidationSoItCanBeReported` FAILS.
 
-- [ ] **Step 3: Fix `IcomTerminalPacket`**
+- [x] **Step 3: Fix `IcomTerminalPacket`**
 
 The reader strips the length byte, so `buffer[0]` is the type and the wire length is not retained. Replace the two properties with:
 
@@ -763,7 +763,7 @@ The reader strips the length byte, so `buffer[0]` is the type and the wire lengt
 
 Delete the old `Length` property. Nothing referenced it (verified by grep before starting).
 
-- [ ] **Step 4: Fix `IcomTerminalFrame.IsLast`**
+- [x] **Step 4: Fix `IcomTerminalFrame.IsLast`**
 
 ```csharp
         /// <summary>
@@ -777,7 +777,7 @@ Delete the old `Length` property. Nothing referenced it (verified by grep before
         }
 ```
 
-- [ ] **Step 5: Fix `IcomTerminalHeaderAck.IsValid`**
+- [x] **Step 5: Fix `IcomTerminalHeaderAck.IsValid`**
 
 Delete the `buffer[1] != 0x00` rejection so a NAK reaches the listener, and check the packet type instead:
 
@@ -798,16 +798,16 @@ Delete the `buffer[1] != 0x00` rejection so a NAK reaches the listener, and chec
         }
 ```
 
-- [ ] **Step 6: Delete `IcomTerminalFrameAck.IsEotAck`**
+- [x] **Step 6: Delete `IcomTerminalFrameAck.IsEotAck`**
 
 `23 80` appears in zero bytes across all eight dumps; the ack for the EOT frame is an ordinary `04 23 <seq> 00`. Delete the method (it has no callers).
 
-- [ ] **Step 7: Run tests to verify they pass**
+- [x] **Step 7: Run tests to verify they pass**
 
 Run: `dotnet test`
 Expected: PASS
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add BlackEye.Connectivity/IcomTerminal BlackEye.Tests/IcomTerminalPacketTests.cs
