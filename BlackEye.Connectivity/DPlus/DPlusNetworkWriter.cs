@@ -91,10 +91,19 @@
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, // urcall
                 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, // mycall
                 0x00, 0x00, 0x00, 0x00,                         // suffix
-                0x00, 0x0B
+                0x00, 0x00                                      // crc, computed below
             };
 
             dstarHeader.CopyTo(buffer, 20);
+
+            // The 3 flag bytes at 17..19 plus the 36 callsign bytes at 20..55 are
+            // the 39 byte RF header the CRC covers. Low byte first, matching the
+            // radio. The captured reference client emits a constant 00 0b here,
+            // which does not describe the header it travels with, so it cannot be
+            // copied and the radio's own CRC is stale once rpt1/rpt2 are rewritten.
+            ushort crc = DStarCrc.Compute(buffer, 17, 39);
+            buffer[56] = (byte)(crc & 0xFF);
+            buffer[57] = (byte)(crc >> 8);
 
             return buffer;
         }

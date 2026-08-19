@@ -44,6 +44,32 @@ namespace BlackEye.Connectivity.IcomTerminal
             }
         }
 
+        /// <summary>
+        /// CRC over the 39 byte RF header, at stripped bytes 40 and 41, low byte
+        /// first. IcomTerminalMode.md notes it can be piped through to the network
+        /// without recalculating - but only if the callsigns are piped through too.
+        /// </summary>
+        public ushort Crc
+        {
+            get
+            {
+                return (ushort)(buffer[40] | (buffer[41] << 8));
+            }
+        }
+
+        public byte RxStatus
+        {
+            get
+            {
+                return buffer[42];
+            }
+        }
+
+        public bool IsCrcValid()
+        {
+            return DStarCrc.Compute(buffer, 1, 39) == Crc;
+        }
+
         public IcomTerminalHeader(byte[] buffer) : base(buffer)
         {
         }

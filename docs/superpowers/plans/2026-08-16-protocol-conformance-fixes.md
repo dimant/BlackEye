@@ -8,7 +8,7 @@
 
 **Tech Stack:** .NET 10 (`net10.0`), C# 14, nullable enabled, implicit usings, TPL Dataflow, `System.IO.Ports` 10.0.11, xUnit 2.9.3 + coverlet.
 
-**Status:** Tasks 0-4 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 121 passing tests. Tasks 5-11 are not started.
+**Status:** Tasks 0-5 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 129 passing tests. Tasks 6-11 are not started.
 
 **Spec:**
 - `../dstardocs/DPlusProtocol.md` — DPlus (REF/XRF) field-by-field
@@ -57,7 +57,7 @@ Severity: **C**ritical (wrong bytes on the wire or a dead code path in the prima
 | F18 | M | Teardown sends the empty-voice-last-frame but never the EOT frame; separately, the network EOT flips state to Idle at *enqueue* time so the queued EOT is never sent | `BlackEye/DPlusHandler.cs:125-133,320-327` | 9 | Not started |
 | F19 | C | `WriteLogin("")` is built and discarded, mycall is empty, and `state` starts at `Idle` so the `Disconnected`-guarded connect/login path is unreachable; nothing calls `WriteConnect` | `BlackEye/DPlusHandler.cs:40,280-286` | 10 | Not started |
 | F20 | H | Radio's Rpt1/Rpt2 (`DIRECT`/`DIRECT`) forwarded verbatim; the reflector verifies mycall and rpt2, so the stream is dropped | `BlackEye/DPlusHandler.cs:211-217` | 10 | Not started |
-| F21 | M | Header CRC hard-coded `00 0b` (a constant copied from one capture, not a CRC of its own contents); `IcomTerminalHeader` exposes no CRC accessor | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:78` | 5 | Not started |
+| F21 | M | Header CRC hard-coded `00 0b` (a constant copied from one capture, not a CRC of its own contents); `IcomTerminalHeader` exposes no CRC accessor | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:78` | 5 | **Fixed** |
 | F22 | H | `ReceivedCallback` is uncaught and `BeginReceive` is only re-armed after it, so one malformed datagram permanently kills all network reception | `BlackEye.Connectivity/UdpConnection.cs:47-59` | 11 | Not started |
 | F23 | M | A resync onto a `0x00` length byte makes `buffer[0]` throw and silently kills the background serial reader task | `BlackEye.Connectivity/IcomTerminal/IcomTerminalReader.cs:35-42` | 11 | Not started |
 | F24 | L | On a read exception the callback fires twice — once with the `0xFF` filler, once with the partial buffer | `BlackEye.Connectivity/SerialConnection.cs:85-91` | 11 | Not started |
@@ -498,7 +498,7 @@ The reference client emits a constant `00 0b` that is **not** the CRC of its own
 - Consumes: `CaptureBytes.IcomHeaderFromRadioWire`.
 - Produces: `DStarCrc.Compute(byte[] data, int offset, int count) -> ushort`; `IcomTerminalHeader.Crc -> ushort`, `.RxStatus -> byte`, `.IsCrcValid() -> bool`.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `BlackEye.Tests/DStarCrcTests.cs`:
 
@@ -538,12 +538,12 @@ namespace BlackEye.Tests
 }
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `dotnet test --filter DStarCrcTests`
 Expected: FAIL to compile — `DStarCrc` and `IcomTerminalHeader.Crc` do not exist.
 
-- [ ] **Step 3: Implement the CRC**
+- [x] **Step 3: Implement the CRC**
 
 Create `BlackEye.Connectivity/DStarCrc.cs`:
 
@@ -580,7 +580,7 @@ namespace BlackEye.Connectivity
 }
 ```
 
-- [ ] **Step 4: Expose CRC and rx status on the Icom header**
+- [x] **Step 4: Expose CRC and rx status on the Icom header**
 
 Add to `IcomTerminalHeader` (stripped indices: flags 1..3, callsigns 4..39, CRC low 40, CRC high 41, rx status 42):
 
@@ -594,12 +594,12 @@ Add to `IcomTerminalHeader` (stripped indices: flags 1..3, callsigns 4..39, CRC 
 
 Add `using BlackEye.Connectivity;` if the namespace is not already in scope.
 
-- [ ] **Step 5: Run test to verify it passes**
+- [x] **Step 5: Run test to verify it passes**
 
 Run: `dotnet test --filter DStarCrcTests`
 Expected: PASS
 
-- [ ] **Step 6: Write the failing test for the DPlus header CRC**
+- [x] **Step 6: Write the failing test for the DPlus header CRC**
 
 Add to `DPlusNetworkWriterTests`:
 
@@ -623,12 +623,12 @@ Add to `DPlusNetworkWriterTests`:
         }
 ```
 
-- [ ] **Step 7: Run test to verify it fails**
+- [x] **Step 7: Run test to verify it fails**
 
 Run: `dotnet test --filter WriteHeader_ComputesCrcOverItsOwnContents`
 Expected: FAIL — actual bytes are `00 0b`.
 
-- [ ] **Step 8: Compute the CRC in the DPlus header writer**
+- [x] **Step 8: Compute the CRC in the DPlus header writer**
 
 At the end of `WriteHeader(byte[] dstarHeader, byte sessionIdHigh, byte sessionIdLow)`, after the `CopyTo`:
 
@@ -642,12 +642,12 @@ At the end of `WriteHeader(byte[] dstarHeader, byte sessionIdHigh, byte sessionI
 
 Add `using BlackEye.Connectivity;` to `DPlusNetworkWriter.cs`.
 
-- [ ] **Step 9: Run the whole suite**
+- [x] **Step 9: Run the whole suite**
 
 Run: `dotnet test`
 Expected: PASS. `WriteHeader_MatchesCaptureThroughCallsigns` only asserts bytes 0..55, so it is unaffected.
 
-- [ ] **Step 10: Commit**
+- [x] **Step 10: Commit**
 
 ```bash
 git add BlackEye.Connectivity/DStarCrc.cs BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs \
@@ -2014,7 +2014,7 @@ These are unresolved by the docs and the captures together. None blocks the plan
 1. **Which filler payload is right — `16 29 F5` or `97 CB E5`?** `IcomTerminalMode.md` documents `97 CB E5` and `significant_bytes.txt` lists both (calling `16 29 F5` "unknown"), but `97 CB E5` occurs in zero bytes across all eight dumps while `16 29 F5` is what both reference applications send. Task 7 follows the captures. If the radio rejects it on hardware, revisit — and update `../dstardocs/IcomTerminalMode.md` either way.
 2. **Is the sync frame really sent at number 0?** `significant_bytes.txt` says the first packet after a header is the empty-voice/data-sync frame, and the radio does send `55 2D 16` at number 0 in its own direction. But in the computer→radio direction neither reference app ever sends `55 2D 16` — both send `16 29 F5` at number 0. Task 9 keeps the `number == 0 → sync` rule because it matches the D-STAR 21-frame superframe structure; the conflicting evidence is recorded here.
 3. **Slow-data sync alignment when relaying.** Radio-bound frames get our own number, but their 3 slow-data bytes come from the network stream with that stream's own sync phase baked in. If the two phases disagree the radio may see a sync pattern at the wrong frame index. Not addressed by this plan; needs a hardware observation to even confirm it matters.
-4. **DPlus header CRC byte order.** Task 5 writes low byte first, matching the radio's own header. This is unverifiable from the captures because the reference client emits a constant `00 0b` rather than a real CRC, and xlxd stores and echoes the field without ever checking it.
+4. **DPlus header CRC byte order.** Task 5 writes low byte first, matching the radio's own header, and the algorithm itself is now confirmed: CRC-X25 over the 39 byte RF header reproduces the ID52's `58 14` exactly. The byte order on the DPlus side remains unverifiable from the captures, because the reference client emits a constant `00 0b` rather than a real CRC (the true CRC of that header is `e3 94`), and xlxd stores and echoes the field without ever checking it.
 5. **Should the operator's urcall pass through?** Task 10 forwards `headerPacket.UrCall` unchanged so that routed calls still work, while replacing rpt1/rpt2/mycall. If the reflector rejects non-`CQCQCQ` urcalls, force `config.UrCall` instead.
 6. **`DPlusHandler` is still not reachable from `Main`.** `Program.cs` wires `IcomTerminalEcho`. Switching the entry point is deliberately out of scope — it needs the connect/login path from Task 10 to be exercised against a live reflector first.
 

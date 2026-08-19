@@ -1,5 +1,6 @@
 namespace BlackEye.Tests
 {
+    using BlackEye.Connectivity;
     using BlackEye.Connectivity.DPlus;
     using System;
     using Xunit;
@@ -160,6 +161,42 @@ namespace BlackEye.Tests
             Assert.Equal(0x7d, header[14]);
             Assert.Equal(0x37, header[15]);
             Assert.Equal(0x80, header[16]);
+        }
+
+        [Fact]
+        public void HeaderCrcDescribesTheHeaderItTravelsWith()
+        {
+            var header = writer.WriteHeader(
+                rpt1: "AI6VW  D",
+                rpt2: "REF030 C",
+                urcall: "CQCQCQ  ",
+                mycall: "AI6VW   ",
+                suffix: "ID52",
+                sessionid: 0x7D37);
+
+            // The capture's 00 0b is a constant the reference client emits; e3 94
+            // is the actual CRC of these 39 bytes. Low byte first, as the radio
+            // transmits it.
+            Assert.Equal(0xe3, header[56]);
+            Assert.Equal(0x94, header[57]);
+
+            var crc = DStarCrc.Compute(header, 17, 39);
+            Assert.Equal((byte)(crc & 0xFF), header[56]);
+            Assert.Equal((byte)(crc >> 8), header[57]);
+        }
+
+        [Fact]
+        public void ADifferentReflectorProducesADifferentHeaderCrc()
+        {
+            var toRef030 = writer.WriteHeader(
+                rpt1: "AI6VW  D", rpt2: "REF030 C", urcall: "CQCQCQ  ",
+                mycall: "AI6VW   ", suffix: "ID52", sessionid: 0x7D37);
+
+            var toRef001 = writer.WriteHeader(
+                rpt1: "AI6VW  D", rpt2: "REF001 C", urcall: "CQCQCQ  ",
+                mycall: "AI6VW   ", suffix: "ID52", sessionid: 0x7D37);
+
+            Assert.NotEqual(toRef030[56..58], toRef001[56..58]);
         }
 
         [Fact]
