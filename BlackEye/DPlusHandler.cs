@@ -126,7 +126,7 @@
                 {
                     dplusHandler.state.CompareExchangeExecute(TransceiverState_Receiving, TransceiverState_Idle, () =>
                     {
-                        buffer = dplusHandler.terminalWriter.WriteEmptyVoiceLastFrame();
+                        buffer = dplusHandler.terminalWriter.WriteEmptyVoiceLastFrame(0x00, 0x00);
 
                         dplusHandler.terminalConnection.Send(buffer);
                     });
@@ -140,11 +140,11 @@
 
                         if (packetId == 0)
                         {
-                            buffer = dplusHandler.terminalWriter.WriteEmptyVoiceSyncData();
+                            buffer = dplusHandler.terminalWriter.WriteEmptyVoiceSyncData(0x00, 0x00);
                         }
                         else
                         {
-                            buffer = dplusHandler.terminalWriter.WriteEmptyVoiceEmptyData();
+                            buffer = dplusHandler.terminalWriter.WriteEmptyVoiceEmptyData(0x00, 0x00);
                         }
                     }
 
@@ -303,8 +303,8 @@
                 dplusHandler.state.CompareExchangeExecute(TransceiverState_Idle, TransceiverState_Receiving, () =>
                 {
                     var buffer = dplusHandler.terminalWriter.WriteHeader(
-                        packet.Rpt2,
                         packet.Rpt1,
+                        packet.Rpt2,
                         packet.UrCall,
                         packet.MyCall,
                         packet.Suffix);
@@ -321,7 +321,7 @@
                 {
                     dplusHandler.state.CompareExchangeExecute(TransceiverState_Receiving, TransceiverState_Idle, () =>
                     {
-                        var buffer = dplusHandler.terminalWriter.WriteFrameEot();
+                        var buffer = dplusHandler.terminalWriter.WriteFrameEot(sequenceId, number);
                         dplusHandler.terminalConnectionQueue.Enqueue(buffer);
                     });
                 }

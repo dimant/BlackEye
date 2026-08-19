@@ -8,7 +8,7 @@
 
 **Tech Stack:** .NET 10 (`net10.0`), C# 14, nullable enabled, implicit usings, TPL Dataflow, `System.IO.Ports` 10.0.11, xUnit 2.9.3 + coverlet.
 
-**Status:** Tasks 0-6 are complete. The solution is on `net10.0` and `BlackEye.Tests` holds 137 passing tests. Tasks 7-11 are not started.
+**Status:** Tasks 0-7 are complete (bar Task 7's hardware check, which needs a Windows host and the radio). The solution is on `net10.0` and `BlackEye.Tests` holds 142 passing tests. Tasks 8-11 are not started.
 
 **Spec:**
 - `../dstardocs/DPlusProtocol.md` — DPlus (REF/XRF) field-by-field
@@ -43,12 +43,12 @@ Severity: **C**ritical (wrong bytes on the wire or a dead code path in the prima
 | F04 | C | Frame payload offsets off by one (payload starts at 17, not 16) → `Data` is 4 bytes, `IsLast()` can never be true, `AmbeAndData` is 13 bytes and throws in `IcomTerminalWriter.WriteFrame` | `BlackEye.Connectivity/DPlus/DPlusFramePacket.cs:5-9` | 4 | **Fixed** |
 | F05 | L | `Length`/`Type` read wire offsets on a length-stripped buffer → `Length` returns the type, `Type` returns the first payload byte (currently unused) | `BlackEye.Connectivity/IcomTerminal/IcomTerminalPacket.cs:19-21` | 6 | **Fixed** |
 | F06 | L | `IsEotAck()` looks for packet id `0x80`; `23 80` occurs in zero bytes of all eight dumps — dead code | `BlackEye.Connectivity/IcomTerminal/IcomTerminalFrameAck.cs:9-12` | 6 | **Fixed** |
-| F07 | H | All four special frames hard-code their sequence/number bytes (`00 00`, and `08 48` for EOT); doc and captures require the live transmission's ids | `BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs:66-111` | 7 | Not started |
-| F08 | H | `WriteEmptyVoiceEmptyData` sends `97 CB E5` — zero occurrences across all dumps; both reference apps send `16 29 F5` | `BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs:77-87` | 7 | Not started |
+| F07 | H | All four special frames hard-code their sequence/number bytes (`00 00`, and `08 48` for EOT); doc and captures require the live transmission's ids | `BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs:66-111` | 7 | **Fixed** |
+| F08 | H | `WriteEmptyVoiceEmptyData` sends `97 CB E5` — zero occurrences across all dumps; both reference apps send `16 29 F5` | `BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs:77-87` | 7 | **Fixed** |
 | F09 | M | `IsLast()` tests three zero bytes spanning AMBE and slow data; the real marker is byte 3 bit `0x40` | `BlackEye.Connectivity/IcomTerminal/IcomTerminalFrame.cs:21-29` | 6 | **Fixed** |
 | F10 | M | `IsValid()` returns false for a NAK, so the reader drops it and the listener can never learn the header was rejected | `BlackEye.Connectivity/IcomTerminal/IcomTerminalHeaderAck.cs:20` | 6 | **Fixed** |
-| F11 | L | `WriteReset` emits 3 × `0xFF`; the doc calls for 5–100 | `BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs:14-19` | 7 | Not started |
-| F12 | M | Echo sends Rpt1/Rpt2 in the opposite order to the rs-ms3w capture; the two writers' `byte[] dstarHeader` overloads also expect opposite field orders | `BlackEye/IcomSerialEcho.cs:70`, both `WriteHeader(byte[])` overloads | 7 | Not started |
+| F11 | L | `WriteReset` emits 3 × `0xFF`; the doc calls for 5–100 | `BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs:14-19` | 7 | **Fixed** |
+| F12 | M | Echo sends Rpt1/Rpt2 in the opposite order to the rs-ms3w capture; the two writers' `byte[] dstarHeader` overloads also expect opposite field orders | `BlackEye/IcomSerialEcho.cs:70`, both `WriteHeader(byte[])` overloads | 7 | **Fixed** |
 | F13 | C | `packetId` is never incremented → every DPlus frame carries packet id 0 and the every-20-frames header resend never fires | `BlackEye/DPlusHandler.cs:172-187` | 8 | Not started |
 | F14 | H | `var lastHeaderPacket` shadows the field → field stays null, resend loop is dead even once F13 is fixed | `BlackEye/DPlusHandler.cs:211` | 8 | Not started |
 | F15 | H | `sequenceId`/`number` are never reset per transmission and increment before the write, so the first frame is `01 01` not `00 00` | `BlackEye/DPlusHandler.cs:261-263,303` | 9 | Not started |
@@ -832,7 +832,7 @@ git commit -m "fix(icom): correct Type offset, key IsLast off the 0x40 bit, keep
   - `WriteEmptyVoiceLastFrame(byte sequenceId, byte number)`
   - `WriteHeader(string rpt1, string rpt2, string urcall, string mycall, string suffix)` — **parameter order changes to rpt1-first** to match `DPlusNetworkWriter.WriteHeader`, and the `byte[] dstarHeader` overload is ordered Rpt1, Rpt2, urcall, mycall, suffix (the Icom wire order, opposite to DPlus).
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Add to `IcomTerminalWriterTests`:
 
@@ -895,12 +895,12 @@ Add to `IcomTerminalWriterTests`:
         }
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `dotnet test --filter IcomTerminalWriterTests`
 Expected: FAIL to compile — the special-frame methods take no arguments and `WriteHeader`'s first parameter is named `rpt2`.
 
-- [ ] **Step 3: Parameterise the special frames**
+- [x] **Step 3: Parameterise the special frames**
 
 Replace the four special-frame methods in `IcomTerminalWriter`:
 
@@ -952,7 +952,7 @@ Replace the four special-frame methods in `IcomTerminalWriter`:
         }
 ```
 
-- [ ] **Step 4: Lengthen the reset burst**
+- [x] **Step 4: Lengthen the reset burst**
 
 ```csharp
         public byte[] WriteReset()
@@ -965,7 +965,7 @@ Replace the four special-frame methods in `IcomTerminalWriter`:
         }
 ```
 
-- [ ] **Step 5: Put `WriteHeader`'s parameters in rpt1-first order**
+- [x] **Step 5: Put `WriteHeader`'s parameters in rpt1-first order**
 
 The field-to-byte mapping is already correct; only the parameter order is a trap. Rename so both writers read the same way, and document the blob order:
 
@@ -1011,7 +1011,7 @@ The field-to-byte mapping is already correct; only the parameter order is a trap
         }
 ```
 
-- [ ] **Step 6: Update `IcomSerialEcho` for the new signatures**
+- [x] **Step 6: Update `IcomSerialEcho` for the new signatures**
 
 `EchoHeader` currently passes its two callsigns in the opposite order to the capture. With rpt1-first parameters, pass them so `AI6VW  L` lands at wire byte 5, as rs-ms3w does:
 
@@ -1065,7 +1065,7 @@ and rewrite `EchoFrame`:
         }
 ```
 
-- [ ] **Step 7: Keep `DPlusHandler` compiling**
+- [x] **Step 7: Keep `DPlusHandler` compiling**
 
 `DPlusHandler` calls all four changed methods and will not build otherwise. These are stopgaps — Task 9 replaces every one of them with the send-time counters, so do not spend thought on them here.
 
@@ -1101,7 +1101,7 @@ And in `DPlusToTerminal.OnHeader`, swap the two callsign arguments to match the 
                         packet.Suffix);
 ```
 
-- [ ] **Step 7b: Update the baseline writer tests for the new signatures**
+- [x] **Step 7b: Update the baseline writer tests for the new signatures**
 
 Task 0's `IcomTerminalWriterTests` calls the four special frames with no arguments. Two tests need the ids threading through — mechanically, pass `0x00, 0x00` except where the test is about the payload:
 
@@ -1111,19 +1111,19 @@ Task 0's `IcomTerminalWriterTests` calls the four special frames with no argumen
 
 `EmptyVoiceEmptyDataMatchesWhatTheReferenceAppsSend` (added in Step 1) then asserts the whole 17-byte packet including the `16 29 f5` tail, which is what makes F08 a real assertion rather than a comment.
 
-- [ ] **Step 8: Run tests and build**
+- [x] **Step 8: Run tests and build**
 
 Run: `dotnet build && dotnet test`
 Expected: build succeeds with no errors; all tests PASS.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs BlackEye/IcomSerialEcho.cs BlackEye/DPlusHandler.cs BlackEye.Tests/IcomTerminalWriterTests.cs
 git commit -m "fix(icom): special frames carry live ids, use the captured empty-data payload"
 ```
 
-- [ ] **Step 10: Hardware check (requires the radio; skip on macOS/Linux)**
+- [ ] **Step 10: Hardware check (requires the radio; skip on macOS/Linux)**  <!-- pending: needs a Windows host and the radio -->
 
 Run `dotnet run --project BlackEye` on Windows against the ID52 on COM4, key up, and confirm the loopback still records and replays a transmission. This is the only regression gate for the echo path.
 
@@ -2011,7 +2011,7 @@ git commit -m "fix(transport): survive malformed input and out-of-state callback
 
 These are unresolved by the docs and the captures together. None blocks the plan; each is a judgement call recorded so the next reader knows it was made deliberately.
 
-1. **Which filler payload is right — `16 29 F5` or `97 CB E5`?** `IcomTerminalMode.md` documents `97 CB E5` and `significant_bytes.txt` lists both (calling `16 29 F5` "unknown"), but `97 CB E5` occurs in zero bytes across all eight dumps while `16 29 F5` is what both reference applications send. Task 7 follows the captures. If the radio rejects it on hardware, revisit — and update `../dstardocs/IcomTerminalMode.md` either way.
+1. **DECIDED in Task 7, in favour of `16 29 F5`.** Which filler payload is right — `16 29 F5` or `97 CB E5`? `IcomTerminalMode.md` documents `97 CB E5` and `significant_bytes.txt` lists both (calling `16 29 F5` "unknown"), but `97 CB E5` occurs in zero bytes across all eight dumps while `16 29 F5` is what both reference applications send. Task 7 follows the captures. If the radio rejects it on hardware, revisit — and update `../dstardocs/IcomTerminalMode.md` either way.
 2. **Is the sync frame really sent at number 0?** `significant_bytes.txt` says the first packet after a header is the empty-voice/data-sync frame, and the radio does send `55 2D 16` at number 0 in its own direction. But in the computer→radio direction neither reference app ever sends `55 2D 16` — both send `16 29 F5` at number 0. Task 9 keeps the `number == 0 → sync` rule because it matches the D-STAR 21-frame superframe structure; the conflicting evidence is recorded here.
 3. **Slow-data sync alignment when relaying.** Radio-bound frames get our own number, but their 3 slow-data bytes come from the network stream with that stream's own sync phase baked in. If the two phases disagree the radio may see a sync pattern at the wrong frame index. Not addressed by this plan; needs a hardware observation to even confirm it matters.
 4. **DPlus header CRC byte order.** Task 5 writes low byte first, matching the radio's own header, and the algorithm itself is now confirmed: CRC-X25 over the 39 byte RF header reproduces the ID52's `58 14` exactly. The byte order on the DPlus side remains unverifiable from the captures, because the reference client emits a constant `00 0b` rather than a real CRC (the true CRC of that header is `e3 94`), and xlxd stores and echoes the field without ever checking it.

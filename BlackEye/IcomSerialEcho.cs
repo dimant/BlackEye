@@ -23,6 +23,8 @@
 
         private Queue<IcomTerminalPacket> transceiverQueue = new Queue<IcomTerminalPacket>();
 
+        private IcomTerminalFrame? lastEchoedFrame = null;
+
         public IcomTerminalEcho(IcomTerminalWriter writer, IConnection serialConnection)
         {
             this.writer = writer ?? throw new ArgumentNullException(nameof(writer));
@@ -81,12 +83,19 @@
                 if (frame.IsLast())
                 {
                     transceiverQueue.Dequeue();
-                    var eotBytes = writer.WriteFrameEot();
+
+                    // Continue the sequence we have been echoing: the capture shows
+                    // 10 22 07 07 followed by 10 22 08 48.
+                    byte sequenceId = (byte)((lastEchoedFrame?.SequenceId ?? 0) + 1);
+                    byte number = (byte)(((lastEchoedFrame?.Number ?? 0) + 1) % 21);
+
+                    var eotBytes = writer.WriteFrameEot(sequenceId, number);
                     serialConnection.Send(eotBytes);
                     state = StateType.Receiving;
                 }
                 else
                 {
+                    lastEchoedFrame = frame;
                     var frameBytes = writer.WriteFrame(frame.SequenceId, frame.Number, frame.AmbeAndData);
                     serialConnection.Send(frameBytes);
                 }

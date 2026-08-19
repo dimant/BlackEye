@@ -22,11 +22,12 @@ namespace BlackEye.Tests
         }
 
         [Fact]
-        public void ResetIsNothingButTerminatorBytes()
+        public void ResetIsABurstOfTerminatorBytesLongEnoughToResync()
         {
             var reset = writer.WriteReset();
 
-            Assert.NotEmpty(reset);
+            // The doc calls for between 5 and 100 bytes of 0xFF.
+            Assert.InRange(reset.Length, 5, 100);
             Assert.All(reset, b => Assert.Equal(0xFF, b));
         }
 
@@ -143,10 +144,10 @@ namespace BlackEye.Tests
             var frames = new[]
             {
                 writer.WriteFrame(0x01, 0x01, new byte[12]),
-                writer.WriteFrameEot(),
-                writer.WriteEmptyVoiceEmptyData(),
-                writer.WriteEmptyVoiceSyncData(),
-                writer.WriteEmptyVoiceLastFrame(),
+                writer.WriteFrameEot(0x08, 0x08),
+                writer.WriteEmptyVoiceEmptyData(0x00, 0x00),
+                writer.WriteEmptyVoiceSyncData(0x00, 0x00),
+                writer.WriteEmptyVoiceLastFrame(0x00, 0x00),
             };
 
             Assert.All(frames, frame =>
@@ -161,7 +162,7 @@ namespace BlackEye.Tests
         [Fact]
         public void EndOfTransmissionFrameCarriesTheDocumentedPayload()
         {
-            var eot = writer.WriteFrameEot();
+            var eot = writer.WriteFrameEot(0x08, 0x08);
 
             // 55 c8 7a then nine 0x55: "last frame without voice".
             var expected = new byte[]
@@ -176,29 +177,89 @@ namespace BlackEye.Tests
         [Fact]
         public void EndOfTransmissionFrameMarksItselfAsLast()
         {
-            var eot = writer.WriteFrameEot();
+            var eot = writer.WriteFrameEot(0x08, 0x08);
 
             Assert.Equal(0x40, eot[3] & 0x40);
         }
 
         [Fact]
+        public void EmptyVoiceEmptyDataMatchesWhatTheReferenceAppsSend()
+        {
+            var frame = writer.WriteEmptyVoiceEmptyData(sequenceId: 0x00, number: 0x00);
+
+            // 16 29 f5 is what both rs-ms3w and doozy send in this slot. The
+            // 97 cb e5 quoted in IcomTerminalMode.md appears in no capture.
+            Assert.Equal(CaptureBytes.IcomEmptyVoiceEmptyDataWire, frame);
+        }
+
+        [Fact]
+        public void EndOfTransmissionFrameMatchesTheCapture()
+        {
+            // The capture shows 10 22 08 48 directly after 10 22 07 07: the ids
+            // continue the transmission and 0x48 is 0x40 | 8.
+            var eot = writer.WriteFrameEot(sequenceId: 0x08, number: 0x08);
+
+            Assert.Equal(CaptureBytes.IcomFrameEotWire, eot);
+        }
+
+        [Fact]
+        public void SpecialFramesCarryTheLiveTransmissionIds()
+        {
+            var frames = new[]
+            {
+                writer.WriteEmptyVoiceEmptyData(sequenceId: 0x2a, number: 0x0b),
+                writer.WriteEmptyVoiceSyncData(sequenceId: 0x2a, number: 0x0b),
+                writer.WriteEmptyVoiceLastFrame(sequenceId: 0x2a, number: 0x0b),
+            };
+
+            Assert.All(frames, frame =>
+            {
+                Assert.Equal(0x2a, frame[2]);
+                Assert.Equal(0x0b, frame[3]);
+            });
+        }
+
+        [Fact]
+        public void TheEndOfTransmissionFrameSetsTheLastFrameBitOnAnyNumber()
+        {
+            for (byte number = 0; number <= 20; number++)
+            {
+                var eot = writer.WriteFrameEot(sequenceId: 0x11, number: number);
+
+                Assert.Equal(0x11, eot[2]);
+                Assert.Equal(0x40, eot[3] & 0x40);
+                Assert.Equal(number, (byte)(eot[3] & 0x1F));
+            }
+        }
+
+        [Fact]
+        public void ASpecialFrameIsIndistinguishableFromAnOrdinaryOneApartFromItsPayload()
+        {
+            var ordinary = writer.WriteFrame(sequenceId: 0x05, number: 0x06, ambeAndData: new byte[12]);
+            var filler = writer.WriteEmptyVoiceEmptyData(sequenceId: 0x05, number: 0x06);
+
+            Assert.Equal(ordinary[0..4], filler[0..4]);
+            Assert.Equal(0xFF, filler[16]);
+        }
+
+        [Fact]
         public void EmptyVoiceFramesShareTheSilentAmbePayload()
         {
-            Assert.Equal(CaptureBytes.SilentAmbe, writer.WriteEmptyVoiceEmptyData()[4..13]);
-            Assert.Equal(CaptureBytes.SilentAmbe, writer.WriteEmptyVoiceSyncData()[4..13]);
-            Assert.Equal(CaptureBytes.SilentAmbe, writer.WriteEmptyVoiceLastFrame()[4..13]);
+            Assert.Equal(CaptureBytes.SilentAmbe, writer.WriteEmptyVoiceEmptyData(0x00, 0x00)[4..13]);
+            Assert.Equal(CaptureBytes.SilentAmbe, writer.WriteEmptyVoiceSyncData(0x00, 0x00)[4..13]);
+            Assert.Equal(CaptureBytes.SilentAmbe, writer.WriteEmptyVoiceLastFrame(0x00, 0x00)[4..13]);
         }
 
         [Fact]
         public void SyncDataFrameCarriesTheSlowDataSyncPattern()
         {
-            Assert.Equal(new byte[] { 0x55, 0x2d, 0x16 }, writer.WriteEmptyVoiceSyncData()[13..16]);
+            Assert.Equal(new byte[] { 0x55, 0x2d, 0x16 }, writer.WriteEmptyVoiceSyncData(0x00, 0x00)[13..16]);
         }
 
         [Fact]
         public void LastFrameCarriesTheEndOfStreamSlowData()
         {
-            Assert.Equal(new byte[] { 0x55, 0x55, 0x55 }, writer.WriteEmptyVoiceLastFrame()[13..16]);
+            Assert.Equal(new byte[] { 0x55, 0x55, 0x55 }, writer.WriteEmptyVoiceLastFrame(0x00, 0x00)[13..16]);
         }
     }
 }

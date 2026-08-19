@@ -60,6 +60,11 @@ namespace BlackEye.Tests
             Assert.Equal(42, header.Length);
             Assert.Equal(0x20, header[1]);
 
+            // Rpt1 sits at wire 5 and Rpt2 at 13, the order rs-ms3w uses in
+            // dumps/rs-ms3w-rs232-dump.txt line 119.
+            Assert.Equal("AI6VW  L", System.Text.Encoding.UTF8.GetString(header[5..13]));
+            Assert.Equal("AI6VW  G", System.Text.Encoding.UTF8.GetString(header[13..21]));
+
             echo.OnHeaderAck(HeaderAck());
             echo.OnPong(GoAhead());
 
@@ -84,8 +89,12 @@ namespace BlackEye.Tests
             Assert.Equal(0x01, second[3]);
             Assert.Equal(CaptureBytes.IcomSecondFrameFromRadioWire[4..16], second[4..16]);
 
-            // The terminator frame is not replayed as audio; it becomes an EOT.
+            // The terminator frame is not replayed as audio; it becomes an EOT that
+            // continues the ids of the frames just echoed, as 07 07 -> 08 48 does
+            // in the capture.
             Assert.Equal(0x22, eot[1]);
+            Assert.Equal(0x02, eot[2]);
+            Assert.Equal(0x42, eot[3]);
             Assert.Equal(0x40, eot[3] & 0x40);
             Assert.Equal(new byte[] { 0x55, 0xc8, 0x7a }, eot[4..7]);
         }
