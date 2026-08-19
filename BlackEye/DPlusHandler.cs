@@ -169,22 +169,21 @@
                 {
                     dplusHandler.state.CompareExecute(TransceiverState_Transmitting, () =>
                     {
-                        if (packetId >= 20)
-                        {
-                            packetId = 0;
-
-                            if (lastHeaderPacket != null)
-                            {
-                                for (int i = 0; i < headerSends; i++)
-                                {
-                                    dplusHandler.udpConnection.Send(lastHeaderPacket);
-                                }
-                            }
-                        }
-
                         var buffer = dplusHandler.networkWriter.WriteFrame(framePacket.AmbeAndData, sessionId, packetId);
 
                         dplusHandler.udpConnection.Send(buffer);
+
+                        // The packet id counts 0..20 and then wraps.
+                        packetId = (byte)(packetId >= 20 ? 0 : packetId + 1);
+
+                        // Doc step 8: UDP drops headers, so resend on every wrap.
+                        if (packetId == 0 && lastHeaderPacket != null)
+                        {
+                            for (int i = 0; i < headerSends; i++)
+                            {
+                                dplusHandler.udpConnection.Send(lastHeaderPacket);
+                            }
+                        }
                     });
                 }
             }
@@ -208,7 +207,7 @@
                     sessionId = (short)random.Next(short.MaxValue);
                     packetId = 0;
 
-                    var lastHeaderPacket = dplusHandler.networkWriter.WriteHeader(
+                    lastHeaderPacket = dplusHandler.networkWriter.WriteHeader(
                         headerPacket.Rpt1,
                         headerPacket.Rpt2,
                         headerPacket.UrCall,

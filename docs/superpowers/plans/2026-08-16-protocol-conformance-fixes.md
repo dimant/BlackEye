@@ -8,7 +8,7 @@
 
 **Tech Stack:** .NET 10 (`net10.0`), C# 14, nullable enabled, implicit usings, TPL Dataflow, `System.IO.Ports` 10.0.11, xUnit 2.9.3 + coverlet.
 
-**Status:** Tasks 0-7 are complete (bar Task 7's hardware check, which needs a Windows host and the radio). The solution is on `net10.0` and `BlackEye.Tests` holds 142 passing tests. Tasks 8-11 are not started.
+**Status:** Tasks 0-8 are complete (bar Task 7's hardware check, which needs a Windows host and the radio). The solution is on `net10.0` and `BlackEye.Tests` holds 151 passing tests. Tasks 9-11 are not started.
 
 **Spec:**
 - `../dstardocs/DPlusProtocol.md` — DPlus (REF/XRF) field-by-field
@@ -49,8 +49,8 @@ Severity: **C**ritical (wrong bytes on the wire or a dead code path in the prima
 | F10 | M | `IsValid()` returns false for a NAK, so the reader drops it and the listener can never learn the header was rejected | `BlackEye.Connectivity/IcomTerminal/IcomTerminalHeaderAck.cs:20` | 6 | **Fixed** |
 | F11 | L | `WriteReset` emits 3 × `0xFF`; the doc calls for 5–100 | `BlackEye.Connectivity/IcomTerminal/IcomTerminalWriter.cs:14-19` | 7 | **Fixed** |
 | F12 | M | Echo sends Rpt1/Rpt2 in the opposite order to the rs-ms3w capture; the two writers' `byte[] dstarHeader` overloads also expect opposite field orders | `BlackEye/IcomSerialEcho.cs:70`, both `WriteHeader(byte[])` overloads | 7 | **Fixed** |
-| F13 | C | `packetId` is never incremented → every DPlus frame carries packet id 0 and the every-20-frames header resend never fires | `BlackEye/DPlusHandler.cs:172-187` | 8 | Not started |
-| F14 | H | `var lastHeaderPacket` shadows the field → field stays null, resend loop is dead even once F13 is fixed | `BlackEye/DPlusHandler.cs:211` | 8 | Not started |
+| F13 | C | `packetId` is never incremented → every DPlus frame carries packet id 0 and the every-20-frames header resend never fires | `BlackEye/DPlusHandler.cs:172-187` | 8 | **Fixed** |
+| F14 | H | `var lastHeaderPacket` shadows the field → field stays null, resend loop is dead even once F13 is fixed | `BlackEye/DPlusHandler.cs:211` | 8 | **Fixed** |
 | F15 | H | `sequenceId`/`number` are never reset per transmission and increment before the write, so the first frame is `01 01` not `00 00` | `BlackEye/DPlusHandler.cs:261-263,303` | 9 | Not started |
 | F16 | H | Sync-frame decision reads `TerminalToDPlus.packetId` — the radio→network counter — instead of the radio-bound frame number | `BlackEye/DPlusHandler.cs:141` | 9 | Not started |
 | F17 | H | `emptyFrames` is never reset to 0, so after 100 cumulative fillers every later receive tears down immediately | `BlackEye/DPlusHandler.cs:99,139` | 9 | Not started |
@@ -1140,7 +1140,7 @@ Run `dotnet run --project BlackEye` on Windows against the ID52 on COM4, key up,
 - Consumes: `DPlusNetworkWriter.WriteFrameEot(short, byte)` from Task 3 (which now sets bit `0x40`, so pass the plain packet id).
 - Produces: `FakeConnection` — an `IConnection` recording every `Send` into `List<byte[]> Sent`. Tasks 9 and 10 reuse it.
 
-- [ ] **Step 1: Write the fake connection**
+- [x] **Step 1: Write the fake connection**  <!-- already provided by Task 0 in Fakes.cs -->
 
 Create `BlackEye.Tests/FakeConnection.cs`:
 
@@ -1166,7 +1166,7 @@ namespace BlackEye.Tests
 }
 ```
 
-- [ ] **Step 2: Write the failing test**
+- [x] **Step 2: Write the failing test**
 
 Create `BlackEye.Tests/DPlusHandlerTests.cs`:
 
@@ -1246,12 +1246,12 @@ namespace BlackEye.Tests
 }
 ```
 
-- [ ] **Step 3: Run tests to verify they fail**
+- [x] **Step 3: Run tests to verify they fail**
 
 Run: `dotnet test --filter DPlusHandlerTests`
 Expected: FAIL — every packet id is 0, and only the initial 5 headers were sent.
 
-- [ ] **Step 4: Fix the counter and the shadowed field**
+- [x] **Step 4: Fix the counter and the shadowed field**
 
 In `TerminalToDPlus.OnHeader`, drop the `var` so the field is assigned:
 
@@ -1298,12 +1298,12 @@ The EOT branch passes the plain packet id — `WriteFrameEot` sets bit `0x40` it
                         var buffer = dplusHandler.networkWriter.WriteFrameEot(sessionId, packetId);
 ```
 
-- [ ] **Step 5: Run tests to verify they pass**
+- [x] **Step 5: Run tests to verify they pass**
 
 Run: `dotnet test --filter DPlusHandlerTests`
 Expected: PASS
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add BlackEye/DPlusHandler.cs BlackEye.Tests/FakeConnection.cs BlackEye.Tests/DPlusHandlerTests.cs
