@@ -37,7 +37,7 @@
 
         private const int TransceiverState_Error = 0x05;
 
-        private LockedState state = new LockedState(TransceiverState_Idle);
+        private LockedState state = new LockedState(TransceiverState_Disconnected);
 
         private ConcurrentQueue<QueuedFrame> terminalConnectionQueue = new ConcurrentQueue<QueuedFrame>();
 
@@ -60,6 +60,8 @@
 
         private DPlusToTerminal dplusToTerminal;
 
+        private GatewayConfig config;
+
         public ITerminalListener TerminalListener { get => terminalToDPlus; }
 
         public IDPlusListener DPlusListener { get => dplusToTerminal; }
@@ -68,15 +70,27 @@
             DPlusNetworkWriter networkWriter,
             IcomTerminalWriter terminalWriter,
             IConnection terminalConnection,
-            IConnection udpConnection)
+            IConnection udpConnection,
+            GatewayConfig config)
         {
             this.networkWriter = networkWriter ?? throw new ArgumentNullException(nameof(networkWriter));
             this.terminalWriter = terminalWriter ?? throw new ArgumentNullException(nameof(terminalWriter));
             this.terminalConnection = terminalConnection ?? throw new ArgumentNullException(nameof(terminalConnection));
             this.udpConnection = udpConnection ?? throw new ArgumentNullException(nameof(udpConnection));
+            this.config = config ?? throw new ArgumentNullException(nameof(config));
 
             this.terminalToDPlus = new TerminalToDPlus(this);
             this.dplusToTerminal = new DPlusToTerminal(this);
+        }
+
+        /// <summary>
+        /// Doc step 1: the client opens with a connect request. The server echoes it
+        /// back, which arrives as OnConnectAck.
+        /// </summary>
+        public void Connect()
+        {
+            state.ExchangeExecute(TransceiverState_Disconnected, () =>
+                udpConnection.Send(networkWriter.WriteConnect()));
         }
 
         private void Error()
@@ -265,12 +279,16 @@
                     sessionId = (short)random.Next(short.MaxValue);
                     packetId = 0;
 
+                    // The radio's own rpt1/rpt2 are DIRECT in terminal mode, and the
+                    // reflector verifies mycall and rpt2, so substitute the
+                    // configured identities. Urcall is the operator's routing
+                    // choice and is forwarded unchanged.
                     lastHeaderPacket = dplusHandler.networkWriter.WriteHeader(
-                        headerPacket.Rpt1,
-                        headerPacket.Rpt2,
+                        dplusHandler.config.Rpt1,
+                        dplusHandler.config.Rpt2,
                         headerPacket.UrCall,
-                        headerPacket.MyCall,
-                        headerPacket.Suffix,
+                        dplusHandler.config.PaddedMyCall,
+                        dplusHandler.config.PaddedSuffix,
                         sessionId);
 
                     for (int i = 0; i < headerSends; i++)
@@ -334,7 +352,9 @@
             {
                 dplusHandler.state.CompareExecute(TransceiverState_Disconnected, () =>
                 {
-                    dplusHandler.networkWriter.WriteLogin("");
+                    var buffer = dplusHandler.networkWriter.WriteLogin(dplusHandler.config.MyCall);
+
+                    dplusHandler.udpConnection.Send(buffer);
                 });
             }
 

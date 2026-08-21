@@ -1,6 +1,7 @@
 namespace BlackEye.Tests
 {
     using BlackEye;
+    using BlackEye.Connectivity;
     using BlackEye.Connectivity.DPlus;
     using BlackEye.Connectivity.IcomTerminal;
     using System.Linq;
@@ -18,10 +19,31 @@ namespace BlackEye.Tests
 
         private readonly DPlusHandler handler;
 
+        private static readonly GatewayConfig Config =
+            new GatewayConfig("AI6VW", "ID52", "REF030", 'C', 'D');
+
         public DPlusHandlerTests()
         {
-            handler = new DPlusHandler(new DPlusNetworkWriter(), new IcomTerminalWriter(), serial, udp);
+            handler = NewHandler();
+
+            // Every test below starts from a logged in, idle bridge.
+            handler.Connect();
+            handler.DPlusListener.OnConnectAck();
+            handler.DPlusListener.OnLoginAck(new DPlusLoginAckPacket(CaptureBytes.DPlusLoginAck));
+
+            udp.Clear();
+            serial.Clear();
         }
+
+        private DPlusHandler NewHandler() =>
+            new DPlusHandler(new DPlusNetworkWriter(), new IcomTerminalWriter(), serial, udp, Config);
+
+        /// <summary>
+        /// Everything the bridge sent to the network except keepalives, which the
+        /// ping timer emits on its own schedule once the login succeeds.
+        /// </summary>
+        private byte[][] NetworkTraffic() =>
+            udp.Sent.Where(b => b.Length != 3).ToArray();
 
         private static DPlusHeaderPacket NetworkHeader() =>
             new DPlusHeaderPacket(CaptureBytes.DPlusHeader);
@@ -199,7 +221,7 @@ namespace BlackEye.Tests
             handler.TerminalListener.OnFrame(VoiceFrame(0x00, 0x00));
             handler.TerminalListener.OnFrame(VoiceFrame(0x01, 0x01));
 
-            Assert.Empty(udp.Sent);
+            Assert.Empty(NetworkTraffic());
         }
 
         [Fact]
@@ -428,6 +450,129 @@ namespace BlackEye.Tests
             handler.TerminalListener.OnFrameAck(FrameAck(0x00));
 
             Assert.Empty(serial.Sent);
+        }
+
+        // ---------------------------------------------------------------
+        // Connect, login and routing.
+        // ---------------------------------------------------------------
+
+        [Fact]
+        public void ConnectSendsTheConnectPacket()
+        {
+            var fresh = new FakeConnection();
+            var bridge = new DPlusHandler(new DPlusNetworkWriter(), new IcomTerminalWriter(), new FakeConnection(), fresh, Config);
+
+            bridge.Connect();
+
+            Assert.Equal(CaptureBytes.DPlusConnect, Assert.Single(fresh.Sent));
+        }
+
+        [Fact]
+        public void TheServersEchoIsAnsweredWithALogin()
+        {
+            var fresh = new FakeConnection();
+            var bridge = new DPlusHandler(new DPlusNetworkWriter(), new IcomTerminalWriter(), new FakeConnection(), fresh, Config);
+
+            bridge.Connect();
+            fresh.Clear();
+            bridge.DPlusListener.OnConnectAck();
+
+            Assert.Equal(CaptureBytes.DPlusLogin, Assert.Single(fresh.Sent));
+        }
+
+        [Fact]
+        public void NothingIsTransmittedBeforeTheLoginIsAccepted()
+        {
+            var fresh = new FakeConnection();
+            var radio = new FakeConnection();
+            var bridge = new DPlusHandler(new DPlusNetworkWriter(), new IcomTerminalWriter(), radio, fresh, Config);
+
+            bridge.Connect();
+            bridge.DPlusListener.OnConnectAck();
+            fresh.Clear();
+
+            // The radio keys up before the reflector has let us in.
+            bridge.TerminalListener.OnHeader(RadioHeader());
+            bridge.TerminalListener.OnFrame(VoiceFrame(0x00, 0x00));
+
+            Assert.Empty(fresh.Sent);
+        }
+
+        [Fact]
+        public void ARejectedLoginLeavesTheBridgeDisconnected()
+        {
+            var fresh = new FakeConnection();
+            var bridge = new DPlusHandler(new DPlusNetworkWriter(), new IcomTerminalWriter(), new FakeConnection(), fresh, Config);
+
+            bridge.Connect();
+            bridge.DPlusListener.OnConnectAck();
+            bridge.DPlusListener.OnLoginAck(new DPlusLoginAckPacket(CaptureBytes.DPlusLoginNak));
+            fresh.Clear();
+
+            bridge.TerminalListener.OnHeader(RadioHeader());
+
+            Assert.Empty(fresh.Sent);
+        }
+
+        [Fact]
+        public void TheOutboundHeaderCarriesTheReflectorNotTheRadiosDirectCallsigns()
+        {
+            // In terminal mode the radio sends DIRECT in both repeater fields, and
+            // the reflector verifies mycall and rpt2 before letting a transmission
+            // on the air.
+            Assert.Equal("DIRECT  ", RadioHeader().Rpt1);
+            Assert.Equal("DIRECT  ", RadioHeader().Rpt2);
+
+            handler.TerminalListener.OnHeader(RadioHeader());
+
+            var header = SentOfLength(58)[0];
+            Assert.Equal("REF030 C", System.Text.Encoding.UTF8.GetString(header[20..28]));
+            Assert.Equal("AI6VW  D", System.Text.Encoding.UTF8.GetString(header[28..36]));
+            Assert.Equal("AI6VW   ", System.Text.Encoding.UTF8.GetString(header[44..52]));
+            Assert.Equal("ID52", System.Text.Encoding.UTF8.GetString(header[52..56]));
+        }
+
+        [Fact]
+        public void TheOperatorsUrcallIsForwardedUnchanged()
+        {
+            handler.TerminalListener.OnHeader(RadioHeader());
+
+            var header = SentOfLength(58)[0];
+            Assert.Equal("CQCQCQ  ", System.Text.Encoding.UTF8.GetString(header[36..44]));
+        }
+
+        [Fact]
+        public void TheOutboundHeaderCrcDescribesTheSubstitutedCallsigns()
+        {
+            handler.TerminalListener.OnHeader(RadioHeader());
+
+            var header = SentOfLength(58)[0];
+            var crc = DStarCrc.Compute(header, 17, 39);
+
+            Assert.Equal((byte)(crc & 0xFF), header[56]);
+            Assert.Equal((byte)(crc >> 8), header[57]);
+        }
+
+        [Fact]
+        public void AReflectorChangeIsReflectedOnTheAir()
+        {
+            var fresh = new FakeConnection();
+            var bridge = new DPlusHandler(
+                new DPlusNetworkWriter(), new IcomTerminalWriter(), new FakeConnection(), fresh,
+                new GatewayConfig("W1AW", "HT", "XLX999", 'B', 'A'));
+
+            bridge.Connect();
+            bridge.DPlusListener.OnConnectAck();
+            bridge.DPlusListener.OnLoginAck(new DPlusLoginAckPacket(CaptureBytes.DPlusLoginAck));
+            fresh.Clear();
+
+            bridge.TerminalListener.OnHeader(RadioHeader());
+
+            var header = fresh.Sent.First(b => b.Length == 58);
+            Assert.Equal("XLX999 B", System.Text.Encoding.UTF8.GetString(header[20..28]));
+            Assert.Equal("W1AW   A", System.Text.Encoding.UTF8.GetString(header[28..36]));
+            Assert.Equal("W1AW    ", System.Text.Encoding.UTF8.GetString(header[44..52]));
+            Assert.Equal("HT  ", System.Text.Encoding.UTF8.GetString(header[52..56]));
         }
     }
 }

@@ -8,7 +8,7 @@
 
 **Tech Stack:** .NET 10 (`net10.0`), C# 14, nullable enabled, implicit usings, TPL Dataflow, `System.IO.Ports` 10.0.11, xUnit 2.9.3 + coverlet.
 
-**Status:** Tasks 0-9 are complete (bar Task 7's hardware check, which needs a Windows host and the radio). The solution is on `net10.0` and `BlackEye.Tests` holds 165 passing tests at 80% line coverage. Tasks 10-11 are not started.
+**Status:** Tasks 0-10 are complete (bar Task 7's hardware check, which needs a Windows host and the radio). The solution is on `net10.0` and `BlackEye.Tests` holds 176 passing tests. Task 11 is not started.
 
 **Spec:**
 - `../dstardocs/DPlusProtocol.md` — DPlus (REF/XRF) field-by-field
@@ -55,8 +55,8 @@ Severity: **C**ritical (wrong bytes on the wire or a dead code path in the prima
 | F16 | H | Sync-frame decision reads `TerminalToDPlus.packetId` — the radio→network counter — instead of the radio-bound frame number | `BlackEye/DPlusHandler.cs:141` | 9 | **Fixed** |
 | F17 | H | `emptyFrames` is never reset to 0, so after 100 cumulative fillers every later receive tears down immediately | `BlackEye/DPlusHandler.cs:99,139` | 9 | **Fixed** |
 | F18 | M | Teardown sends the empty-voice-last-frame but never the EOT frame; separately, the network EOT flips state to Idle at *enqueue* time so the queued EOT is never sent | `BlackEye/DPlusHandler.cs:125-133,320-327` | 9 | **Fixed** |
-| F19 | C | `WriteLogin("")` is built and discarded, mycall is empty, and `state` starts at `Idle` so the `Disconnected`-guarded connect/login path is unreachable; nothing calls `WriteConnect` | `BlackEye/DPlusHandler.cs:40,280-286` | 10 | Not started |
-| F20 | H | Radio's Rpt1/Rpt2 (`DIRECT`/`DIRECT`) forwarded verbatim; the reflector verifies mycall and rpt2, so the stream is dropped | `BlackEye/DPlusHandler.cs:211-217` | 10 | Not started |
+| F19 | C | `WriteLogin("")` is built and discarded, mycall is empty, and `state` starts at `Idle` so the `Disconnected`-guarded connect/login path is unreachable; nothing calls `WriteConnect` | `BlackEye/DPlusHandler.cs:40,280-286` | 10 | **Fixed** |
+| F20 | H | Radio's Rpt1/Rpt2 (`DIRECT`/`DIRECT`) forwarded verbatim; the reflector verifies mycall and rpt2, so the stream is dropped | `BlackEye/DPlusHandler.cs:211-217` | 10 | **Fixed** |
 | F21 | M | Header CRC hard-coded `00 0b` (a constant copied from one capture, not a CRC of its own contents); `IcomTerminalHeader` exposes no CRC accessor | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:78` | 5 | **Fixed** |
 | F22 | H | `ReceivedCallback` is uncaught and `BeginReceive` is only re-armed after it, so one malformed datagram permanently kills all network reception | `BlackEye.Connectivity/UdpConnection.cs:47-59` | 11 | Not started |
 | F23 | M | A resync onto a `0x00` length byte makes `buffer[0]` throw and silently kills the background serial reader task | `BlackEye.Connectivity/IcomTerminal/IcomTerminalReader.cs:35-42` | 11 | Not started |
@@ -1610,7 +1610,7 @@ git commit -m "fix(bridge): stamp radio-bound frame ids at send time and finish 
 - Consumes: `DPlusNetworkWriter.WriteConnect()`, `.WriteLogin(string)` from Task 2.
 - Produces: `GatewayConfig(string MyCall, string Suffix, string ReflectorCall, char ReflectorModule, char RadioModule)` with computed `Rpt1` and `Rpt2`; `DPlusHandler(DPlusNetworkWriter, IcomTerminalWriter, IConnection, IConnection, GatewayConfig)` — the config is a new required constructor parameter; `DPlusHandler.Connect()`.
 
-- [ ] **Step 1: Write the failing tests**
+- [x] **Step 1: Write the failing tests**
 
 Add to `DPlusHandlerTests` (and update the existing tests' constructor calls to pass `GatewayConfig.Default`):
 
@@ -1661,12 +1661,12 @@ Add to `DPlusHandlerTests` (and update the existing tests' constructor calls to 
 
 Add `using System.Text;` and `using BlackEye.Connectivity;` to the test file.
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `dotnet test --filter DPlusHandlerTests`
 Expected: FAIL to compile — `GatewayConfig` and `DPlusHandler.Connect` do not exist.
 
-- [ ] **Step 3: Add the config type**
+- [x] **Step 3: Add the config type**
 
 Create `BlackEye.Connectivity/GatewayConfig.cs`:
 
@@ -1705,7 +1705,7 @@ namespace BlackEye.Connectivity
 }
 ```
 
-- [ ] **Step 4: Thread the config through `DPlusHandler` and add `Connect`**
+- [x] **Step 4: Thread the config through `DPlusHandler` and add `Connect`**
 
 Add the field and constructor parameter:
 
@@ -1741,7 +1741,7 @@ Change the initial state so the connect handshake is reachable:
         private LockedState state = new LockedState(TransceiverState_Disconnected);
 ```
 
-- [ ] **Step 5: Actually send the login**
+- [x] **Step 5: Actually send the login**
 
 ```csharp
             public void OnConnectAck()
@@ -1755,7 +1755,7 @@ Change the initial state so the connect handshake is reachable:
             }
 ```
 
-- [ ] **Step 6: Substitute the routing callsigns on the outbound header**
+- [x] **Step 6: Substitute the routing callsigns on the outbound header**
 
 In `TerminalToDPlus.OnHeader`, keep the radio's urcall (so the operator can still route to a specific station) but replace the repeater fields and mycall identity:
 
@@ -1769,16 +1769,16 @@ In `TerminalToDPlus.OnHeader`, keep the radio's urcall (so the operator can stil
                         sessionId);
 ```
 
-- [ ] **Step 7: Update `TerminalToDPlus.OnPong`/`OnFrameAck` guards if the initial state broke them**
+- [x] **Step 7: Update `TerminalToDPlus.OnPong`/`OnFrameAck` guards if the initial state broke them**
 
 `TransceiverState_Idle` is now only reached after a successful login, which is correct per the doc's high-level sequence. Confirm the tests from Tasks 8 and 9 still drive the handler through `Connect()` → `OnConnectAck()` → `OnLoginAck()` before sending frames; update them if they assumed the old Idle-at-construction behaviour.
 
-- [ ] **Step 8: Run the whole suite**
+- [x] **Step 8: Run the whole suite**
 
 Run: `dotnet test`
 Expected: PASS
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 ```bash
 git add BlackEye.Connectivity/GatewayConfig.cs BlackEye/DPlusHandler.cs BlackEye.Tests/DPlusHandlerTests.cs
@@ -2015,7 +2015,7 @@ These are unresolved by the docs and the captures together. None blocks the plan
 2. **Is the sync frame really sent at number 0?** `significant_bytes.txt` says the first packet after a header is the empty-voice/data-sync frame, and the radio does send `55 2D 16` at number 0 in its own direction. But in the computer→radio direction neither reference app ever sends `55 2D 16` — both send `16 29 F5` at number 0. Task 9 keeps the `number == 0 → sync` rule because it matches the D-STAR 21-frame superframe structure; the conflicting evidence is recorded here.
 3. **Slow-data sync alignment when relaying.** Radio-bound frames get our own number, but their 3 slow-data bytes come from the network stream with that stream's own sync phase baked in. If the two phases disagree the radio may see a sync pattern at the wrong frame index. Not addressed by this plan; needs a hardware observation to even confirm it matters.
 4. **DPlus header CRC byte order.** Task 5 writes low byte first, matching the radio's own header, and the algorithm itself is now confirmed: CRC-X25 over the 39 byte RF header reproduces the ID52's `58 14` exactly. The byte order on the DPlus side remains unverifiable from the captures, because the reference client emits a constant `00 0b` rather than a real CRC (the true CRC of that header is `e3 94`), and xlxd stores and echoes the field without ever checking it.
-5. **Should the operator's urcall pass through?** Task 10 forwards `headerPacket.UrCall` unchanged so that routed calls still work, while replacing rpt1/rpt2/mycall. If the reflector rejects non-`CQCQCQ` urcalls, force `config.UrCall` instead.
+5. **DECIDED in Task 10: yes, urcall passes through.** Task 10 forwards `headerPacket.UrCall` unchanged so that routed calls still work, while replacing rpt1/rpt2/mycall. If the reflector rejects non-`CQCQCQ` urcalls, force `config.UrCall` instead.
 6. **`DPlusHandler` is still not reachable from `Main`.** `Program.cs` wires `IcomTerminalEcho`. Switching the entry point is deliberately out of scope — it needs the connect/login path from Task 10 to be exercised against a live reflector first.
 
 ---
