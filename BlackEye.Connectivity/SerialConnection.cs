@@ -86,6 +86,9 @@
                     {
                         cancellationTokenSource.Cancel();
                         this.ReceivedCallback.Invoke(new byte[] { 0xFF, 0xFF, 0xFF, 0xFF });
+
+                        // Do not also hand over the buffer we failed to fill.
+                        return;
                     }
 
                     this.ReceivedCallback.Invoke(buffer);

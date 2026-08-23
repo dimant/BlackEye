@@ -66,6 +66,11 @@
 
         private void EchoHeader()
         {
+            if (transceiverQueue.Count == 0)
+            {
+                return;
+            }
+
             var packet = transceiverQueue.Peek();
             if (packet is IcomTerminalHeader)
             {
@@ -76,6 +81,11 @@
 
         private void EchoFrame()
         {
+            if (transceiverQueue.Count == 0)
+            {
+                return;
+            }
+
             var packet = transceiverQueue.Peek();
             if (packet is IcomTerminalFrame)
             {
@@ -125,7 +135,7 @@
 
             if(state == StateType.TransmittingFrames)
             {
-                if (frameAckPacket.Ack)
+                if (frameAckPacket.Ack && transceiverQueue.Count > 0)
                 {
                     transceiverQueue.Dequeue();
                     Thread.Sleep(12);
@@ -159,7 +169,10 @@
 
             if (state == StateType.TransmittingHeader)
             {
-                transceiverQueue.Dequeue();
+                if (transceiverQueue.Count > 0)
+                {
+                    transceiverQueue.Dequeue();
+                }
             }
             else
             {

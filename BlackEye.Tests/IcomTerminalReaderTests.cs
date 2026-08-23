@@ -187,6 +187,30 @@ namespace BlackEye.Tests
         }
 
         [Fact]
+        public void AZeroLengthByteIsSkippedInsteadOfKillingTheReader()
+        {
+            var listener = new RecordingTerminalListener();
+            var reader = new IcomTerminalReader(listener);
+            var block = new BufferBlock<byte>();
+
+            // Terminator, a bogus zero length byte, then a whole well formed pong.
+            // The stream must contain complete packets: Receive parks on
+            // block.Receive() forever if a packet is short.
+            foreach (var b in new byte[] { 0xff, 0x00, 0xff, 0x03, 0x03, 0x00, 0xff })
+            {
+                block.Post(b);
+            }
+
+            // One call: the stray byte is consumed during the resync that finds
+            // the pong, so this must not be driven twice or it would park on an
+            // empty block.
+            reader.Receive(block);
+
+            Assert.Single(listener.Pongs);
+            Assert.Equal(1, listener.Ignores);
+        }
+
+        [Fact]
         public void BytesArrivingInArbitraryChunksAreReassembled()
         {
             // The serial port hands over whatever happened to be buffered, which

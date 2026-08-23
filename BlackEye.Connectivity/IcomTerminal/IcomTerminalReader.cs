@@ -27,9 +27,23 @@
         {
             byte len = 0;
 
-            while (!(lastByte == 0xff && currentByte != 0xff))
+            while (len == 0)
             {
-                len = ReceiveContext(block);
+                // A packet begins at the first non-terminator byte after a 0xff.
+                while (!(lastByte == 0xff && currentByte != 0xff))
+                {
+                    len = ReceiveContext(block);
+                }
+
+                if (len == 0)
+                {
+                    // Resync landed on a stray 0x00. Indexing an empty buffer would
+                    // throw on the background reader thread and end reception
+                    // silently, so consume the byte and hunt for the next packet.
+                    this.controllerListener.OnIgnore();
+
+                    ReceiveContext(block);
+                }
             }
 
             var buffer = new byte[len];

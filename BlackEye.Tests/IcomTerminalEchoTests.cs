@@ -118,6 +118,44 @@ namespace BlackEye.Tests
         }
 
         [Fact]
+        public void OutOfStateCallbacksDoNotThrow()
+        {
+            var serial = new FakeConnection();
+            var echo = new IcomTerminalEcho(new IcomTerminalWriter(), serial);
+
+            // Nothing has been recorded, so the queue is empty. The radio sends
+            // 03 21 00 ff and 03 03 01 ff together, and after a completed playback
+            // the echo is back in Receiving with an empty queue, so a late or
+            // duplicated header ack lands here in normal operation. It used to
+            // throw on the background reader thread and kill the serial reader.
+            echo.OnHeaderAck(HeaderAck());
+            echo.OnFrameAck(FrameAck());
+            echo.OnPong(GoAhead());
+
+            Assert.Empty(serial.Sent);
+        }
+
+        [Fact]
+        public void AStrayHeaderAckAfterAFinishedPlaybackIsHarmless()
+        {
+            var serial = new FakeConnection();
+            var echo = new IcomTerminalEcho(new IcomTerminalWriter(), serial);
+
+            echo.OnHeader(Header());
+            echo.OnFrame(Frame(CaptureBytes.IcomFrameFromRadioWire));
+            echo.OnFrame(Frame(CaptureBytes.IcomEotFrameFromRadioWire));
+            echo.OnHeaderAck(HeaderAck());
+            echo.OnPong(GoAhead());
+            echo.OnFrameAck(FrameAck());
+            serial.Clear();
+
+            // Playback is done and the queue is drained.
+            echo.OnHeaderAck(HeaderAck());
+
+            Assert.Empty(serial.Sent);
+        }
+
+        [Fact]
         public void AFrameAckArrivingBeforePlaybackStartsIsIgnored()
         {
             var serial = new FakeConnection();

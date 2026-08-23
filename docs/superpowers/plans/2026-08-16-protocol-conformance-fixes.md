@@ -8,7 +8,7 @@
 
 **Tech Stack:** .NET 10 (`net10.0`), C# 14, nullable enabled, implicit usings, TPL Dataflow, `System.IO.Ports` 10.0.11, xUnit 2.9.3 + coverlet.
 
-**Status:** Tasks 0-10 are complete (bar Task 7's hardware check, which needs a Windows host and the radio). The solution is on `net10.0` and `BlackEye.Tests` holds 176 passing tests. Task 11 is not started.
+**Status:** ALL TASKS COMPLETE. All 26 findings are fixed, on `net10.0`, with 184 passing tests. Two things remain unverified and cannot be done from a dev machine: Task 7's hardware check against a real ID52, and any live reflector run - `Program.cs` still wires the echo and nothing constructs a `DPlusHandler`.
 
 **Spec:**
 - `../dstardocs/DPlusProtocol.md` — DPlus (REF/XRF) field-by-field
@@ -58,11 +58,11 @@ Severity: **C**ritical (wrong bytes on the wire or a dead code path in the prima
 | F19 | C | `WriteLogin("")` is built and discarded, mycall is empty, and `state` starts at `Idle` so the `Disconnected`-guarded connect/login path is unreachable; nothing calls `WriteConnect` | `BlackEye/DPlusHandler.cs:40,280-286` | 10 | **Fixed** |
 | F20 | H | Radio's Rpt1/Rpt2 (`DIRECT`/`DIRECT`) forwarded verbatim; the reflector verifies mycall and rpt2, so the stream is dropped | `BlackEye/DPlusHandler.cs:211-217` | 10 | **Fixed** |
 | F21 | M | Header CRC hard-coded `00 0b` (a constant copied from one capture, not a CRC of its own contents); `IcomTerminalHeader` exposes no CRC accessor | `BlackEye.Connectivity/DPlus/DPlusNetworkWriter.cs:78` | 5 | **Fixed** |
-| F22 | H | `ReceivedCallback` is uncaught and `BeginReceive` is only re-armed after it, so one malformed datagram permanently kills all network reception | `BlackEye.Connectivity/UdpConnection.cs:47-59` | 11 | Not started |
-| F23 | M | A resync onto a `0x00` length byte makes `buffer[0]` throw and silently kills the background serial reader task | `BlackEye.Connectivity/IcomTerminal/IcomTerminalReader.cs:35-42` | 11 | Not started |
-| F24 | L | On a read exception the callback fires twice — once with the `0xFF` filler, once with the partial buffer | `BlackEye.Connectivity/SerialConnection.cs:85-91` | 11 | Not started |
-| F25 | L | Client UDP port pinned to 20002; doc says any port (capture used 59095) and binding fails if taken | `BlackEye.Connectivity/UdpConnection.cs:14` | 11 | Not started |
-| F26 | H | A header ack arriving outside playback calls `EchoHeader` on an empty queue → `InvalidOperationException: Queue empty`, which propagates out of the reader loop and kills the serial reader. Reachable after any completed playback, since state returns to `Receiving` with the queue empty. Confirmed by probe on 2026-08-17 | `BlackEye/IcomSerialEcho.cs:65-73,139-152` | 11 | Not started |
+| F22 | H | `ReceivedCallback` is uncaught and `BeginReceive` is only re-armed after it, so one malformed datagram permanently kills all network reception | `BlackEye.Connectivity/UdpConnection.cs:47-59` | 11 | **Fixed** |
+| F23 | M | A resync onto a `0x00` length byte makes `buffer[0]` throw and silently kills the background serial reader task | `BlackEye.Connectivity/IcomTerminal/IcomTerminalReader.cs:35-42` | 11 | **Fixed** |
+| F24 | L | On a read exception the callback fires twice — once with the `0xFF` filler, once with the partial buffer | `BlackEye.Connectivity/SerialConnection.cs:85-91` | 11 | **Fixed** |
+| F25 | L | Client UDP port pinned to 20002; doc says any port (capture used 59095) and binding fails if taken | `BlackEye.Connectivity/UdpConnection.cs:14` | 11 | **Fixed** |
+| F26 | H | A header ack arriving outside playback calls `EchoHeader` on an empty queue → `InvalidOperationException: Queue empty`, which propagates out of the reader loop and kills the serial reader. Reachable after any completed playback, since state returns to `Receiving` with the queue empty. Confirmed by probe on 2026-08-17 | `BlackEye/IcomSerialEcho.cs:65-73,139-152` | 11 | **Fixed** |
 
 **Confirmed correct, do not touch:** serial port settings, all Icom header/frame/ack offsets, the DPlus header and frame layouts, ports 20001/20002, ping/pong shapes, the EOT-ack layout, the 12 ms inter-frame pacing, and the `0xC0` frame-type mask (bit `0x20` is unset in every captured frame, so the `0xC0`/`0xE0` disagreement between `IcomTerminalMode.md` and `significant_bytes.txt` is inert).
 
@@ -1801,7 +1801,7 @@ git commit -m "feat(bridge): send connect/login and route via the configured ref
 - Consumes: nothing new.
 - Produces: `UdpConnection(string hostname, int clientPort = 0)` — 0 means "let the OS pick", matching the capture's ephemeral 59095.
 
-- [ ] **Step 1: Write the failing test for the reader**
+- [x] **Step 1: Write the failing test for the reader**
 
 Add to `IcomTerminalReaderTests`:
 
@@ -1829,12 +1829,12 @@ Add to `IcomTerminalReaderTests`:
         }
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `dotnet test --filter ReaderSurvivesAZeroLengthByte`
 Expected: FAIL with `IndexOutOfRangeException` from `buffer[0]`.
 
-- [ ] **Step 3: Guard the reader**
+- [x] **Step 3: Guard the reader**
 
 In `IcomTerminalReader.Receive`, after filling the buffer:
 
@@ -1850,7 +1850,7 @@ In `IcomTerminalReader.Receive`, after filling the buffer:
 
 Place the check immediately after the resync loop, before allocating `buffer`.
 
-- [ ] **Step 4: Keep the UDP receive loop alive**
+- [x] **Step 4: Keep the UDP receive loop alive**
 
 Rewrite `UdpConnection.DataReceived` so the callback can never stop the loop, and re-arm in a `finally`:
 
@@ -1889,7 +1889,7 @@ Rewrite `UdpConnection.DataReceived` so the callback can never stop the loop, an
         }
 ```
 
-- [ ] **Step 5: Let the OS pick the client port**
+- [x] **Step 5: Let the OS pick the client port**
 
 ```csharp
         private int clientPort;
@@ -1903,7 +1903,7 @@ Rewrite `UdpConnection.DataReceived` so the callback can never stop the loop, an
 
 `new UdpClient(0)` binds an ephemeral port, which is what the capture shows (59095).
 
-- [ ] **Step 6: Stop the double callback on a serial read error**
+- [x] **Step 6: Stop the double callback on a serial read error**
 
 In `SerialConnection.OnDataReceived`, return after the error path instead of falling through:
 
@@ -1922,7 +1922,7 @@ In `SerialConnection.OnDataReceived`, return after the error path instead of fal
                     this.ReceivedCallback.Invoke(buffer);
 ```
 
-- [ ] **Step 6b: Stop a stray header ack from killing the serial reader (F26)**
+- [x] **Step 6b: Stop a stray header ack from killing the serial reader (F26)**
 
 Write the failing test first. Add to `IcomTerminalEchoTests`:
 
@@ -1991,12 +1991,12 @@ and guard the dequeue in `OnFrameAck` the same way:
 Run: `dotnet test --filter IcomTerminalEchoTests`
 Expected: PASS, including the three playback tests from Task 0.
 
-- [ ] **Step 7: Run the whole suite and build**
+- [x] **Step 7: Run the whole suite and build**
 
 Run: `dotnet build && dotnet test`
 Expected: PASS
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add BlackEye.Connectivity/UdpConnection.cs BlackEye.Connectivity/SerialConnection.cs \
